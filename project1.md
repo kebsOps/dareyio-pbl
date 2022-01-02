@@ -1,6 +1,6 @@
+![ubuntu 20 04 ssh login aws](https://user-images.githubusercontent.com/10085348/147888387-6a96559f-5985-48d0-823f-bc447ff8a84c.png)
 ![apache2 status](https://user-images.githubusercontent.com/10085348/147888378-c7ada084-7667-4373-9699-3bc6ef3929c4.png)
 ![Apache HTTP Server access from web browser](https://user-images.githubusercontent.com/10085348/147888379-02851004-2e76-4858-9c7d-75f0c766c516.png)
-![ubuntu 20 04 ssh login aws](https://user-images.githubusercontent.com/10085348/147888387-6a96559f-5985-48d0-823f-bc447ff8a84c.png)
 ![mysql](https://user-images.githubusercontent.com/10085348/147888381-eadd37b9-4302-4784-8cde-e8c7ab38d309.png)
 ![php](https://user-images.githubusercontent.com/10085348/147888382-08fae893-af04-449b-aa94-032054b3cd41.png)
 ![php version](https://user-images.githubusercontent.com/10085348/147888386-344763bb-e574-4dbf-b16d-a09902662630.png)
