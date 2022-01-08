@@ -1,4 +1,5 @@
 Ubuntu 20.04 SSH login on AWS
+
 ![ubuntu 20 04 ssh login aws](https://user-images.githubusercontent.com/10085348/147888387-6a96559f-5985-48d0-823f-bc447ff8a84c.png)
 
 Apache2 Status
@@ -6,6 +7,7 @@ Apache2 Status
 ![apache2 status](https://user-images.githubusercontent.com/10085348/147888378-c7ada084-7667-4373-9699-3bc6ef3929c4.png)
 
 Apache HTTP Server Access from web browser
+
 ![Apache HTTP Server access from web browser](https://user-images.githubusercontent.com/10085348/147888379-02851004-2e76-4858-9c7d-75f0c766c516.png)
 
  Mysql
