@@ -35,7 +35,7 @@ Express Installation && index.js file creation
 
 ![Express installation and create an index_js file](https://user-images.githubusercontent.com/10085348/152649128-f5c17282-615a-4e88-8bbe-b129034d9894.png)
 
-dotenv module installation
+Dotenv module installation
 
 ![dotenv module installation](https://user-images.githubusercontent.com/10085348/152649161-8b0926ec-f9eb-46fd-800b-ce3aff5cb57c.png)
 
