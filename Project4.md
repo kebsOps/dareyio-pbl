@@ -1,6 +1,6 @@
 **MEAN STACK DEPLOYMENT TO UBUNTU IN AWS**
 
-Run The following Commands to update and upgrade Ubunutu:
+Run The following Commands to update and upgrade Ubuntu:
 
 sudo apt update
 sudo apt upgrade
@@ -48,15 +48,15 @@ Create a route.js file and paste the code into the file in the /Books/apps folde
 
 ![Create a route_js file and paste the code into the file](https://user-images.githubusercontent.com/10085348/156920902-5da80974-bd85-41c3-b600-24778bc3d1cb.png)
 
-In the ‘apps’ folder, create a folder named models, Create a file named book.js
+In the ‘apps’ folder, create a folder named 'models', Create a file named book.js
 
 ![In the ‘apps’ folder, create a folder named models_Create a file named book js](https://user-images.githubusercontent.com/10085348/156920947-1c428903-8d5b-4221-ae13-0a6cf3739c48.png)
 
-Navigate to Books Directory create public folder and script.js file
+Navigate to 'Books' Directory create 'public' folder and script.js file
 
 ![Navigate to Books Directory create public folder and script_js file](https://user-images.githubusercontent.com/10085348/156921040-8d4345f2-dfd3-46e6-a2b1-7e74e77ee379.png)
 
-Navigate to Books directory and start node server
+Navigate to 'Books' directory and start node server
 
 ![Start node server](https://user-images.githubusercontent.com/10085348/156921155-25e53213-ee0c-4483-83f3-50d31aac306d.png)
 
