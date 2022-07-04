@@ -41,6 +41,8 @@ Configure load balancing
 
 <img width="663" alt="Configure Load Balancer" src="https://user-images.githubusercontent.com/10085348/177053847-849afdac-fb57-4bdd-bbfa-01d8aa0e3551.png">
 
+Restart apache2 service and verify it's running
+
 
 <img width="736" alt="Restart apache2 service and verify apache2 is running" src="https://user-images.githubusercontent.com/10085348/177053911-e6054240-f298-4175-a66b-efd287dd5edf.png">
 
