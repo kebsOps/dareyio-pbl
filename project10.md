@@ -26,7 +26,7 @@ Open the default nginx configuration file
 ```
 sudo vi /etc/nginx/nginx.conf
 ```
-insert following configuration into http section
+Insert following configuration into http section
 
 <img width="464" alt="image" src="https://user-images.githubusercontent.com/10085348/181606909-694bc925-7d0b-4d05-b263-0127a467f282.png">
 
@@ -39,5 +39,52 @@ sudo systemctl status nginx
 <img width="880" alt="image" src="https://user-images.githubusercontent.com/10085348/181607836-672aec9a-c4d7-468e-9cc3-7ec54b7c6536.png">
 
 ### REGISTER A NEW DOMAIN NAME AND CONFIGURE SECURED CONNECTION USING SSL/TLS CERTIFICATES
+
+Purchased a domain (toolingkb.xyz) from godaddy.com at $2.33
+
+We goto Route 53 to Use the purchased domain
+
+Create an hosted zone using purchased domain
+
+<img width="1087" alt="image" src="https://user-images.githubusercontent.com/10085348/181878204-8decc177-5f64-4ef8-b02b-cebb558ddfeb.png">
+
+Assign an Elastic IP to your Nginx LB server and associate your domain name with this Elastic IP
+
+<img width="1235" alt="image" src="https://user-images.githubusercontent.com/10085348/181878512-8c9cbdb3-5658-464e-a414-5e8401d82abd.png">
+
+<img width="821" alt="image" src="https://user-images.githubusercontent.com/10085348/181878632-8a8d2e90-c2a6-4c1a-a0d1-6b6d905beadd.png">
+
+Update A record in your registrar to point to Nginx LB using Elastic IP address
+
+<img width="1016" alt="image" src="https://user-images.githubusercontent.com/10085348/181879132-efe039a9-f3d4-4de6-888e-5e7c30f0d9fc.png">
+
+<img width="1030" alt="image" src="https://user-images.githubusercontent.com/10085348/181879310-2a7b9e85-2a20-4575-aca2-e4a55e06a7ab.png">
+
+<img width="990" alt="image" src="https://user-images.githubusercontent.com/10085348/181879399-42a1360a-2409-46b4-91bf-6e294aa582fc.png">
+
+Configure Nginx to recognize your new domain name
+Update your nginx.conf with server_name www.<your-domain-name.com> instead of server_name www.domain.com
+i.e from www.domain.com to www.toolingkb.xyz)
+
+<img width="382" alt="update server address" src="https://user-images.githubusercontent.com/10085348/181880001-96ebd809-becf-4a6c-a51f-d0ec08380fa6.png">
+
+Make sure snapd service is active and running
+
+<img width="1030" alt="image" src="https://user-images.githubusercontent.com/10085348/181880195-0c983272-fd7d-4cf6-bbdb-537daf28b142.png">
+
+Install certbot
+
+<img width="459" alt="image" src="https://user-images.githubusercontent.com/10085348/181880251-38204734-a5c8-49cd-a2da-cc48da167616.png">
+
+Request your certificate (just follow the certbot instructions – you will need to choose which domain you want your certificate to be issued for, domain name will be looked up from nginx.conf file so make sure you have updated it 
+
+```
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo certbot --nginx
+```
+
+
+
+
 
 
