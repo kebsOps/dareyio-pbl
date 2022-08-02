@@ -42,9 +42,9 @@ sudo systemctl status nginx
 
 Purchased a domain (toolingkb.xyz) from godaddy.com at $2.33
 
-We goto Route 53 to Use the purchased domain
+Navigate to Route 53 to use the purchased domain
 
-Create an hosted zone using purchased domain
+Create an hosted zone using the purchased domain
 
 <img width="1087" alt="image" src="https://user-images.githubusercontent.com/10085348/181878204-8decc177-5f64-4ef8-b02b-cebb558ddfeb.png">
 
@@ -103,7 +103,7 @@ To do so, lets edit the crontab file with the following command:
 crontab -e
 ```
 
-Add following line:
+Add the following line:
 
 ```
 * */12 * * *   root /usr/bin/certbot renew > /dev/null 2>&1
