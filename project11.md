@@ -29,3 +29,19 @@ sudo apt install ansible
 Check your Ansible version by running ``ansible --version``
 
 <img width="878" alt="image" src="https://user-images.githubusercontent.com/10085348/183091022-c16c7f59-64ae-4643-b66c-bef7bc20a5f8.png">
+
+Create a new Freestyle project ansible in Jenkins and point it to your ‘ansible-config-mgt’ repository.
+
+<img width="1131" alt="image" src="https://user-images.githubusercontent.com/10085348/183130320-0b4da62f-ad44-4167-8e93-07c7d779a8d0.png">
+
+Configure Webhook in GitHub and set webhook to trigger ansible build
+
+<img width="785" alt="image" src="https://user-images.githubusercontent.com/10085348/183130567-e3d1438b-35f8-4b98-86c2-8e300bd005b7.png">
+
+
+Configure a Post-build job to save all ``(**)`` files, like you did it in Project 9
+
+<img width="1110" alt="image" src="https://user-images.githubusercontent.com/10085348/183130673-ae9ed0c1-f704-4dff-9dca-5424e0662ea3.png">
+
+
+
