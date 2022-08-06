@@ -62,7 +62,7 @@ Every time you stop/start your Jenkins-Ansible server – you have to reconfigur
 
 Update Github webhook payload URL
 
-<img width="691" alt="image" src="https://user-images.githubusercontent.com/10085348/183218403-4f0a39fd-5739-40d9-bfc0-3e5522885299.png">
+<img width="674" alt="image" src="https://user-images.githubusercontent.com/10085348/183240299-a8f6ae7e-56d1-4113-90fc-f54ad877b903.png">
 
 Clone down your ``ansible-config-mgt`` repo to your Jenkins-Ansible instance
 
@@ -107,5 +107,122 @@ Within the inventory folder, create an inventory file (.yml) for each environmen
 <img width="524" alt="Screenshot 2022-08-05 at 23 41 34" src="https://user-images.githubusercontent.com/10085348/183220577-63e1d646-c51d-48bc-9640-c2c5a077b69d.png">
 
 
+setup SSH agent and connect VS Code to your Jenkins-Ansible instance
+
+<img width="679" alt="image" src="https://user-images.githubusercontent.com/10085348/183237600-42045e17-06b9-4fd4-b235-b05c584c5264.png">
+
+Test connection to your Jenkins-Ansible instance
+
+<img width="639" alt="image" src="https://user-images.githubusercontent.com/10085348/183237768-ec174f29-23dc-4b41-8a65-8dcc137f67c3.png">
+
+<img width="1025" alt="image" src="https://user-images.githubusercontent.com/10085348/183237678-4802e524-ccf9-4c4d-98d0-f0ba9d61c383.png">
+
+Connection is successful as shown above
+
+```
+eval `ssh-agent -s`
+ssh-add <path-to-private-key>
+```
+
+Confirm the key has been added with the command below, you should see the name of your key
+```
+ssh-add -l
+```
+<img width="707" alt="image" src="https://user-images.githubusercontent.com/10085348/183238191-07f92eb9-9ff5-4a2f-ac09-3262c23ec518.png">
 
 
+Now, ssh into your Jenkins-Ansible server using ssh-agent
+
+```
+ssh -A ubuntu@public-ip
+```
+<img width="618" alt="image" src="https://user-images.githubusercontent.com/10085348/183238267-b479ed78-8f8e-4bc1-82bd-77e366e081ef.png">
+
+
+Also notice, that your Load Balancer user and DB user is ``ubuntu`` and user for RHEL-based servers is ``ec2-user``
+
+Update your `inventory/dev.yml` file with private IP addresses of ``NFS Server, Web Server 1 & 2, Database Server, Ngnix Load Balancer``
+
+<img width="723" alt="image" src="https://user-images.githubusercontent.com/10085348/183241555-34ac43cf-0410-454d-afc5-c170c38dd3c7.png">
+
+
+### Create a Common Playbook
+
+Update your `playbooks/common.yml` file with following code
+
+<img width="620" alt="image" src="https://user-images.githubusercontent.com/10085348/183238949-0119c91e-ea7e-4010-b59a-94f8e65b22a7.png">
+
+The playbook above is divided into two parts, each of them is intended to perform the same task: 
+
+Install wireshark utility (or make sure it is updated to the latest version) on your RHEL 8 and Ubuntu servers. 
+
+It uses root user to perform this task and respective package manager: `yum` for RHEL 8 and `apt` for Ubuntu.
+
+
+### Update GIT with the latest code
+
+
+<img width="752" alt="image" src="https://user-images.githubusercontent.com/10085348/183239310-f7955fe4-050d-495f-ac2c-743b91bbd815.png">
+
+<img width="588" alt="image" src="https://user-images.githubusercontent.com/10085348/183239499-5aaa3e4e-11fc-47bd-a60f-6d71889f2cf1.png">
+
+### Create a Pull request (PR)
+
+<img width="1010" alt="image" src="https://user-images.githubusercontent.com/10085348/183239756-60341d98-17be-4cd4-860b-eea2ec3d293c.png">
+
+If the reviewer is happy with your new feature development, merge the code to the master branch
+
+<img width="722" alt="image" src="https://user-images.githubusercontent.com/10085348/183239822-9daa5525-4bb9-4485-a3b3-43afb3c073a3.png">
+
+Head back on your terminal, checkout from the feature branch into the master, and pull down the latest changes
+
+<img width="519" alt="image" src="https://user-images.githubusercontent.com/10085348/183240075-9b8e429f-4984-4275-a21b-f93d0b2e76ec.png">
+
+Once your code changes appear in 'master branch' – Jenkins will do its job and save all the files (build artifacts) to '/var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/' directory on Jenkins-Ansible server
+
+<img width="711" alt="image" src="https://user-images.githubusercontent.com/10085348/183240550-4ffeb532-f25d-4293-8ba4-c44737231ab3.png">
+
+Jenkins build successful
+
+<img width="1451" alt="image" src="https://user-images.githubusercontent.com/10085348/183240519-a816d07b-ada3-4a9a-9241-0b7dc5c5011c.png">
+
+### Run first Ansible test
+
+Now, it is time to execute `ansible-playbook` command and verify if your playbook actually works:
+
+```
+cd ansible-config-mgt
+ansible-playbook -i inventory/dev.yml playbooks/common.yml
+```
+
+<img width="891" alt="image" src="https://user-images.githubusercontent.com/10085348/183241156-323d4238-7f75-4267-8926-01e7068a644d.png">
+
+
+You can go to each of the servers and check if wireshark has been installed by running ``which wireshark`` or ``wireshark --version``
+
+DB Server
+
+<img width="772" alt="image" src="https://user-images.githubusercontent.com/10085348/183241639-34b54282-3013-4de7-8fcd-8435717b9bf5.png">
+
+
+NFS Server
+
+<img width="742" alt="image" src="https://user-images.githubusercontent.com/10085348/183241709-bbbc8317-f721-478b-8776-df5f2ba06fdd.png">
+
+
+Load Balancer
+
+<img width="797" alt="image" src="https://user-images.githubusercontent.com/10085348/183241767-35e28976-8c1c-4ada-ba11-b4bd667e1f32.png">
+
+
+Web Server 1
+
+<img width="725" alt="image" src="https://user-images.githubusercontent.com/10085348/183241823-4e05f248-f7f8-44d6-93c9-69c97b91599f.png">
+
+
+Web Server 2
+
+<img width="717" alt="image" src="https://user-images.githubusercontent.com/10085348/183241871-26795ad4-429b-4b29-9ed8-03d63dc02129.png">
+
+
+<img width="735" alt="image" src="https://user-images.githubusercontent.com/10085348/183241908-7b437908-c2a3-4282-adc9-08357e34eb6b.png">
