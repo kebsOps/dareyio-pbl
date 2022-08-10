@@ -161,12 +161,6 @@ Remove `tests, files, and vars` since we `ansible-galaxy` utility
 <img width="645" alt="image" src="https://user-images.githubusercontent.com/10085348/183856036-90b58983-5c6c-4a91-95ef-3394b60c00bb.png">
 
 
-setup SSH agent and connect VS Code to your Jenkins-Ansible instance
-
-<img width="689" alt="image" src="https://user-images.githubusercontent.com/10085348/183873618-fd4ac406-ce0f-4143-b382-cd9da7263fbd.png">
-
-
-
 Update your inventory `ansible-config-mgt/inventory/uat.yml` file with IP addresses of your 2 UAT Web servers
 
 <img width="494" alt="image" src="https://user-images.githubusercontent.com/10085348/183858168-facdbde6-f430-4348-a74c-e2f346df2bcc.png">
@@ -218,11 +212,15 @@ Commit your changes, create a Pull Request and merge them to `master` branch, ma
 
 <img width="624" alt="image" src="https://user-images.githubusercontent.com/10085348/183866769-9575f079-4941-493c-905e-1c6f28a1ccb6.png">
 
+
 <img width="746" alt="image" src="https://user-images.githubusercontent.com/10085348/183867715-f70c1650-4f29-4a34-9d29-c698d53698bc.png">
+
 
 <img width="1308" alt="image" src="https://user-images.githubusercontent.com/10085348/183868476-0157224b-6da1-4faf-a8fc-81d30a0156be.png">
 
+
 <img width="1095" alt="image" src="https://user-images.githubusercontent.com/10085348/183868975-6db5cdb5-e20c-424d-85e3-3d366f05a060.png">
+
 
 <img width="1165" alt="image" src="https://user-images.githubusercontent.com/10085348/183869709-2e5d1f02-8218-4842-ad52-a622023b0c3f.png">
 
@@ -236,8 +234,39 @@ Commit your changes, create a Pull Request and merge them to `master` branch, ma
 Now run the playbook against your `uat` inventory and see what happens:
 
 ```
-sudo ansible-playbook -i /home/ubuntu/ansible-config-mgt/inventory/uat.yml /home/ubuntu/ansible-config-mgt/playbooks/site.yaml
+ ansible-playbook -i /home/ubuntu/ansible-config-mgt/inventory/uat.yml /home/ubuntu/ansible-config-mgt/playbooks/site.yml
 ```
+
+<img width="1369" alt="image" src="https://user-images.githubusercontent.com/10085348/183968923-ffe48c7c-42c7-4d2b-b1d4-98e965bffb9c.png">
+
+
+You should be able to see both of your UAT Web servers configured and you can try to reach them from your browser:
+
+```
+http://<Web1-UAT-Server-Public-IP-or-Public-DNS-Name>/index.php
+```
+
+or
+
+```
+http://<Web2-UAT-Server-Public-IP-or-Public-DNS-Name>/index.php
+```
+
+You should be able to see both of your UAT Web servers configured and you can try to reach them from your browser:
+
+UAT-Web1 Server
+
+<img width="1474" alt="image" src="https://user-images.githubusercontent.com/10085348/183973268-352faad0-b190-4628-8c25-eaeeb6adfc15.png">
+
+
+UAT-Web2 Server
+
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/10085348/183973378-7d453bb8-7ed1-45e3-ad2d-4df537e10fb0.png">
+
+
+Your Ansible architecture now looks like this:
+
+<img width="756" alt="image" src="https://user-images.githubusercontent.com/10085348/183973778-843b66fa-348c-4efb-8521-79934f140f4d.png">
 
 
 
