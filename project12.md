@@ -144,5 +144,100 @@ Now you have learned how to use `import_playbooks module` and you have a ready s
 We have our nice and clean dev environment, so let us put it aside and configure 2 new Web Servers as uat. We could write tasks to configure Web Servers in the same playbook, but it would be too messy, instead, we will use a dedicated role to make our configuration reusable.
 
 
+Launch 2 fresh EC2 instances using RHEL 8 image, we will use them as our uat servers, so give them names accordingly – Web1-UAT and Web2-UAT
+
+<img width="1222" alt="image" src="https://user-images.githubusercontent.com/10085348/183852437-3210a973-514e-4790-ba62-7dcdfadd5462.png">
+
+Use an Ansible utility called `ansible-galaxy` inside `ansible-config-mgt/roles` directory (you need to create roles directory upfront)
+
+<img width="609" alt="image" src="https://user-images.githubusercontent.com/10085348/183854942-d0b8a71d-8519-4641-b9d7-d112b52408b8.png">
+
+The entire folder structure should look like below:
+
+<img width="575" alt="image" src="https://user-images.githubusercontent.com/10085348/183855945-b1f90c18-e16e-4045-a52e-ccd3403df5d6.png">
+
+Remove `tests, files, and vars` since we `ansible-galaxy` utility
+
+<img width="645" alt="image" src="https://user-images.githubusercontent.com/10085348/183856036-90b58983-5c6c-4a91-95ef-3394b60c00bb.png">
+
+
+setup SSH agent and connect VS Code to your Jenkins-Ansible instance
+
+<img width="689" alt="image" src="https://user-images.githubusercontent.com/10085348/183873618-fd4ac406-ce0f-4143-b382-cd9da7263fbd.png">
+
+
+
+Update your inventory `ansible-config-mgt/inventory/uat.yml` file with IP addresses of your 2 UAT Web servers
+
+<img width="494" alt="image" src="https://user-images.githubusercontent.com/10085348/183858168-facdbde6-f430-4348-a74c-e2f346df2bcc.png">
+
+In `/etc/ansible/ansible.cfg` file uncomment `roles_path` string and provide a full path to your roles directory `roles_path    = /home/ubuntu/ansible-config-mgt/roles`, so Ansible could know where to find configured roles.
+
+
+<img width="469" alt="image" src="https://user-images.githubusercontent.com/10085348/183860493-702cd01b-0ebb-4eb6-9cf7-0b98c90de110.png">
+
+
+Time to start adding some logic to the webserver role. Go into tasks directory, and within the main.yml file, start writing configuration tasks to do the following:
+
+
+Install and configure Apache (httpd service)
+
+
+Clone Tooling website from GitHub `https://github.com/kebsOps/tooling.git`
+
+
+Ensure the tooling website code is deployed to `/var/www/html` on each of 2 UAT Web servers.
+
+  
+Make sure httpd service is started
+
+
+Your `main.yml` may consist of following tasks:
+
+<img width="555" alt="image" src="https://user-images.githubusercontent.com/10085348/183871471-e65b6f90-c8ad-413f-ae1c-8dfcc4917f93.png">
+
+
+### Reference ‘Webserver’ role
+
+Within the static-assignments folder, create a new assignment for uat-webservers `uat-webservers.yml`. This is where you will reference the role.
+
+<img width="705" alt="image" src="https://user-images.githubusercontent.com/10085348/183863403-bb15b766-f120-4c0c-b091-36c42d72bac5.png">
+
+Remember that the entry point to our ansible configuration is the `site.yml` file. Therefore, you need to refer your `uat-webservers.yml` role inside `site.yml`
+
+<img width="451" alt="image" src="https://user-images.githubusercontent.com/10085348/183864980-0d8b1d7a-f936-4fc6-a567-0cdbd83fcb90.png">
+
+
+### Commit & Test
+
+Commit your changes, create a Pull Request and merge them to `master` branch, make sure webhook triggered two consequent Jenkins jobs, they ran successfully and copied all the files to your `Jenkins-Ansible` server into `/home/ubuntu/ansible-config-mgt/` directory.
+
+
+<img width="1036" alt="image" src="https://user-images.githubusercontent.com/10085348/183866443-862ef16e-66b7-4f3a-aa61-0a908cab602e.png">
+
+
+<img width="624" alt="image" src="https://user-images.githubusercontent.com/10085348/183866769-9575f079-4941-493c-905e-1c6f28a1ccb6.png">
+
+<img width="746" alt="image" src="https://user-images.githubusercontent.com/10085348/183867715-f70c1650-4f29-4a34-9d29-c698d53698bc.png">
+
+<img width="1308" alt="image" src="https://user-images.githubusercontent.com/10085348/183868476-0157224b-6da1-4faf-a8fc-81d30a0156be.png">
+
+<img width="1095" alt="image" src="https://user-images.githubusercontent.com/10085348/183868975-6db5cdb5-e20c-424d-85e3-3d366f05a060.png">
+
+<img width="1165" alt="image" src="https://user-images.githubusercontent.com/10085348/183869709-2e5d1f02-8218-4842-ad52-a622023b0c3f.png">
+
+
+<img width="1189" alt="image" src="https://user-images.githubusercontent.com/10085348/183870719-f3e32e50-5ec9-4661-8c8a-e1c501cb23b8.png">
+
+
+<img width="1057" alt="image" src="https://user-images.githubusercontent.com/10085348/183870390-d4602de6-9fd6-40ef-80fb-36fa21538002.png">
+
+
+Now run the playbook against your `uat` inventory and see what happens:
+
+```
+sudo ansible-playbook -i /home/ubuntu/ansible-config-mgt/inventory/uat.yml /home/ubuntu/ansible-config-mgt/playbooks/site.yaml
+```
+
 
 
