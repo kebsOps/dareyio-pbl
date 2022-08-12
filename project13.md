@@ -4,7 +4,7 @@
 
 ### In this project we will introduce Ansible dynamic assignments by using include module
 
-This project builds on the previous project 12
+This project builds on the previous [Project 12](https://github.com/kebsOps/dareyio-pbl/blob/main/project12.md)
 
 Imports is static and Include is dynamic. 
 
@@ -113,5 +113,62 @@ Now, if you are satisfied with your codes, you can create a Pull Request and mer
 <img width="1052" alt="image" src="https://user-images.githubusercontent.com/10085348/184223859-911094ba-7537-4940-8461-6c7073d3cec8.png">
 
 
+### Load Balancer roles
 
+We want to be able to choose which Load Balancer to use, Nginx or Apache, so we need to have two roles respectively:
+
+Nginx
+
+Apache
+
+
+Since you cannot use both Nginx and Apache load balancer, you need to add a condition to enable either one – this is where you can make use of variables.
+
+Use an Ansible utility called ansible-galaxy inside ansible-config-mgt/roles directory (you need to create roles directory upfront)
+
+```
+mkdir roles
+cd roles
+ansible-galaxy init nginx
+ansible-galaxy init apache
+```
+
+
+Declare a variable in `defaults/main.yml` file inside the `nginx` and `apache` roles. Name each variables `enable_nginx_lb` and `enable_apache_lb` respectively.
+
+Set both values to false like this enable_nginx_lb: false and enable_apache_lb: false.
+
+Declare another variable in both roles load_balancer_is_required and set its value to false as well
+
+<img width="621" alt="image" src="https://user-images.githubusercontent.com/10085348/184406174-d6d48bac-5397-4880-946d-8f9c61754e0e.png">
+
+<img width="611" alt="image" src="https://user-images.githubusercontent.com/10085348/184406319-5231f2ee-fcc3-445d-ac2f-e38a2daa4866.png">
+
+Update both `static-assignments directory file (loadbalancers.yml)` and `site.yml` files respectively
+
+With `when condition` It was used to decide the nature of load balancer installed in an environment depending on which variables is set to true
+see the code snippet below:
+
+<img width="651" alt="image" src="https://user-images.githubusercontent.com/10085348/184406573-756132b4-3478-40cd-8355-99757098ddc1.png">
+
+<img width="569" alt="image" src="https://user-images.githubusercontent.com/10085348/184406873-a1286573-0ce0-46a0-9566-e81697de52d2.png">
+
+
+Now you can make use of `env-vars\uat.yml` file to define which loadbalancer to use in UAT environment by setting respective environmental variable to `true`.
+
+You will activate load balancer, and enable nginx by setting these in the respective environment’s `env-vars` file.
+
+
+<img width="525" alt="image" src="https://user-images.githubusercontent.com/10085348/184407754-08e484e7-f969-485d-8620-4b3afbe736c9.png">
+
+The same must work with apache LB, so you can switch it by setting respective environmental variable to true and other to false.
+
+<img width="919" alt="image" src="https://user-images.githubusercontent.com/10085348/184409833-c664fcc4-bb70-47b5-b6e8-62de91591c59.png">
+
+<img width="989" alt="image" src="https://user-images.githubusercontent.com/10085348/184410179-e7019d71-89dc-4a2e-aaa3-922b1bbe06a3.png">
+
+
+
+
+<img width="717" alt="image" src="https://user-images.githubusercontent.com/10085348/184409545-39c83815-615b-4ad8-b24a-e09d5a41391c.png">
 
