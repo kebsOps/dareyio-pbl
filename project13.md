@@ -15,7 +15,7 @@ When the import module is used, all statements are pre-processed at the time pla
 However, you can use dynamic assignments for environment specific variables as we will be introducing in this project
 
 
-In https://github.com/kebsOps/ansible-config-mgt GitHub repository start a new branch and call it `dynamic-assignments`.
+In [https://github.com/kebsOps/ansible-config-mgt](https://github.com/kebsOps/ansible-config-mgt/tree/dynamic-assignments) GitHub repository start a new branch and call it `dynamic-assignments`.
 
 Create a new folder, name it `dynamic-assignments`. Then inside this folder, create a new file and name it `env-vars.yml`.
 We will instruct `site.yml` to include this playbook later. For now, let us keep building up the structure.
