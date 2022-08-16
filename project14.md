@@ -70,7 +70,7 @@ Update `sit` inventory with new servers
 Update `Jenkinsfile` to introduce parameterization. Below is just one parameter. It has a default value in case if no value is specified at execution. It also has a description so that everyone is aware of its purpose.
 
 
-<img width="1053" alt="image" src="https://user-images.githubusercontent.com/10085348/184549417-f7c7507f-fa9a-4a87-b908-a6fb15b68f35.png">
+![image](https://user-images.githubusercontent.com/10085348/184938419-8a3298e2-7088-451c-aaf8-304e3e5814ff.png)
 
 In the Ansible execution section, remove the hardcoded inventory/dev and replace with `${inventory}`
 From now on, each time you hit on execute, it will expect an input
