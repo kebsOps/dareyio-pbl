@@ -86,4 +86,24 @@ We already have `tooling` website as a part of deployment through Ansible. Here 
 
 Our goal here is to deploy the application onto servers directly from `Artifactory` rather than from git.
 
+Install Configure Artifactory (_Spin up an EC2 Instance for this using Ubuntu 20.04_)
 
+```
+sudo apt-get install gnupg2 -y
+
+wget -qO - https://api.bintray.com/orgs/jfrog/keys/gpg/public.key | sudo apt-key add -
+
+sudo echo "deb https://jfrog.bintray.com/artifactory-debs bionic main" | sudo tee /etc/apt/sources.list.d/jfrog.list
+
+sudo apt-get install jfrog-artifactory-oss -y
+```
+
+<img width="1149" alt="image" src="https://user-images.githubusercontent.com/10085348/184970601-99f29054-2291-4f2f-b5e5-8ec2149a4aa0.png">
+
+
+### start the Artifactory service and enable it to start at system reboot with the following command
+
+
+
+ ### Prepare Jenkins
+ 
