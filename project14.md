@@ -86,24 +86,67 @@ We already have `tooling` website as a part of deployment through Ansible. Here 
 
 Our goal here is to deploy the application onto servers directly from `Artifactory` rather than from git.
 
-Install Configure Artifactory (_Spin up an EC2 Instance for this using Ubuntu 20.04_)
+Install Configure Artifactory (_Spin up a new Ubuntu 20.04 EC2 Instance_)
 
 ```
-sudo apt-get install gnupg2 -y
+sudo apt update
+
+sudo apt install gnupg2 -y
 
 wget -qO - https://api.bintray.com/orgs/jfrog/keys/gpg/public.key | sudo apt-key add -
 
 sudo echo "deb https://jfrog.bintray.com/artifactory-debs bionic main" | sudo tee /etc/apt/sources.list.d/jfrog.list
 
-sudo apt-get install jfrog-artifactory-oss -y
+sudo apt update
+
+sudo apt install jfrog-artifactory-oss -y
 ```
 
 <img width="1149" alt="image" src="https://user-images.githubusercontent.com/10085348/184970601-99f29054-2291-4f2f-b5e5-8ec2149a4aa0.png">
 
 
-### start the Artifactory service and enable it to start at system reboot with the following command
+### Start the Artifactory service and enable it to start at system reboot with the following command
+
+<img width="784" alt="image" src="https://user-images.githubusercontent.com/10085348/185395922-d4bd1a70-b8bc-485a-83b7-992e88a34354.png">
+
+Add port 8082 to the ec2 instance security group
+
+<img width="1172" alt="image" src="https://user-images.githubusercontent.com/10085348/185397571-9f6130f0-5149-463c-8e26-0f96e34bff77.png">
+
+
+<img width="942" alt="image" src="https://user-images.githubusercontent.com/10085348/185399046-144834f1-328d-4522-b63b-92135fa386c5.png">
+
+
+<img width="1400" alt="image" src="https://user-images.githubusercontent.com/10085348/185399606-22e3c7f5-e6db-47f1-b8cc-df47a4632e43.png">
 
 
 
- ### Prepare Jenkins
+### Prepare Jenkins
  
+Fork the php-todo repository ``https://github.com/darey-devops/php-todo.git``
+
+Install the following packages:
+
+```
+sudo apt install -y zip libapache2-mod-php phploc php-{xml,bcmath,bz2,intl,gd,mbstring,mysql,zip}
+```
+ 
+### Integrate Artifactory repository with Jenkins
+
+Create a dummy `Jenkinsfile` in the repository
+
+Using Blue Ocean, create a multibranch Jenkins pipeline
+
+On the database server, create database and user
+
+
+```
+Create database homestead;
+CREATE USER 'homestead'@'%' IDENTIFIED BY 'sePret^i';
+GRANT ALL PRIVILEGES ON * . * TO 'homestead'@'%';
+```
+
+
+Update the .env.sample file with your db connectivity details
+
+Update Jenkinsfile with proper configuration
