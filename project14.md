@@ -156,7 +156,7 @@ Update Jenkinsfile with proper configuration
 
 <img width="1430" alt="image" src="https://user-images.githubusercontent.com/10085348/185738316-06fa9610-6cc2-4fd0-8287-eb3dab4bb4cf.png">
 
-Adding more stages
+Plot the data using plot Jenkins plugin and bundle the application code for into an artifact (archived package) upload to Artifactory
 
 ```
 
@@ -203,4 +203,21 @@ Adding more stages
 <img width="1134" alt="image" src="https://user-images.githubusercontent.com/10085348/185738999-46275af7-260d-413a-a99b-749f7d43345a.png">
 
 <img width="1446" alt="image" src="https://user-images.githubusercontent.com/10085348/185739070-81e30f1a-3c7d-462d-97be-fce3e50548d9.png">
+
+Publish the resulted artifact into Artifactory
+
+<img width="539" alt="image" src="https://user-images.githubusercontent.com/10085348/185746752-2355c9fe-5397-4661-9c20-c3a492c38c21.png">
+
+<img width="1433" alt="image" src="https://user-images.githubusercontent.com/10085348/185746954-d80a9f53-132f-4906-89dd-a2e32d8fd18c.png">
+
+
+Deploy the application to the `dev` environment by launching Ansible pipeline
+
+<img width="1069" alt="image" src="https://user-images.githubusercontent.com/10085348/185749374-c29304c9-99f0-4899-ae67-17b7e35f16eb.png">
+
+<img width="1292" alt="image" src="https://user-images.githubusercontent.com/10085348/185749385-7ae6a71c-d5a9-4bbc-a81f-672775740637.png">
+
+
+
+
 
