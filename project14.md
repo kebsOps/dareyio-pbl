@@ -218,6 +218,49 @@ Deploy the application to the `dev` environment by launching Ansible pipeline
 <img width="1292" alt="image" src="https://user-images.githubusercontent.com/10085348/185749385-7ae6a71c-d5a9-4bbc-a81f-672775740637.png">
 
 
+### SONARQUBE INSTALLATION
 
+we need to implement  **Quality Gate** to ensure that ONLY code with the required code coverage, and other quality standards make it through to the environments.
+
+To achieve this, we need to configure **SonarQube** – An open-source platform developed by SonarSource for continuous inspection of code quality to perform automatic reviews with static analysis of code to detect bugs, code smells, and security vulnerabilities.
+
+**Software Quality** – The degree to which a software component, system or process meets specified requirements based on user needs and expectations.
+
+**Software Quality Gates** – Quality gates are basically acceptance criteria which are usually presented as a set of predefined quality criteria that a software development project must meet in order to proceed from one stage of its lifecycle to the next one.
+
+_SonarQube is a tool that can be used to create quality gates for software projects, and the ultimate goal is to be able to ship only quality software code._
+
+
+<img width="772" alt="image" src="https://user-images.githubusercontent.com/10085348/185752333-73169098-6ace-4b48-b760-1ad43e87e562.png">
+
+
+Add **Quality Gate** stage in `Jenkinsfile`
+
+<img width="1027" alt="image" src="https://user-images.githubusercontent.com/10085348/185753178-f541ad90-09a0-4fe1-a210-aab76164610f.png">
+
+Configure sonar-scanner.properties – From the step above, Jenkins will install the scanner tool on the Linux server. You will need to go into the tools directory on the server to configure the properties file in which SonarQube will require to function during pipeline execution.
+
+``cd /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonarscanner/conf``
+
+<img width="996" alt="image" src="https://user-images.githubusercontent.com/10085348/185755047-5923b9c2-e4e9-4bdc-9eb9-c706d43b7162.png">
+
+For this run successfully install [Nodejs 14](https://computingforgeeks.com/install-node-js-14-on-ubuntu-debian-linux/)
+
+<img width="363" alt="image" src="https://user-images.githubusercontent.com/10085348/185755282-792dffc7-6c5e-48ca-b1f7-c0d85a56f91d.png">
+
+
+<img width="1359" alt="image" src="https://user-images.githubusercontent.com/10085348/185755376-008c3ef8-a72a-4a28-b148-72214b9be9b6.png">
+
+Sonarqube Project page
+
+<img width="1236" alt="image" src="https://user-images.githubusercontent.com/10085348/185755636-9dfe4589-b2e4-4534-aaaa-55866d286030.png">
+
+
+<img width="813" alt="image" src="https://user-images.githubusercontent.com/10085348/185756170-5f4520fc-2d8b-4bc1-919d-a7bd87d36fee.png">
+
+
+
+
+<img width="1352" alt="image" src="https://user-images.githubusercontent.com/10085348/185756061-41376138-5830-410e-b818-2e4123ecff48.png">
 
 
