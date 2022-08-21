@@ -240,7 +240,7 @@ Add **Quality Gate** stage in `Jenkinsfile`
 
 Configure sonar-scanner.properties – From the step above, Jenkins will install the scanner tool on the Linux server. You will need to go into the tools directory on the server to configure the properties file in which SonarQube will require to function during pipeline execution.
 
-``cd /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonarscanner/conf``
+``cd /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQubeScanner/conf``
 
 <img width="996" alt="image" src="https://user-images.githubusercontent.com/10085348/185755047-5923b9c2-e4e9-4bdc-9eb9-c706d43b7162.png">
 
