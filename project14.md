@@ -242,7 +242,8 @@ Configure sonar-scanner.properties – From the step above, Jenkins will install
 
 ``cd /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQubeScanner/conf``
 
-<img width="996" alt="image" src="https://user-images.githubusercontent.com/10085348/185755047-5923b9c2-e4e9-4bdc-9eb9-c706d43b7162.png">
+<img width="977" alt="image" src="https://user-images.githubusercontent.com/10085348/185847194-dd7f854f-e017-49eb-b335-91d162de6837.png">
+
 
 For this run successfully install [Nodejs 14](https://computingforgeeks.com/install-node-js-14-on-ubuntu-debian-linux/)
 
