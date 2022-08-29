@@ -257,11 +257,22 @@ Sonarqube Project page
 <img width="1236" alt="image" src="https://user-images.githubusercontent.com/10085348/185755636-9dfe4589-b2e4-4534-aaaa-55866d286030.png">
 
 
-<img width="813" alt="image" src="https://user-images.githubusercontent.com/10085348/185756170-5f4520fc-2d8b-4bc1-919d-a7bd87d36fee.png">
+
+<img width="774" alt="image" src="https://user-images.githubusercontent.com/10085348/187205001-ff9d45c0-92c0-4343-bbc7-7d72d2c386f7.png">
 
 
-
+For specific branches (Quality Gate does not execute I am running from 'feature/ci-pipeline' branch):
 
 <img width="1352" alt="image" src="https://user-images.githubusercontent.com/10085348/185756061-41376138-5830-410e-b818-2e4123ecff48.png">
+
+
+As a DevOps engineer working on the pipeline, we must ensure that the quality gate step causes the pipeline to fail if the conditions for quality are not met.
+
+<img width="1463" alt="image" src="https://user-images.githubusercontent.com/10085348/187207748-c67fcfde-36b0-4200-aeb1-9bbcd56fe6e5.png">
+
+Quality Gate failed on SonarQube UI
+
+<img width="737" alt="image" src="https://user-images.githubusercontent.com/10085348/187207956-21154ee0-0c63-405c-b4ce-e81c11a421ce.png">
+
 
 
