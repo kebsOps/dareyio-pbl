@@ -200,7 +200,19 @@ Plot the data using plot Jenkins plugin and bundle the application code for into
   }
 }
 ```
-<img width="1134" alt="image" src="https://user-images.githubusercontent.com/10085348/185738999-46275af7-260d-413a-a99b-749f7d43345a.png">
+Install xdebug and configure the ``.ini`` file, you can get the path to the file by running
+
+```
+php --ini | grep xdebug
+
+And paste in:
+
+xdebug.mode=coverage
+```
+click on the Plots button on the left pane. If configured properly, you should get output below:
+
+<img width="1066" alt="image" src="https://user-images.githubusercontent.com/10085348/187223881-95d110c5-e571-4bd1-a2b8-74b1b39333c3.png">
+
 
 <img width="1446" alt="image" src="https://user-images.githubusercontent.com/10085348/185739070-81e30f1a-3c7d-462d-97be-fce3e50548d9.png">
 
@@ -275,4 +287,42 @@ Quality Gate failed on SonarQube UI
 <img width="737" alt="image" src="https://user-images.githubusercontent.com/10085348/187207956-21154ee0-0c63-405c-b4ce-e81c11a421ce.png">
 
 
+### Configure Jenkins slave servers
+
+Introduce Jenkins agents/slaves – Add 2 more servers to be used as Jenkins slave.
+
+Install the following packages on ``Jenkins-slave-1`` and ``Jenkins-slave-2 Servers``:
+
+```
+sudo apt install -y zip libapache2-mod-php phploc php-{xml,bcmath,bz2,intl,gd,mbstring,mysql,zip}
+```
+
+<img width="1270" alt="image" src="https://user-images.githubusercontent.com/10085348/187252102-1b29e079-e432-4528-a23b-7b9543a3c73c.png">
+
+Blockers: You have to install PHP Composer manually by:
+
+```
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+mv composer.phar /usr/local/bin/composer
+```
+Configure Jenkins to run its pipeline jobs randomly on any available slave nodes
+ 
+<img width="1203" alt="image" src="https://user-images.githubusercontent.com/10085348/187252216-f2521f6a-cb3d-4da9-b7b8-26f4159c03ea.png">
+
+Deploy to all Environments
+
+<img width="1213" alt="image" src="https://user-images.githubusercontent.com/10085348/187253982-4f50d416-bcd6-44b5-be5b-7ca0392b17d7.png">
+
+
+<img width="1482" alt="image" src="https://user-images.githubusercontent.com/10085348/187253285-765e3613-e687-42b3-9da3-dba2c443a47a.png">
+
+<img width="1471" alt="image" src="https://user-images.githubusercontent.com/10085348/187253732-cf4e10fd-9904-4728-acb9-57dcf436e5f5.png">
+
+
+[Link to pipeline video](https://drive.google.com/file/d/10MFvjn_uOZ349twTthfKsAtsXedNK9t1/view?usp=sharing)
+
+[Link to PHP Todo Repo on github](https://github.com/kebsOps/php-todo)
 
