@@ -39,7 +39,7 @@ Replace the content there with the items you got from Hosted zone to GoDaddy's c
 <img width="1226" alt="image" src="https://user-images.githubusercontent.com/10085348/187430272-03cbe5bf-526d-4976-be44-3664e586f79b.png">
 
 
-**NOTE : As you proceed with configuration, ensure that all resources are appropriately tagged, for example: ***
+NOTE : As you proceed with configuration, ensure that all resources are appropriately tagged, for example:
 ```
 Project: <Give your project a name>
 Environment: <dev>
