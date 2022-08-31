@@ -124,4 +124,273 @@ Always make reference to the architectural diagram and ensure that your configur
 
 <img width="1292" alt="image" src="https://user-images.githubusercontent.com/10085348/187523969-306c461e-3770-49f0-9295-5439be81600b.png">
 
+3 EC2 Instance based on Red Hat of the t2.micro family were launched for nginx, bastion and the one for the two webservers
+
+Bastion 
+
+Ensure that it has the following software installed
+- python
+- ntp
+- net-tools
+- vim
+- wget
+- telnet
+- epel-release
+- htop
+
+```
+sudo su -
+
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+
+yum install -y dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+
+yum install wget vim python3 telnet htop git mysql net-tools chrony -y
+
+systemctl start chronyd 
+
+systemctl enable chronyd
+```
+<img width="1178" alt="image" src="https://user-images.githubusercontent.com/10085348/187676610-2026a629-66e7-424f-bf0c-14ac1428478d.png">
+
+
+
+Ngnix 
+
+Ensure that it has the following software installed:
+- python
+- ntp
+- net-tools
+- vim
+- wget
+- telnet
+- epel-release
+- htop
+
+```
+sudo su -
+
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+
+yum install -y dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+
+yum install wget vim python3 telnet htop git mysql net-tools chrony -y
+
+systemctl start chronyd
+
+systemctl enable chronyd
+```
+
+<img width="1223" alt="image" src="https://user-images.githubusercontent.com/10085348/187678248-39f91499-b187-4c68-90bd-b57fd03bab6a.png">
+
+Configure selinux policies for Nginx servers
+
+```
+setsebool -P httpd_can_network_connect=1
+setsebool -P httpd_can_network_connect_db=1
+setsebool -P httpd_execmem=1
+setsebool -P httpd_use_nfs 1
+```
+
+Install amazon efs utils for mounting the target on the Elastic file system
+
+```
+git clone https://github.com/aws/efs-utils
+
+cd efs-utils
+
+yum install -y make
+
+yum install -y rpm-build
+
+make rpm 
+
+yum install -y  ./build/amazon-efs-utils*rpm
+```
+
+Seting up self-signed certificate for the nginx instance
+```
+sudo mkdir /etc/ssl/private
+
+sudo chmod 700 /etc/ssl/private
+
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/Kebs.key -out /etc/ssl/certs/Kebs.crt
+
+sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+```
+<img width="1198" alt="Screenshot 2022-08-31 at 13 46 30" src="https://user-images.githubusercontent.com/10085348/187681635-aafa6638-e935-4c42-bd2c-a8d5c7423b2b.png">
+
+To verify
+
+<img width="1189" alt="image" src="https://user-images.githubusercontent.com/10085348/187681734-ea8d4adf-da4c-4eaf-b5f4-1b4495eb58ff.png">
+
+<img width="417" alt="image" src="https://user-images.githubusercontent.com/10085348/187681920-8950ec77-06e5-4959-abab-d3f7615c444c.png">
+
+Web Server
+
+```
+sudo su -
+
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+
+yum install -y dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+
+yum install wget vim python3 telnet htop git mysql net-tools chrony -y
+
+systemctl start chronyd
+
+systemctl enable chronyd
+```
+<img width="1225" alt="image" src="https://user-images.githubusercontent.com/10085348/187683388-f019dd9b-a3a1-45de-b67b-52e34d20f30b.png">
+
+
+Configure selinux policies for web servers
+
+```
+setsebool -P httpd_can_network_connect=1
+setsebool -P httpd_can_network_connect_db=1
+setsebool -P httpd_execmem=1
+setsebool -P httpd_use_nfs 1
+
+```
+
+Install amazon efs utils for mounting the target on the Elastic file system
+
+```
+git clone https://github.com/aws/efs-utils
+
+cd efs-utils
+
+yum install -y make
+
+yum install -y rpm-build
+
+make rpm 
+
+yum install -y  ./build/amazon-efs-utils*rpm
+
+```
+
+Setting up self-signed certificate for the apache webserver instance
+```
+yum install -y mod_ssl
+
+openssl req -newkey rsa:2048 -nodes -keyout /etc/pki/tls/private/Kebs.key -x509 -days 365 -out /etc/pki/tls/certs/Kebs.crt
+
+vi /etc/httpd/conf.d/ssl.conf
+
+```
+
+<img width="591" alt="image" src="https://user-images.githubusercontent.com/10085348/187687554-2f202e4e-9dbf-4772-a29d-ca7fd1f78945.png">
+
+
+Create an AMI out of the EC2 instances
+
+<img width="1308" alt="image" src="https://user-images.githubusercontent.com/10085348/187692249-5b4094ce-e1fc-4642-8eda-15f9baad076a.png">
+
+
+
+Configure Target Groups
+
+<img width="1251" alt="image" src="https://user-images.githubusercontent.com/10085348/187691563-2d0244c5-f919-4a4f-80e8-9807dabd6a66.png">
+
+Create Applipcation Load balancers (one External, One Internal)
+
+<img width="1319" alt="image" src="https://user-images.githubusercontent.com/10085348/187695151-2e488179-600d-466b-9b6c-a8edb851cae3.png">
+
+On the Internal ALB
+
+<img width="1039" alt="image" src="https://user-images.githubusercontent.com/10085348/187695872-f6649afe-49b4-4008-99a0-5d01042d6a3d.png">
+
+
+
+Create Launch Templates
+
+Bastion Launch Template
+
+<img width="654" alt="image" src="https://user-images.githubusercontent.com/10085348/187699186-8829f708-c507-48f8-ae60-7e7515b1a0f4.png">
+
+<img width="951" alt="image" src="https://user-images.githubusercontent.com/10085348/187699379-d4bbd4ed-5b5d-4be4-8919-9096a231c7f2.png">
+
+
+<img width="629" alt="image" src="https://user-images.githubusercontent.com/10085348/187698927-1a4d7419-fe41-4f1a-9e73-f272f3799a3a.png">
+
+
+Bastion Launch Template User Data
+
+```
+#!/bin/bash 
+yum install -y mysql 
+yum install -y git tmux 
+yum install -y ansible
+
+```
+<img width="599" alt="image" src="https://user-images.githubusercontent.com/10085348/187698791-a77b2770-c97d-4393-a51d-a472dbf95fce.png">
+
+
+Ngnix Launch Template
+
+Ngnix Launch Template User Data
+
+```
+#!/bin/bash
+yum install -y nginx
+systemctl start nginx
+systemctl enable nginx
+git clone https://github.com/kebsOps/ACS-project-config.git
+mv /ACS-project-config/reverse.conf /etc/nginx/
+mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf-distro
+cd /etc/nginx/
+touch nginx.conf
+sed -n 'w nginx.conf' reverse.conf
+systemctl restart nginx
+rm -rf reverse.conf
+rm -rf /ACS-project-config
+```
+<img width="655" alt="image" src="https://user-images.githubusercontent.com/10085348/187706158-dd0e122a-f8e6-4906-b6db-ba2f5127c22e.png">
+
+<img width="642" alt="image" src="https://user-images.githubusercontent.com/10085348/187706272-0c4bcd19-b62a-400f-a9f1-c3a5ceec1efa.png">
+
+<img width="623" alt="image" src="https://user-images.githubusercontent.com/10085348/187706692-e9771b8c-e75e-4b22-a54b-1ce3e3324a96.png">
+
+<img width="581" alt="image" src="https://user-images.githubusercontent.com/10085348/187706059-e4a54c08-ba0d-4576-a19a-21b52bf84f9a.png">
+
+
+
+
+
+TLS Certificates from Amazon Certificate Manager (ACM)
+
+<img width="1413" alt="image" src="https://user-images.githubusercontent.com/10085348/187671849-8a683a45-b05c-4a48-affb-9caed31a3d60.png">
+
+
+Setup EFS
+
+<img width="1270" alt="image" src="https://user-images.githubusercontent.com/10085348/187650917-c9eecb59-5276-4ffa-8879-c98d4c734123.png">
+
+Setup Access Points
+
+wordpress AP
+<img width="1282" alt="image" src="https://user-images.githubusercontent.com/10085348/187652174-0777b531-8218-47eb-b8f6-f7cba8c56b5e.png">
+
+tooling AP
+<img width="1271" alt="image" src="https://user-images.githubusercontent.com/10085348/187652956-71cce6e3-3ec1-44cd-bd18-0c54fea633b0.png">
+
+<img width="1265" alt="image" src="https://user-images.githubusercontent.com/10085348/187653157-a633ba5b-2450-44f9-be3f-632b3a0e7089.png">
+
+
+Setup RDS
+
+Pre-requisite: Create a KMS key from Key Management Service (KMS) to be used to encrypt the database instance.
+
+<img width="1463" alt="image" src="https://user-images.githubusercontent.com/10085348/187654697-f78806de-c4bb-4698-82ce-749ebe9b9c63.png">
+
+Create a subnet group and add 2 private subnets (data Layer)
+
+<img width="1294" alt="Screenshot 2022-08-31 at 11 13 28" src="https://user-images.githubusercontent.com/10085348/187655609-cba03985-25a0-4f72-b7ed-0eca3eae1795.png">
+
+
+
+
+
 
