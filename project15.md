@@ -330,7 +330,17 @@ yum install -y ansible
 
 Ngnix Launch Template
 
+
+<img width="655" alt="image" src="https://user-images.githubusercontent.com/10085348/187706158-dd0e122a-f8e6-4906-b6db-ba2f5127c22e.png">
+
+<img width="642" alt="image" src="https://user-images.githubusercontent.com/10085348/187706272-0c4bcd19-b62a-400f-a9f1-c3a5ceec1efa.png">
+
+<img width="623" alt="image" src="https://user-images.githubusercontent.com/10085348/187706692-e9771b8c-e75e-4b22-a54b-1ce3e3324a96.png">
+
+
 Ngnix Launch Template User Data
+
+<img width="581" alt="image" src="https://user-images.githubusercontent.com/10085348/187706059-e4a54c08-ba0d-4576-a19a-21b52bf84f9a.png">
 
 ```
 #!/bin/bash
@@ -347,16 +357,87 @@ systemctl restart nginx
 rm -rf reverse.conf
 rm -rf /ACS-project-config
 ```
-<img width="655" alt="image" src="https://user-images.githubusercontent.com/10085348/187706158-dd0e122a-f8e6-4906-b6db-ba2f5127c22e.png">
 
-<img width="642" alt="image" src="https://user-images.githubusercontent.com/10085348/187706272-0c4bcd19-b62a-400f-a9f1-c3a5ceec1efa.png">
+Wordpress Launch Template
 
-<img width="623" alt="image" src="https://user-images.githubusercontent.com/10085348/187706692-e9771b8c-e75e-4b22-a54b-1ce3e3324a96.png">
+<img width="660" alt="image" src="https://user-images.githubusercontent.com/10085348/187716980-c4ece9ec-fef4-4790-aed6-8883a8bbef83.png">
 
-<img width="581" alt="image" src="https://user-images.githubusercontent.com/10085348/187706059-e4a54c08-ba0d-4576-a19a-21b52bf84f9a.png">
+<img width="639" alt="image" src="https://user-images.githubusercontent.com/10085348/187717127-b60a6204-f02e-4785-8351-d253c2673ce4.png">
+
+<img width="620" alt="image" src="https://user-images.githubusercontent.com/10085348/187717325-182a55f4-fd71-4515-8824-8aad9f4cb58e.png">
 
 
+Wordpress Launch Template User Data
 
+```
+#!/bin/bash
+mkdir /var/www/
+sudo mount -t efs -o tls,accesspoint=fsap-08334da6d7b10fdec fs-0a1913a76c4e8545b:/ /var/www/
+yum install -y httpd 
+systemctl start httpd
+systemctl enable httpd
+yum module reset php -y
+yum module enable php:remi-7.4 -y
+yum install -y php php-common php-mbstring php-opcache php-intl php-xml php-gd php-curl php-mysqlnd php-fpm php-json
+systemctl start php-fpm
+systemctl enable php-fpm
+wget http://wordpress.org/latest.tar.gz
+tar xzvf latest.tar.gz
+rm -rf latest.tar.gz
+cp wordpress/wp-config-sample.php wordpress/wp-config.php
+mkdir /var/www/html/
+cp -R /wordpress/* /var/www/html/
+cd /var/www/html/
+touch healthstatus
+sed -i "s/localhost/database-1.cy2s6kbdev0j.us-east-1.rds.amazonaws.com/g" wp-config.php 
+sed -i "s/username_here/Kebsadmin/g" wp-config.php 
+sed -i "s/password_here/admin12345/g" wp-config.php 
+sed -i "s/database_name_here/wordpressdb/g" wp-config.php 
+chcon -t httpd_sys_rw_content_t /var/www/html/ -R
+systemctl restart httpd
+
+```
+
+<img width="969" alt="image" src="https://user-images.githubusercontent.com/10085348/187717486-323b933a-5afd-455e-8dbd-bb1e77a7677e.png">
+
+Tooling launch Template
+
+<img width="631" alt="image" src="https://user-images.githubusercontent.com/10085348/187721056-664c0b57-27d0-423c-9c50-915b2eb11ae5.png">
+
+<img width="637" alt="image" src="https://user-images.githubusercontent.com/10085348/187721132-4a17ed52-cd44-4478-bbc2-0d32eaac775a.png">
+
+<img width="616" alt="image" src="https://user-images.githubusercontent.com/10085348/187721355-4fac6ad5-5c71-4b41-92cb-ebeb56e78e41.png">
+
+
+Tooling launch Template User Data
+```
+#!/bin/bash
+mkdir /var/www/
+sudo mount -t efs -o tls,accesspoint=fsap-038e3c726cbc66b11 fs-0a1913a76c4e8545b:/ /var/www/
+yum install -y httpd 
+systemctl start httpd
+systemctl enable httpd
+yum module reset php -y
+yum module enable php:remi-7.4 -y
+yum install -y php php-common php-mbstring php-opcache php-intl php-xml php-gd php-curl php-mysqlnd php-fpm php-json
+systemctl start php-fpm
+systemctl enable php-fpm
+git clone https://github.com/Livingstone95/tooling-1.git
+mkdir /var/www/html
+cp -R /tooling-1/html/*  /var/www/html/
+cd /tooling-1
+mysql -h database-1.cy2s6kbdev0j.us-east-1.rds.amazonaws.com -u ACSadmin -p toolingdb < tooling-db.sql
+cd /var/www/html/
+touch healthstatus
+sed -i "s/$db = mysqli_connect('mysql.tooling.svc.cluster.local', 'admin', 'admin', 'tooling');/$db = mysqli_connect('database-1.cy2s6kbdev0j.us-east-1.rds.amazonaws.com', 'Kebsadmin', 'admin12345', 'toolingdb');/g" functions.php
+chcon -t httpd_sys_rw_content_t /var/www/html/ -R
+systemctl restart httpd
+```
+
+<img width="1020" alt="image" src="https://user-images.githubusercontent.com/10085348/187721477-6bf7f6b0-dbf6-4e95-809b-5d2f7995061d.png">
+
+
+<img width="1252" alt="image" src="https://user-images.githubusercontent.com/10085348/187721706-82b3c419-29fc-4641-9860-be902b31c864.png">
 
 
 TLS Certificates from Amazon Certificate Manager (ACM)
