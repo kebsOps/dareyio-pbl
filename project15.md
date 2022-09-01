@@ -228,7 +228,7 @@ To verify
 <img width="417" alt="image" src="https://user-images.githubusercontent.com/10085348/187681920-8950ec77-06e5-4959-abab-d3f7615c444c.png">
 
 
-**Set Up Compute Resources for Websers**
+**Set Up Compute Resources for Websevers**
 
 ```
 sudo su -
@@ -296,11 +296,42 @@ vi /etc/httpd/conf.d/ssl.conf
 
 <img width="1251" alt="image" src="https://user-images.githubusercontent.com/10085348/187691563-2d0244c5-f919-4a4f-80e8-9807dabd6a66.png">
 
+
 Create Applipcation Load balancers (one External, One Internal)
+
+
+Application Load Balancer To Route Traffic To NGINX
+
+
+Nginx EC2 Instances will have configurations that accepts incoming traffic only from Load Balancers. No request should go directly to Nginx servers. With this kind of setup, we will benefit from intelligent routing of requests from the ALB to Nginx servers across the 2 Availability Zones. We will also be able to offload SSL/TLS certificates on the ALB instead of Nginx. Therefore, Nginx will be able to perform faster since it will not require extra compute resources to valifate certificates for every request.
+
+```
+Create an Internet facing ALB
+Ensure that it listens on HTTPS protocol (TCP port 443)
+Ensure the ALB is created within the appropriate VPC | AZ | Subnets
+Choose the Certificate from ACM
+Select Security Group
+Select Nginx Instances as the target group
+```
 
 <img width="1319" alt="image" src="https://user-images.githubusercontent.com/10085348/187695151-2e488179-600d-466b-9b6c-a8edb851cae3.png">
 
+
 On the Internal ALB
+
+```
+Ensure that it listens on HTTPS protocol (TCP port 443)
+
+Ensure the ALB is created within the appropriate VPC | AZ | Subnets
+
+Choose the Certificate from ACM
+
+Select Security Group
+
+Select webserver Instances as the target group
+
+Ensure that health check passes for the target group
+```
 
 <img width="1039" alt="image" src="https://user-images.githubusercontent.com/10085348/187695872-f6649afe-49b4-4008-99a0-5d01042d6a3d.png">
 
@@ -488,7 +519,7 @@ Configure Autoscaling Group For tooling
 <img width="1253" alt="image" src="https://user-images.githubusercontent.com/10085348/187905058-53ba2e39-7192-4075-818b-ea9eb938e177.png">
 
 
-Wordpress mounted
+Checks on wordpress server
 
 <img width="577" alt="image" src="https://user-images.githubusercontent.com/10085348/187894094-42247e1b-72a3-4bc1-aee5-ead02233eaaa.png">
 
