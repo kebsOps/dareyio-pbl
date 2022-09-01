@@ -440,6 +440,58 @@ systemctl restart httpd
 <img width="1252" alt="image" src="https://user-images.githubusercontent.com/10085348/187721706-82b3c419-29fc-4641-9860-be902b31c864.png">
 
 
+Configure Autoscaling group For Bastion
+
+<img width="772" alt="image" src="https://user-images.githubusercontent.com/10085348/187863331-488c8904-14fe-4695-8c4f-4a019dbc2ecb.png">
+
+<img width="780" alt="image" src="https://user-images.githubusercontent.com/10085348/187863548-9110c95e-bc93-4de7-a6c2-b6a75c0a711a.png">
+
+<img width="678" alt="image" src="https://user-images.githubusercontent.com/10085348/187863687-e3a19245-e5d0-4985-bf61-2ef47b795e55.png">
+
+
+Configure Autoscaling Group For Ngnix
+
+<img width="708" alt="image" src="https://user-images.githubusercontent.com/10085348/187864712-e5832516-1f9a-4cd3-97a8-f56cc952480b.png">
+
+<img width="677" alt="image" src="https://user-images.githubusercontent.com/10085348/187864794-cd417f84-ecf9-447b-ab5c-1b7e218f0b88.png">
+
+<img width="680" alt="image" src="https://user-images.githubusercontent.com/10085348/187864886-5bdb14f1-15ba-49ed-9e77-45d143e1358c.png">
+
+
+Configure Autoscaling Group For Wordpress
+
+Prerequisite
+
+- Create `wordpressdb` and `toolingdb` on Kebs-Bastion launch template
+
+<img width="770" alt="image" src="https://user-images.githubusercontent.com/10085348/187871576-5b549d58-5472-4e09-b7e5-4a394e10e4a8.png">
+
+<img width="692" alt="image" src="https://user-images.githubusercontent.com/10085348/187886301-00f36672-29e8-406b-b0cb-7b1d32e7d330.png">
+
+<img width="654" alt="image" src="https://user-images.githubusercontent.com/10085348/187886359-699950a6-7a4a-4a35-a148-16767d035fcd.png">
+
+<img width="634" alt="image" src="https://user-images.githubusercontent.com/10085348/187886443-0aabcdbf-d20c-4984-9338-5d2882306157.png">
+
+Configure Autoscaling Group For tooling
+
+<img width="633" alt="image" src="https://user-images.githubusercontent.com/10085348/187887442-4b7029cb-00c0-482e-9745-5a06ed6934d6.png">
+
+<img width="689" alt="image" src="https://user-images.githubusercontent.com/10085348/187887666-8494b729-4343-4d3a-90cd-8834dc2089db.png">
+
+<img width="630" alt="image" src="https://user-images.githubusercontent.com/10085348/187887748-2fa3ab2f-af3b-434f-8f04-21763de62e6d.png">
+
+
+
+
+Wordpress mounted
+
+<img width="577" alt="image" src="https://user-images.githubusercontent.com/10085348/187894094-42247e1b-72a3-4bc1-aee5-ead02233eaaa.png">
+
+<img width="572" alt="image" src="https://user-images.githubusercontent.com/10085348/187894221-833ad149-49e6-49c8-8802-943a3b903eb9.png">
+
+<img width="899" alt="image" src="https://user-images.githubusercontent.com/10085348/187894430-dffcc842-5de4-454e-a5d6-f2681093c2dc.png">
+
+
 TLS Certificates from Amazon Certificate Manager (ACM)
 
 <img width="1413" alt="image" src="https://user-images.githubusercontent.com/10085348/187671849-8a683a45-b05c-4a48-affb-9caed31a3d60.png">
@@ -471,6 +523,21 @@ Create a subnet group and add 2 private subnets (data Layer)
 <img width="1294" alt="Screenshot 2022-08-31 at 11 13 28" src="https://user-images.githubusercontent.com/10085348/187655609-cba03985-25a0-4f72-b7ed-0eca3eae1795.png">
 
 
+Creating DNS Records In The Route53 For the Tooling And Wordpress site
+
+<img width="804" alt="image" src="https://user-images.githubusercontent.com/10085348/187892506-d2804443-35db-4317-8cb2-0cb70c38364a.png">
+
+<img width="800" alt="image" src="https://user-images.githubusercontent.com/10085348/187892657-6e9fe9ea-c200-407a-8e1c-ec6d2d2225b1.png">
+
+<img width="818" alt="image" src="https://user-images.githubusercontent.com/10085348/187892879-7e4a7ba8-0c90-4a75-bc61-4f2ec9fe76cd.png">
+
+<img width="902" alt="image" src="https://user-images.githubusercontent.com/10085348/187893159-8986d287-183c-4f47-b337-0d0682a51fb4.png">
+
+
+<img width="1476" alt="Screenshot 2022-09-01 at 12 09 53" src="https://user-images.githubusercontent.com/10085348/187900364-80f3bc8b-c032-4c34-9b0a-d46eca595cd7.png">
+
+
+<img width="1483" alt="Screenshot 2022-09-01 at 12 17 48" src="https://user-images.githubusercontent.com/10085348/187901859-98e45787-797e-434e-b0f5-80d8e27c7177.png">
 
 
 
