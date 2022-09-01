@@ -23,7 +23,7 @@ Login to the newly created account
 
 <img width="1511" alt="Screenshot 2022-08-30 at 12 22 46" src="https://user-images.githubusercontent.com/10085348/187424542-60c0a41a-4cea-46d0-aa6d-6ce9bb220033.png">
 
-Created a domain name from GoDaddy
+Created a domain name from GoDaddy `toolingkb.xyz`
 
 Create a hosted zone in AWS Route 53
 
@@ -124,9 +124,10 @@ Always make reference to the architectural diagram and ensure that your configur
 
 <img width="1292" alt="image" src="https://user-images.githubusercontent.com/10085348/187523969-306c461e-3770-49f0-9295-5439be81600b.png">
 
-3 EC2 Instance based on Red Hat of the t2.micro family were launched for nginx, bastion and the one for the two webservers
 
-Bastion 
+**3 EC2 Instance based on Red Hat of the t2.micro family were launched for nginx, bastion and the one for the two webservers**
+
+### Set Up Compute Resources for Bastion 
 
 Ensure that it has the following software installed
 - python
@@ -534,11 +535,17 @@ Creating DNS Records In The Route53 For the Tooling And Wordpress site
 <img width="902" alt="image" src="https://user-images.githubusercontent.com/10085348/187893159-8986d287-183c-4f47-b337-0d0682a51fb4.png">
 
 
+
+WordPress Site
+
+
 <img width="1476" alt="Screenshot 2022-09-01 at 12 09 53" src="https://user-images.githubusercontent.com/10085348/187900364-80f3bc8b-c032-4c34-9b0a-d46eca595cd7.png">
 
+
+Tooling Site
 
 <img width="1483" alt="Screenshot 2022-09-01 at 12 17 48" src="https://user-images.githubusercontent.com/10085348/187901859-98e45787-797e-434e-b0f5-80d8e27c7177.png">
 
 
-
+[Link to Project Config scripts Repo](https://github.com/kebsOps/ACS-project-config)
 
