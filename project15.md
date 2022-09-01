@@ -297,8 +297,7 @@ vi /etc/httpd/conf.d/ssl.conf
 <img width="1251" alt="image" src="https://user-images.githubusercontent.com/10085348/187691563-2d0244c5-f919-4a4f-80e8-9807dabd6a66.png">
 
 
-Create Applipcation Load balancers (one External, One Internal)
-
+### Configure Applipcation Load balancers (ALB) (one External, One Internal)
 
 Application Load Balancer To Route Traffic To NGINX
 
@@ -313,6 +312,11 @@ Choose the Certificate from ACM
 Select Security Group
 Select Nginx Instances as the target group
 ```
+
+<img width="1304" alt="image" src="https://user-images.githubusercontent.com/10085348/187908748-812af219-bce3-4ec6-ad60-568b5387071e.png">
+
+<img width="1279" alt="image" src="https://user-images.githubusercontent.com/10085348/187908828-7f8cfa78-fb92-48b5-9d6a-2f3ed0eb0841.png">
+
 
 <img width="1319" alt="image" src="https://user-images.githubusercontent.com/10085348/187695151-2e488179-600d-466b-9b6c-a8edb851cae3.png">
 
@@ -333,8 +337,12 @@ Select webserver Instances as the target group
 Ensure that health check passes for the target group
 ```
 
+<img width="1312" alt="image" src="https://user-images.githubusercontent.com/10085348/187909178-ad933bf6-58b6-406e-8733-550586ef6f26.png">
+
+
 <img width="1039" alt="image" src="https://user-images.githubusercontent.com/10085348/187695872-f6649afe-49b4-4008-99a0-5d01042d6a3d.png">
 
+<img width="1315" alt="image" src="https://user-images.githubusercontent.com/10085348/187908999-a0ef72a5-fa9e-4b21-96f7-5d37262d4f8b.png">
 
 
 ## Create Launch Templates
