@@ -441,6 +441,8 @@ systemctl restart httpd
 
 <img width="1252" alt="image" src="https://user-images.githubusercontent.com/10085348/187721706-82b3c419-29fc-4641-9860-be902b31c864.png">
 
+[Link to Project user data config scripts Repo](https://github.com/kebsOps/ACS-project-config)
+
 
 Configure Autoscaling group For Bastion
 
@@ -495,7 +497,19 @@ Wordpress mounted
 
 TLS Certificates from Amazon Certificate Manager (ACM)
 
+You will need TLS certificates to handle secured connectivity to your Application Load Balancers (ALB).
+
+Navigate to AWS ACM
+Request a public wildcard certificate for the domain name you registered in ``GoDaddy.com``
+Use DNS to validate the domain name
+Tag the resource
+
 <img width="1413" alt="image" src="https://user-images.githubusercontent.com/10085348/187671849-8a683a45-b05c-4a48-affb-9caed31a3d60.png">
+
+<img width="1411" alt="image" src="https://user-images.githubusercontent.com/10085348/187906011-134bd1f1-b846-4a21-8ca9-9abbbd6fa2d6.png">
+
+<img width="1389" alt="image" src="https://user-images.githubusercontent.com/10085348/187906112-fba93a2d-8b02-44d9-bdfa-ac44fb2d4d7c.png">
+
 
 
 Setup EFS
@@ -547,5 +561,5 @@ Tooling Site
 <img width="1483" alt="Screenshot 2022-09-01 at 12 17 48" src="https://user-images.githubusercontent.com/10085348/187901859-98e45787-797e-434e-b0f5-80d8e27c7177.png">
 
 
-[Link to Project Config scripts Repo](https://github.com/kebsOps/ACS-project-config)
+[Link to Project config scripts Repo](https://github.com/kebsOps/ACS-project-config)
 
