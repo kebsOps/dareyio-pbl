@@ -286,13 +286,13 @@ vi /etc/httpd/conf.d/ssl.conf
 <img width="591" alt="image" src="https://user-images.githubusercontent.com/10085348/187687554-2f202e4e-9dbf-4772-a29d-ca7fd1f78945.png">
 
 
-Create an AMI out of the EC2 instances
+## Create an AMI out of the EC2 instances
 
 <img width="1308" alt="image" src="https://user-images.githubusercontent.com/10085348/187692249-5b4094ce-e1fc-4642-8eda-15f9baad076a.png">
 
 
 
-Configure Target Groups
+## Configure Target Groups
 
 <img width="1251" alt="image" src="https://user-images.githubusercontent.com/10085348/187691563-2d0244c5-f919-4a4f-80e8-9807dabd6a66.png">
 
@@ -306,7 +306,7 @@ On the Internal ALB
 
 
 
-Create Launch Templates
+## Create Launch Templates
 
 Bastion Launch Template
 
@@ -443,6 +443,8 @@ systemctl restart httpd
 
 [Link to Project user data config scripts Repo](https://github.com/kebsOps/ACS-project-config)
 
+
+## Configure Auto Scaling Groups
 
 Configure Autoscaling group For Bastion
 
