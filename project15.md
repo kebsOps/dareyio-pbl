@@ -342,7 +342,7 @@ Ensure that health check passes for the target group
 
 <img width="1039" alt="image" src="https://user-images.githubusercontent.com/10085348/187695872-f6649afe-49b4-4008-99a0-5d01042d6a3d.png">
 
-<img width="1315" alt="image" src="https://user-images.githubusercontent.com/10085348/187908999-a0ef72a5-fa9e-4b21-96f7-5d37262d4f8b.png">
+
 
 
 ## Create Launch Templates
