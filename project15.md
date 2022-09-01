@@ -156,7 +156,7 @@ systemctl enable chronyd
 
 
 
-Ngnix 
+### Set Up Compute Resources for Nginx
 
 Ensure that it has the following software installed:
 - python
@@ -227,7 +227,8 @@ To verify
 
 <img width="417" alt="image" src="https://user-images.githubusercontent.com/10085348/187681920-8950ec77-06e5-4959-abab-d3f7615c444c.png">
 
-Web Server
+
+**Set Up Compute Resources for Websers**
 
 ```
 sudo su -
@@ -443,20 +444,17 @@ systemctl restart httpd
 
 Configure Autoscaling group For Bastion
 
-<img width="772" alt="image" src="https://user-images.githubusercontent.com/10085348/187863331-488c8904-14fe-4695-8c4f-4a019dbc2ecb.png">
+<img width="1281" alt="image" src="https://user-images.githubusercontent.com/10085348/187905571-36cc05e2-ebd1-46ab-ada8-1d266310133a.png">
 
-<img width="780" alt="image" src="https://user-images.githubusercontent.com/10085348/187863548-9110c95e-bc93-4de7-a6c2-b6a75c0a711a.png">
+<img width="1269" alt="image" src="https://user-images.githubusercontent.com/10085348/187905670-0313821f-a40d-4a50-9263-46356cd30d2a.png">
 
-<img width="678" alt="image" src="https://user-images.githubusercontent.com/10085348/187863687-e3a19245-e5d0-4985-bf61-2ef47b795e55.png">
 
 
 Configure Autoscaling Group For Ngnix
 
-<img width="708" alt="image" src="https://user-images.githubusercontent.com/10085348/187864712-e5832516-1f9a-4cd3-97a8-f56cc952480b.png">
+<img width="1264" alt="image" src="https://user-images.githubusercontent.com/10085348/187905293-b6a8cac5-3afa-4c52-9028-e66b6272895f.png">
 
-<img width="677" alt="image" src="https://user-images.githubusercontent.com/10085348/187864794-cd417f84-ecf9-447b-ab5c-1b7e218f0b88.png">
-
-<img width="680" alt="image" src="https://user-images.githubusercontent.com/10085348/187864886-5bdb14f1-15ba-49ed-9e77-45d143e1358c.png">
+<img width="1267" alt="image" src="https://user-images.githubusercontent.com/10085348/187905403-f5e190dd-bfbe-44b2-a3ab-34ef00508a78.png">
 
 
 Configure Autoscaling Group For Wordpress
@@ -482,6 +480,8 @@ Configure Autoscaling Group For tooling
 <img width="630" alt="image" src="https://user-images.githubusercontent.com/10085348/187887748-2fa3ab2f-af3b-434f-8f04-21763de62e6d.png">
 
 
+
+<img width="1253" alt="image" src="https://user-images.githubusercontent.com/10085348/187905058-53ba2e39-7192-4075-818b-ea9eb938e177.png">
 
 
 Wordpress mounted
