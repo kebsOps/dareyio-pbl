@@ -377,7 +377,7 @@ Run `terraform plan` and ensure everything works
 
 <img width="1253" alt="image" src="https://user-images.githubusercontent.com/10085348/189743152-96d60e7d-c7c3-4a21-8278-6354bc9ffbf2.png">
 
-Run `terraform apply -auto-approve` if satisfied
+Run `terraform apply -auto-approve` if there are no errors
 
 <img width="1221" alt="image" src="https://user-images.githubusercontent.com/10085348/189743540-21ef5fa7-9c79-4259-bbf1-c9210636b430.png">
 
