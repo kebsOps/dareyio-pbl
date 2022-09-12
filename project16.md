@@ -252,4 +252,135 @@ We will introduce a function **cidrsubnet()** to make this happen. It accepts 3 
 
 A closer look at cidrsubnet – this function works like an algorithm to dynamically create a subnet CIDR per AZ. Regardless of the number of subnets created, it takes care of the cidr value per subnet.
 
-### The final problem to solve is removing hard coded count value.
+### The final problem to solve is removing hard coded count value
+
+- If we cannot hard code a value we want, then we will need a way to dynamically provide the value based on some input. Since the data resource returns all the `AZs` within a region, it makes sense to count the number of `AZs` returned and pass that number to the count argument.
+
+- To do this, we can introuduce `length()` function, which basically determines the length of a given list, map, or string.
+
+Since `data.aws_availability_zones.available.names` returns a list like `["eu-central-1a", "eu-central-1b", "eu-central-1c"]` we can pass it into a lenght function and get number of the AZs.
+
+`length(["eu-central-1a", "eu-central-1b", "eu-central-1c"])`
+
+
+Now we can simply update the public subnet block like this
+
+```
+# Create public subnet
+    resource "aws_subnet" "public" { 
+        count                   = length(data.aws_availability_zones.available.names)
+        vpc_id                  = aws_vpc.main.id
+        cidr_block              = cidrsubnet(var.vpc_cidr, 4 , count.index)
+        map_public_ip_on_launch = true
+        availability_zone       = data.aws_availability_zones.available.names[count.index]
+
+    }
+```
+
+**Observations:**
+
+What we have now, is sufficient to create the subnet resource required. But if you observe, it is not satisfying our business requirement of just 2 subnets. The length function will return number 3 to the count argument, but what we actually need is 2.
+Now, let us fix this.
+
+Declare a variable to store the desired number of public subnets, and set the default value
+
+```
+variable "preferred_number_of_public_subnets" {
+  default = 2
+}
+```
+
+
+Next, update the count argument with a condition. Terraform needs to check first if there is a desired number of subnets. Otherwise, use the data returned by the lenght function. See how that is presented below:
+
+```
+# Create public subnets
+resource "aws_subnet" "public" {
+  count  = var.preferred_number_of_public_subnets == null ? length(data.aws_availability_zones.available.names) : var.preferred_number_of_public_subnets   
+  vpc_id = aws_vpc.main.id
+  cidr_block              = cidrsubnet(var.vpc_cidr, 4 , count.index)
+  map_public_ip_on_launch = true
+  availability_zone       = data.aws_availability_zones.available.names[count.index]
+
+}
+```
+
+Now lets break it down:
+
+- The first part `var.preferred_number_of_public_subnets == null` checks if the value of the variable is set to null or has some value defined.
+
+- The second part `?` and `length(data.aws_availability_zones.available.names)` means, if the first part is true, then use this. In other words, if preferred number of public subnets is `null` (or not known) then set the value to the data returned by `lenght` function.
+
+The third part : and  `var.preferred_number_of_public_subnets` means, if the first condition is `false`, i.e `preferred number of public subnets` is `not null` then set the value to whatever is definied in `var.preferred_number_of_public_subnets`
+
+
+### Now the entire configuration should now look like this
+
+<img width="1135" alt="image" src="https://user-images.githubusercontent.com/10085348/189735037-66b293ae-c52d-47e7-9016-adab90bc4f3d.png">
+
+**blocker:**
+
+- `available` was mispelt in the # Get list of availability zones code section above (state = "available"), this has been updated:
+
+<img width="343" alt="image" src="https://user-images.githubusercontent.com/10085348/189739656-e297152c-745e-4e43-afe9-338503125c98.png">
+
+```
+
+# Get list of availability zones
+data "aws_availability_zones" "available" {
+  state = "available"
+}
+```
+
+- `enable_classiclink_dns_support` was omitted early but now updated
+
+```
+ variable "enable_classiclink_dns_support" {
+ default = "false"
+}
+```
+<img width="423" alt="image" src="https://user-images.githubusercontent.com/10085348/189742681-bae8bd06-1ad9-4033-90b0-c03c3ad4514f.png">
+
+
+## Introducing variables.tf & terraform.tfvars
+
+Instead of havng a long lisf of variables in main.tf file, we can actually make our code a lot more readable and better structured by moving out some parts of the configuration content to other files.
+
+- We will put all variable declarations in a separate file And provide non default values to each of them
+- Create a new file and name it `variables.tf`
+- Copy all the variable declarations into the new file
+
+**main.tf**
+
+<img width="1174" alt="image" src="https://user-images.githubusercontent.com/10085348/189738831-cef2ca15-3b9f-41d6-895b-df38d092dd35.png">
+
+**variables.tf**
+
+<img width="705" alt="image" src="https://user-images.githubusercontent.com/10085348/189742243-c891798d-9f73-4ab3-9235-1a2abde27c2e.png">
+
+- Create another file, name it `terraform.tfvars`
+- Set values for each of the variables
+
+**terraform.tfvars**
+
+<img width="426" alt="image" src="https://user-images.githubusercontent.com/10085348/189737097-28d46d65-20bb-412f-9d4d-5a70ca321356.png">
+
+
+You should also have this file structure in the PBL folder
+
+
+<img width="378" alt="image" src="https://user-images.githubusercontent.com/10085348/189736737-9f00dbac-24d1-4eed-87f8-d00c22fdca8a.png">
+
+Run `terraform plan` and ensure everything works
+
+<img width="1124" alt="image" src="https://user-images.githubusercontent.com/10085348/189743073-14f5fb05-316f-4acf-8c0b-494127bdaf75.png">
+
+<img width="1253" alt="image" src="https://user-images.githubusercontent.com/10085348/189743152-96d60e7d-c7c3-4a21-8278-6354bc9ffbf2.png">
+
+Run `terraform apply -auto-approve` if satisfied
+
+<img width="1221" alt="image" src="https://user-images.githubusercontent.com/10085348/189743540-21ef5fa7-9c79-4259-bbf1-c9210636b430.png">
+
+<img width="845" alt="image" src="https://user-images.githubusercontent.com/10085348/189743639-0516390f-a1cf-4307-b181-e63a46e69a5c.png">
+
+
