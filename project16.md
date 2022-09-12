@@ -332,7 +332,7 @@ data "aws_availability_zones" "available" {
 }
 ```
 
-- `enable_classiclink_dns_support` was omitted early but now updated
+- `enable_classiclink_dns_support` was omitted earlier but now updated
 
 ```
  variable "enable_classiclink_dns_support" {
