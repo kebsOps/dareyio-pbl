@@ -573,10 +573,12 @@ resource "aws_security_group_rule" "inbound-mysql-webserver" {
 
 ### Creating Certificate From Amazon Certificate Manager
 
+**NOTE: Read Through to change the domain name to your own domain name and every other name that needs to be changed**
+
 Create ``cert.tf`` file and add the following code snippets to it.
 
 ```
-# The entire section create a certiface, public zone, and validate the certificate using DNS method
+# The entire section create a certificate, public zone, and validate the certificate using DNS method
 
 # Create the certificate using a wildcard for all the domains created in toolingkb.xyz
 resource "aws_acm_certificate" "toolingkb" {
@@ -829,3 +831,17 @@ resource "aws_lb_listener_rule" "tooling-listener" {
 }
 
 ```
+
+
+### CREATING AUTOSCALING GROUPS
+
+This Section we will create the Auto Scaling Group (ASG)
+
+Now we need to configure our ASG to be able to scale the EC2s out and in depending on the application traffic.
+
+Before we start configuring an ASG, we need to create the launch template and the the AMI needed. For now we are going to use a random AMI from AWS, then in project 19, we will use Packerto create our ami.
+
+Based on our Architetcture we need for **Auto Scaling Groups for bastion, nginx, wordpress and tooling,** so we will create two files; `asg-bastion-nginx.tf` will contain Launch Template and Austoscaling froup for Bastion and Nginx, then `asg-wordpress-tooling.tf` will contain Launch Template and Austoscaling group for wordpress and tooling.
+
+
+Create `asg-bastion-nginx.tf` and paste all the code snippet below:
