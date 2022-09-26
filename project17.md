@@ -1423,12 +1423,20 @@ Update `terraform.tfvars` file
 **Networking Concepts**
 
 **- IP Address:** An IP address is a unique address (example 192.168.0.0) that identifies a device/devices on the internet or a local network.
+
 **- Subnets:** is a network inside a network. it a logical breakdown of ip addresses in a network
 
 **- CIDR Notation:** is a method of assigning IP addresses that improves the efficiency of address distribution and replaces the previous system based on                      Class A, Class B and Class C networks. The initial goal of CIDR was to slow the increase of routing tables on routers across the                          internet and decrease the rapid exhaustion of IPv4 addresses. CIDR means Classless Inter Domain Routing.
 
-**- IP Routing:**
+**- IP Routing:**   Routing is the process of selecting a path for traffic in a network or between or across multiple networks
 
-**- Internet Gateways:**
+**- Internet Gateways:** An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between                            your VPC and the internet.
 
-**- NAT:**
+**- NAT:**  is the process where a network device, usually a firewall, assigns a public address to a computer (or group of computers) inside a private               network. The main use of NAT is to limit the number of public IP addresses an organization or company must use, for both economy and security             purposes.
+
+**- OSI Model and TCP/IP Suite:**  OSI model is generic, protocol independent, yet most protocols and systems adhere to it, while TCP/IP model is based                                      on standard protocols which the Internet has developed.
+
+**- Assume Role Policy and Role Policy:** Assume Role Policy returns a set of **temporary** security credentials that you can use to access AWS resources                                           that you might not normally have access to. These temporary credentials consist of an access key ID, a secret                                             access key, and a security token. While role policy define the set of permissions for making AWS service                                                 request whereas IAM policies define the permissions that you will require.
+
+
+link to [Github repo](https://github.com/kebsOps/Terraform/tree/project-17)
