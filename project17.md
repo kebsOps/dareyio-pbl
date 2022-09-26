@@ -1439,4 +1439,4 @@ Update `terraform.tfvars` file
 **- Assume Role Policy and Role Policy:** Assume Role Policy returns a set of **temporary** security credentials that you can use to access AWS resources                                           that you might not normally have access to. These temporary credentials consist of an access key ID, a secret                                             access key, and a security token. While role policy define the set of permissions for making AWS service                                                 request whereas IAM policies define the permissions that you will require.
 
 
-link to [Github repo](https://github.com/kebsOps/Terraform/tree/project-17)
+Link to [Github repo](https://github.com/kebsOps/Terraform/tree/project-17)
