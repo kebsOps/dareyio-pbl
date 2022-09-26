@@ -1166,10 +1166,21 @@ touch healthstatus
 sed -i "s/$db = mysqli_connect('mysql.tooling.svc.cluster.local', 'admin', 'admin', 'tooling');/$db = mysqli_connect('database-1.cy2s6kbdev0j.us-east-1.rds.amazonaws.com', 'Kebsadmin', 'admin12345', 'toolingdb');/g" functions.php
 chcon -t httpd_sys_rw_content_t /var/www/html/ -R
 systemctl restart httpd
-
 ```
 
-### Create Database And EFS Rwsources
+### Upload SSH Key to AWS EC2 Keypairs
+
+Add the following code to `keypair.tf` file:
+
+
+```
+resource "aws_key_pair" "devops" {
+  key_name   = "devopspl"
+  public_key = file("/path/to/id_rsa.pub")
+  }
+```
+
+### Create Database And EFS Resources
 
 In order to create an EFS you need to create a KMS key.
 
@@ -1209,7 +1220,6 @@ resource "aws_kms_alias" "alias" {
 ### create EFS and it's mount targets
 
 ```
-
 # create Elastic file system
 resource "aws_efs_file_system" "ACS-efs" {
   encrypted  = true
@@ -1394,8 +1404,31 @@ variable "master-password" {
 }
 ```
 
-
 Update `terraform.tfvars` file
 
 <img width="541" alt="image" src="https://user-images.githubusercontent.com/10085348/192187293-1203d4a4-b3c0-482a-be15-5ac25b9a767e.png">
 
+
+### Executing Terraform apply
+
+<img width="1173" alt="image" src="https://user-images.githubusercontent.com/10085348/192262968-d589db4a-c658-4af8-b579-a437f1c6ebd7.png">
+
+<img width="1218" alt="image" src="https://user-images.githubusercontent.com/10085348/192263095-770ecb04-97e8-4d2b-b90f-46a9b0a72fc7.png">
+
+<img width="1152" alt="image" src="https://user-images.githubusercontent.com/10085348/192263279-3266dc15-7ac5-41a3-b8ff-bffb345e8b1d.png">
+
+
+### Additional Tasks
+
+**Networking Concepts**
+
+**- IP Address:** An IP address is a unique address (example 192.168.0.0) that identifies a device/devices on the internet or a local network.
+**- Subnets:** is a network inside a network. it a logical breakdown of ip addresses in a network
+
+**- CIDR Notation:** is a method of assigning IP addresses that improves the efficiency of address distribution and replaces the previous system based on                      Class A, Class B and Class C networks. The initial goal of CIDR was to slow the increase of routing tables on routers across the                          internet and decrease the rapid exhaustion of IPv4 addresses. CIDR means Classless Inter Domain Routing.
+
+**- IP Routing:**
+
+**- Internet Gateways:**
+
+**- NAT:**
