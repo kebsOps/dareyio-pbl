@@ -16,4 +16,25 @@ Let us configure it!
 - ``terraform apply``
 
 
+Create a file called ``backend.tf`` and input the code below:
+
+<img width="986" alt="image" src="https://user-images.githubusercontent.com/10085348/196889429-34990847-4096-4254-b77c-9ce46164a750.png">
+
+
+
+<img width="518" alt="image" src="https://user-images.githubusercontent.com/10085348/196889561-c2ad0c89-77ea-480e-b781-827a0345af00.png">
+
+Configure S3 Backend
+
+<img width="611" alt="image" src="https://user-images.githubusercontent.com/10085348/196890156-805d134b-4341-42fa-a661-6ea499ff3117.png">
+
+
+
 <img width="947" alt="image" src="https://user-images.githubusercontent.com/10085348/194719085-2a4790dc-75a1-4e79-833c-f3244bfb6d17.png">
+
+
+<img width="1018" alt="image" src="https://user-images.githubusercontent.com/10085348/196970351-474d3e39-5023-4d12-8245-30cd5f33a505.png">
+
+
+<img width="1507" alt="image" src="https://user-images.githubusercontent.com/10085348/196970902-10cec319-eb86-4303-941f-a74adbfd9e59.png">
+
