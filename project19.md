@@ -11,3 +11,6 @@ In this project, we are going to run Terraform codes from project 18 in Terrafor
 <img width="1476" alt="image" src="https://user-images.githubusercontent.com/10085348/211000612-f3f9d753-599f-45c0-b8ab-e5e80151e370.png">
 
 <img width="1239" alt="image" src="https://user-images.githubusercontent.com/10085348/211000773-3cd1299f-0af4-48be-aeca-c180ad01e470.png">
+
+aws-list
+<img width="753" alt="image" src="https://user-images.githubusercontent.com/10085348/212020342-9326c113-4e1e-4345-8a30-da407af36f41.png">
