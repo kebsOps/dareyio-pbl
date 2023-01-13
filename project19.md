@@ -22,3 +22,6 @@ ansible play
 
 
 <img width="1211" alt="image" src="https://user-images.githubusercontent.com/10085348/212328264-6a318103-cf10-4380-854a-3ef34d896919.png">
+
+
+<img width="1234" alt="image" src="https://user-images.githubusercontent.com/10085348/212329443-da05db80-6da6-4aad-9b51-3127e96d01d7.png">
