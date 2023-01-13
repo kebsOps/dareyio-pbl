@@ -26,11 +26,29 @@ ansible play
 
 <img width="1234" alt="image" src="https://user-images.githubusercontent.com/10085348/212329443-da05db80-6da6-4aad-9b51-3127e96d01d7.png">
 
+Checking All HealthCheck Status for all Target groups
 
+nginx-tgt
+
+<img width="1033" alt="image" src="https://user-images.githubusercontent.com/10085348/212357408-668cff5e-c11a-4885-9968-ee8b88a0f551.png">
+
+
+tooling-tgt
+
+<img width="1039" alt="image" src="https://user-images.githubusercontent.com/10085348/212357683-1dab7ae6-832c-4d45-b3de-9e4494467076.png">
+
+worpress-tgt
+
+<img width="1043" alt="image" src="https://user-images.githubusercontent.com/10085348/212357883-212d381f-79c9-4a50-bf5f-8a9f5ab89b43.png">
+
+
+tooling
+<img width="1290" alt="image" src="https://user-images.githubusercontent.com/10085348/212356545-217de468-f761-4807-9d28-705730f4469e.png">
 
 wordpress
 <img width="1279" alt="image" src="https://user-images.githubusercontent.com/10085348/212353269-30c5fd65-4b2a-4460-b50e-9ab8829c60a8.png">
 
 
-tooling
-<img width="1290" alt="image" src="https://user-images.githubusercontent.com/10085348/212356545-217de468-f761-4807-9d28-705730f4469e.png">
+Destroying Resources
+
+<img width="1240" alt="image" src="https://user-images.githubusercontent.com/10085348/212358395-e2197809-4c43-4eec-8737-c6a01ccf56cf.png">
