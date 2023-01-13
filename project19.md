@@ -16,3 +16,6 @@ aws-list
 
 <img width="730" alt="image" src="https://user-images.githubusercontent.com/10085348/212323007-b15694c2-fcb6-425a-ba4e-e8b16041ecfc.png">
 
+ansible play
+
+<img width="1004" alt="image" src="https://user-images.githubusercontent.com/10085348/212325573-5f24a26b-8b5d-40d7-b125-6fb97c2efc2e.png">
