@@ -25,3 +25,12 @@ ansible play
 
 
 <img width="1234" alt="image" src="https://user-images.githubusercontent.com/10085348/212329443-da05db80-6da6-4aad-9b51-3127e96d01d7.png">
+
+
+
+wordpress
+<img width="1279" alt="image" src="https://user-images.githubusercontent.com/10085348/212353269-30c5fd65-4b2a-4460-b50e-9ab8829c60a8.png">
+
+
+tooling
+<img width="1290" alt="image" src="https://user-images.githubusercontent.com/10085348/212356545-217de468-f761-4807-9d28-705730f4469e.png">
