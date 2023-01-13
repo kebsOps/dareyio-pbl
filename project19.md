@@ -14,10 +14,5 @@ In this project, we are going to run Terraform codes from project 18 in Terrafor
 
 aws-list
 
-![image](https://user-images.githubusercontent.com/10085348/212020754-0caf5377-d413-43c2-9798-462af3e414f5.png)
+<img width="730" alt="image" src="https://user-images.githubusercontent.com/10085348/212323007-b15694c2-fcb6-425a-ba4e-e8b16041ecfc.png">
 
-
-<img width="738" alt="image" src="https://user-images.githubusercontent.com/10085348/212114532-b42b928c-e7a7-4c1b-885e-45f0ab11f76a.png">
-
-
-<img width="730" alt="image" src="https://user-images.githubusercontent.com/10085348/212115732-c31b535d-4ca6-4c18-aa40-0407a00e8064.png">
