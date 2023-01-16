@@ -49,6 +49,37 @@ wordpress
 <img width="1279" alt="image" src="https://user-images.githubusercontent.com/10085348/212353269-30c5fd65-4b2a-4460-b50e-9ab8829c60a8.png">
 
 
-Destroying Resources
+
+
+
+## Practice Task № 1
+
+- Configure 3 branches in your terraform-cloud repository for ``dev, test, prod environments``
+
+
+<img width="867" alt="Screenshot 2023-01-16 at 13 45 36" src="https://user-images.githubusercontent.com/10085348/212681484-686ebff2-4501-45dd-b8a2-c4a827ffb121.png">
+
+
+- Make necessary configuration to trigger runs automatically only for ``dev environment``
+
+<img width="1259" alt="Screenshot 2023-01-16 at 13 32 44" src="https://user-images.githubusercontent.com/10085348/212679463-110584ca-960b-42be-92b3-854006106bc1.png">
+
+- Create an Email and Slack notifications for certain events (e.g. started plan or errored run) and test it
+
+  - Email notifications:
+
+<img width="1206" alt="Screenshot 2023-01-16 at 13 39 23" src="https://user-images.githubusercontent.com/10085348/212681013-1e16b3df-9e32-48ce-8143-c25fcd2716fb.png">
+
+
+  - Slack notifications:
+
+![image](https://user-images.githubusercontent.com/10085348/212682326-6b5bad8e-bce2-4422-9cb9-e4b690fa9b97.png)
+
+
+- Apply destroy from Terraform Cloud web console
 
 <img width="1240" alt="image" src="https://user-images.githubusercontent.com/10085348/212358395-e2197809-4c43-4eec-8737-c6a01ccf56cf.png">
+
+## Practice Task № 2 Working with Private repository
+
+
