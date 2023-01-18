@@ -83,3 +83,10 @@ wordpress
 ## Practice Task № 2 Working with Private repository
 
 
+<img width="721" alt="image" src="https://user-images.githubusercontent.com/10085348/213100401-f834f8e2-7147-4fb2-9a15-dd760993406b.png">
+
+
+
+<img width="1101" alt="image" src="https://user-images.githubusercontent.com/10085348/213118168-99052422-c08c-4f94-a106-fe93350180e6.png">
+
+
