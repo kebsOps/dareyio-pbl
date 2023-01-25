@@ -11,3 +11,8 @@ and some of the applications will require various OS and runtimes of different v
 When it scales out to tens/hundreds and even thousands of applications (e.g., when we talk of microservice architecture), this approach becomes very tedious and challenging to maintain.
 
 In this project, we will learn how to solve this problem and practice the technology that revolutionized application distribution and deployment back in 2013! We are talking of Containers and imply Docker. Even though there are other application containerization technologies, Docker is the standard and the default choice for shipping your app in a container!
+
+
+## Migrate Tooling Web Application from a VM-based solution into a containerized one
+
+### MySQL in container
