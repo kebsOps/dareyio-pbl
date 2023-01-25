@@ -86,14 +86,14 @@ docker rm mysql_db or <container ID> a314ead7bacf
 
 <img width="661" alt="image" src="https://user-images.githubusercontent.com/10085348/214519977-2c81104a-1b3d-4637-8d0d-936d4e223f55.png">
 
-- First, create a network:
+First, create a network:
 
 ``docker network create --subnet=172.18.0.0/24 tooling_app_network``
 
 <img width="719" alt="image" src="https://user-images.githubusercontent.com/10085348/214521319-8a5a1fa0-30ea-4032-bdf1-df9b6861192f.png">
 
 
-- Export an environment variable containing the root password setup earlier:
+Export an environment variable containing the root password setup earlier:
 
 ``export MYSQL_PW=admin12345``
 
@@ -105,10 +105,101 @@ Then, pull the image and run the container, all in one command like below:
 <img width="1250" alt="image" src="https://user-images.githubusercontent.com/10085348/214522443-f1d5554f-fed8-49e4-8b10-1d86164e9bd2.png">
 
 
+Verify the container is running:
+
+<img width="1185" alt="image" src="https://user-images.githubusercontent.com/10085348/214523820-b6e64beb-7c16-48f2-bc4f-63436a503fd8.png">
+
+Create a file and name it create_user.sql and add the below code in the file:
+
+ ``CREATE USER ''@'%' IDENTIFIED BY ''; GRANT ALL PRIVILEGES ON * . * TO ''@'%';``
+
+Run the script:
+
+Ensure you are in the directory  ``create_user.sql`` file is located or declare a path
+
+ ``docker exec -i mysql-server mysql -uroot -p$MYSQL_PW < create_user.sql``
+
+If you see a warning like below, it is acceptable to ignore:
+
+``mysql: [Warning] Using a password on the command line interface can be insecure.``
+
+## Connecting to the MySQL server from a second container running the MySQL client utility
+
+Run the MySQL Client Container:
+
+ ``docker run --network tooling_app_network --name mysql-client -it --rm mysql mysql -h mysqlserverhost -u  -p``
+ 
+ 
+ ## Prepare database schema
+ 
+Now you need to prepare a database schema so that the Tooling application can connect to it.
+
+- Clone the Tooling-app repository from here
+
+ ``git clone https://github.com/darey-devops/tooling.git``
+On your terminal, export the location of the SQL file
+
+ ``export tooling_db_schema=./tooling_db_schema.sql`` 
+
+You can find the ``tooling_db_schema.sql`` in the ``tooling/html/tooling_db_schema.sql`` folder of the cloned repo.
+
+- Verify that the path is exported
+
+ ``echo $tooling_db_schema``
+ 
+- Use the SQL script to create the database and prepare the schema. With the docker exec command, you can execute a command in a running container.
+ 
+ ``docker exec -i mysql-server mysql -uroot -p$MYSQL_PW < $tooling_db_schema`` 
+
+- Update the ``.env file`` with connection details to the database
+ The ``.env file`` is located in the **html** ``tooling/html/.env`` folder but not visible in terminal. you can use vi or nano
+
+```
+sudo vi .env
+
+MYSQL_IP=mysqlserverhost
+MYSQL_USER=username
+MYSQL_PASS=client-secrete-password
+MYSQL_DBNAME=toolingdb
+```
+
+### Run the Tooling App
+
+- First build the Docker image. change directory into the tooling folder, where the Dockerfile is located:
+
+<img width="906" alt="image" src="https://user-images.githubusercontent.com/10085348/214531236-463c173e-66f9-42a2-b275-4a6020b6887b.png">
+
+Then run:
+
+``docker build -t tooling:0.0.1 . ``
 
 
+<img width="983" alt="image" src="https://user-images.githubusercontent.com/10085348/214530936-be744f85-4bb9-4a54-9c36-d5ff3b905d2e.png">
 
+_In the above command, we specify a parameter -t, so that the image can be tagged **tooling"0.0.1** - Also, you have to notice the **.** at the end. This is important as that tells Docker to locate the Dockerfile in the current directory you are running the command. Otherwise, you would need to specify the absolute path to the Dockerfile._
 
+Run the container:
 
+``docker run --network tooling_app_network -p 8085:80 -it tooling:0.0.1 ``
 
+**Blocker**:
+
+Had to Update ``db_conn.php`` file with the database connection information below:
+
+``
+$servername = "mysqlserverhost"; // input servername
+$username = ""; // input username
+$password = ""; //input password
+$dbname = "toolingdb"; // input dbname
+``
+
+Then rebuilt the image and ran the container
+
+<img width="1236" alt="Screenshot 2023-01-25 at 11 08 11" src="https://user-images.githubusercontent.com/10085348/214535766-7682757a-b0e9-43cf-ba32-ccc91c17f225.png">
+
+If everything works, you can open the browser and type http://localhost:8085
+
+You will see the login page.
+
+<img width="1153" alt="image" src="https://user-images.githubusercontent.com/10085348/214536132-d373057b-a3ec-447c-a3ae-2fb8b1af897b.png">
 
