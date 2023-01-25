@@ -1,18 +1,114 @@
 ## MIGRATION TO THE СLOUD WITH CONTAINERIZATION. PART 1 – DOCKER AND DOCKER COMPOSE
 
-Until now, you have been using VMs (AWS EC2) in Amazon Virtual Private Cloud (AWS VPC) to deploy your web solutions, and it works well in many cases.
+Until now, we have been using VMs (AWS EC2) in Amazon Virtual Private Cloud (AWS VPC) to deploy our web solutions, and it works well in many cases.
 
 
-You have learned how easy to spin up and configure a new EC2 manually or with such tools as Terraform and Ansible to automate provisioning and configuration.
+We have learned how easy to spin up and configure a new EC2 manually or with such tools as Terraform and Ansible to automate provisioning and configuration.
 
 
-We've also deployed two different websites on the same VM; this approach is scalable, but to some extent; imagine what if you need to deploy many small applications (it can be web front-end, web-backend, processing jobs, monitoring, logging solutions, etc.)
-and some of the applications will require various OS and runtimes of different versions and conflicting dependencies – in such case you would need to spin up serves for each group of applications with the exact OS/runtime/dependencies requirements. 
+We've also deployed two different websites on the same VM; this approach is scalable, but to some extent; imagine what if we need to deploy many small applications (it can be web front-end, web-backend, processing jobs, monitoring, logging solutions, etc.)
+and some of the applications will require various OS and runtimes of different versions and conflicting dependencies – in such case we would need to spin up servers for each group of applications with the exact OS/runtime/dependencies requirements. 
 When it scales out to tens/hundreds and even thousands of applications (e.g., when we talk of microservice architecture), this approach becomes very tedious and challenging to maintain.
 
 In this project, we will learn how to solve this problem and practice the technology that revolutionized application distribution and deployment back in 2013! We are talking of Containers and imply Docker. Even though there are other application containerization technologies, Docker is the standard and the default choice for shipping your app in a container!
 
+## Install Docker and prepare for migration to the Cloud
+
+First, we need to install Docker Engine, which is a client-server application that contains:
+
+- A server with a long-running daemon process dockerd.
+- APIs that specify interfaces that programs can use to talk to and instruct the Docker daemon.
+- A command-line interface (CLI) client docker.
+
 
 ## Migrate Tooling Web Application from a VM-based solution into a containerized one
 
+
 ### MySQL in container
+
+Pull MySQL Docker Image from Docker Hub Registry
+
+``docker pull mysql/mysql-server:latest``
+
+<img width="758" alt="image" src="https://user-images.githubusercontent.com/10085348/214514092-e3344079-35d9-44ff-a9c6-233fd60ef8a6.png">
+
+
+### List the images to check that you have downloaded them successfully:
+
+``docker image ls``
+
+![image](https://user-images.githubusercontent.com/10085348/214516135-0719e115-8314-429a-9397-b5589576585f.png)
+
+
+### Deploy the MySQL Container to your Docker Engine
+
+``docker run --name mysql -e MYSQL_ROOT_PASSWORD=adminPassword -d mysql/mysql-server:latest``
+
+Replace name and password flags to suit your preference. 
+Then Run ``docker ps -a to see all your containers (running or stopped)
+
+![image](https://user-images.githubusercontent.com/10085348/214516945-e7e4ffaa-0d92-4929-bb61-d4d530946c5a.png)
+
+<img width="1095" alt="Screenshot 2023-01-25 at 09 36 07" src="https://user-images.githubusercontent.com/10085348/214517275-c96c0110-d39e-4984-91bd-f2a170a238de.png">
+
+
+The virtual environment status changes from health: starting to healthy, once the setup is complete.
+
+
+## Connecting to the MySQL Docker container
+
+We can either connect directly to the container running the MySQL server or use a second container as a MySQL client. Let us see what the first option looks like.
+
+**Approach 1**
+
+Connecting directly to the container running the MySQL server:
+
+``docker exec -it mysql bash``
+
+or
+
+``docker exec -it mysql mysql -uroot -p``
+
+Provide the root password when prompted. With that, you’ve connected the MySQL client to the server.
+
+<img width="605" alt="image" src="https://user-images.githubusercontent.com/10085348/214518262-71368a2c-92dc-4dcb-a85c-3acc8d10720d.png">
+
+
+**Approach 2**
+
+At this stage you are now able to create a docker container but we will need to add a network. So, stop and remove the previous mysql docker container.
+
+```
+docker ps -a
+docker stop mysql_db
+docker rm mysql_db or <container ID> a314ead7bacf
+```
+
+<img width="661" alt="image" src="https://user-images.githubusercontent.com/10085348/214519977-2c81104a-1b3d-4637-8d0d-936d4e223f55.png">
+
+- First, create a network:
+
+``docker network create --subnet=172.18.0.0/24 tooling_app_network``
+
+<img width="719" alt="image" src="https://user-images.githubusercontent.com/10085348/214521319-8a5a1fa0-30ea-4032-bdf1-df9b6861192f.png">
+
+
+- Export an environment variable containing the root password setup earlier:
+
+``export MYSQL_PW=admin12345``
+
+
+Then, pull the image and run the container, all in one command like below:
+
+ ``docker run --network tooling_app_network -h mysqlserverhost --name=mysql-server -e MYSQL_ROOT_PASSWORD=$MYSQL_PW  -d mysql/mysql-server:latest``
+
+<img width="1250" alt="image" src="https://user-images.githubusercontent.com/10085348/214522443-f1d5554f-fed8-49e4-8b10-1d86164e9bd2.png">
+
+
+
+
+
+
+
+
+
