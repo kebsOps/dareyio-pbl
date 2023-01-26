@@ -203,3 +203,16 @@ You will see the login page.
 
 <img width="1153" alt="image" src="https://user-images.githubusercontent.com/10085348/214536132-d373057b-a3ec-447c-a3ae-2fb8b1af897b.png">
 
+
+
+## Practice Task № 1 – Implement a POC to migrate the PHP-Todo app into a containerized application.
+
+Download php-todo repository [from here](https://github.com/darey-devops/php-todo)
+
+Part 1
+
+- Write a Dockerfile for the TODO app
+- Run both database and app on your laptop Docker Engine
+- Access the application from the browser
+
+
