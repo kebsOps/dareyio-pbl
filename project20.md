@@ -212,7 +212,26 @@ Download php-todo repository [from here](https://github.com/darey-devops/php-tod
 Part 1
 
 - Write a Dockerfile for the TODO app
+
+<img width="940" alt="image" src="https://user-images.githubusercontent.com/10085348/215599829-a289fc5e-6c68-4d97-a01c-edf7a5423e83.png">
+
+
 - Run both database and app on your laptop Docker Engine
+
+<img width="1019" alt="image" src="https://user-images.githubusercontent.com/10085348/215600031-d50dc3d8-e84c-4a4b-a5db-de7bf808eb02.png">
+
+
+<img width="483" alt="image" src="https://user-images.githubusercontent.com/10085348/215600783-695b39ee-1c72-4995-9f78-f6c475f5c1bf.png">
+
+
+<img width="799" alt="image" src="https://user-images.githubusercontent.com/10085348/215600243-6b919f89-fa93-46ff-8df4-6c673dc97197.png">
+
+
+<img width="1037" alt="image" src="https://user-images.githubusercontent.com/10085348/215602401-c942b8cf-5e07-4433-91db-0e26751ea331.png">
+
+<img width="1037" alt="image" src="https://user-images.githubusercontent.com/10085348/215602719-bb07ff13-c092-4125-9b67-55743abf5246.png">
+
+
 - Access the application from the browser
 
-
+<img width="1255" alt="image" src="https://user-images.githubusercontent.com/10085348/215603242-49c39bea-691f-4d66-837f-ba82dfc483e3.png">
