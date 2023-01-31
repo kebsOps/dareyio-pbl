@@ -209,7 +209,7 @@ You will see the login page.
 
 Download php-todo repository [from here](https://github.com/darey-devops/php-todo)
 
-Part 1
+## Part 1
 
 - Write a Dockerfile for the TODO app
 
@@ -235,3 +235,37 @@ Part 1
 - Access the application from the browser
 
 <img width="1255" alt="image" src="https://user-images.githubusercontent.com/10085348/215603242-49c39bea-691f-4d66-837f-ba82dfc483e3.png">
+
+
+## Part 2
+
+- Create an account in Docker Hub
+
+<img width="1293" alt="image" src="https://user-images.githubusercontent.com/10085348/215759017-ea994173-79be-4e10-a2cf-c161c2d5e903.png">
+
+
+- Create a new Docker Hub repository
+
+<img width="1290" alt="image" src="https://user-images.githubusercontent.com/10085348/215764505-b04c6b1e-30e1-4215-a340-1fdd537af210.png">
+
+
+- Push the docker images from your PC to the repository
+
+<img width="750" alt="image" src="https://user-images.githubusercontent.com/10085348/215766184-4886dce4-faf6-4905-841b-19d78ed0860f.png">
+
+<img width="1264" alt="image" src="https://user-images.githubusercontent.com/10085348/215766403-f95625b5-26d5-4967-b5b1-a6b9fe696624.png">
+
+
+## Part 3
+
+- Write a Jenkinsfile that will simulate a Docker Build and a Docker Push to the registry
+
+- Connect your repo to Jenkins
+
+- Create a multi-branch pipeline
+
+- Simulate a CI pipeline from a feature and master branch using previously created Jenkinsfile
+
+- Ensure that the tagged images from your Jenkinsfile have a prefix that suggests which branch the image was pushed from. For example, **feature-0.0.1**
+
+- Verify that the images pushed from the CI can be found at the registry.
