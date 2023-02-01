@@ -260,6 +260,17 @@ Download php-todo repository [from here](https://github.com/darey-devops/php-tod
 
 - Write a Jenkinsfile that will simulate a Docker Build and a Docker Push to the registry
 
+**Setup Jenkins**
+
+ Run the command ``docker pull jenkins/jenkins:lts`` to pull Jenkins image from Docker hub.
+ 
+<img width="585" alt="Screenshot 2023-02-01 at 11 17 25" src="https://user-images.githubusercontent.com/10085348/216016271-3aacb085-8316-481a-89a3-64f6d40c4cb3.png">
+
+Run container using ``docker run -d  -p 8080:8080 -p 50000:50000 -v /your/home:/var/jenkins_home jenkins/jenkins:lts``
+
+<img width="894" alt="image" src="https://user-images.githubusercontent.com/10085348/216019512-bd7a2e75-78d9-4a9a-82a7-35ccab1a16b0.png">
+
+
 - Connect your repo to Jenkins
 
 - Create a multi-branch pipeline
