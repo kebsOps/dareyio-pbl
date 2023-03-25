@@ -280,3 +280,7 @@ Run container using ``docker run -d  -p 8080:8080 -p 50000:50000 -v /your/home:/
 - Ensure that the tagged images from your Jenkinsfile have a prefix that suggests which branch the image was pushed from. For example, **feature-0.0.1**
 
 - Verify that the images pushed from the CI can be found at the registry.
+
+
+<img width="1207" alt="image" src="https://user-images.githubusercontent.com/10085348/227723392-b6e3d394-981b-4fe0-aee5-e5c0b6e1582b.png">
+
