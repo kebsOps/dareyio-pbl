@@ -286,6 +286,9 @@ Run container using ``docker run -d  -p 8080:8080 -p 50000:50000 -v /your/home:/
 
 <img width="1279" alt="image" src="https://user-images.githubusercontent.com/10085348/227723481-c3579f3b-6313-4f18-ac1f-7cd2e39144c5.png">
 
+<img width="1068" alt="image" src="https://user-images.githubusercontent.com/10085348/227924821-8dbe9d1d-aa82-4086-adfb-3e181a4937e5.png">
+
+
 ## Deployment with Docker Compose
 
 Create a file, name it ``tooling.yaml``
@@ -328,4 +331,27 @@ Verify that the compose is in the running status:
 ``docker compose ls``
 
 <img width="892" alt="image" src="https://user-images.githubusercontent.com/10085348/227918110-a5ff03df-372c-4f8b-853b-2750546a82bc.png">
+ 
+## Practice Task № 2 – Complete Continous Integration With A Test Stage
+
+## Document your understanding of the various fields in tooling.yaml
+
+- version: "3.9" specifies the version of the Compose file format to use.
+- services: defines the services that make up the application.
+- tooling_frontend: a service that runs the frontend of the application.
+- build: specifies the Dockerfile to use for building the image.
+- ports: maps the container port 80 to the host port 5000.
+- volumes: mounts the tooling_frontend volume to the /var/www/html directory in the container.
+- links: creates a link to the db service.
+- db: a service that runs a MySQL database.
+- image: specifies the Docker image to use.
+- restart: sets the restart policy to "always", so the container restarts automatically if it stops.
+- environment: sets environment variables that are required for the database to function properly.
+- volumes: mounts the db volume to the `/var/lib/mysql` directory in the container.
+- volumes: defines the named volumes used by the services to persist data across container restarts. In this case, two named volumes are defined: tooling_frontend and db.
+
+## Update Jenkinsfile with a test stage
+
+
+
 
