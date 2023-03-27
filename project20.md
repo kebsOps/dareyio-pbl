@@ -286,8 +286,46 @@ Run container using ``docker run -d  -p 8080:8080 -p 50000:50000 -v /your/home:/
 
 <img width="1279" alt="image" src="https://user-images.githubusercontent.com/10085348/227723481-c3579f3b-6313-4f18-ac1f-7cd2e39144c5.png">
 
+## Deployment with Docker Compose
+
+Create a file, name it ``tooling.yaml``
+
+```
+version: "3.9"
+services:
+  tooling_frontend:
+    build: .
+    ports:
+      - "5000:80"
+    volumes:
+      - tooling_frontend:/var/www/html
+    links:
+      - db
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: <The database name required by Tooling app >
+      MYSQL_USER: <The user required by Tooling app >
+      MYSQL_PASSWORD: <The password required by Tooling app >
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - db:/var/lib/mysql
+volumes:
+  tooling_frontend:
+  db:
+
+```
+
+Run the command to start the containers
+
+``docker-compose -f tooling.yaml  up -d``
+
 <img width="1156" alt="image" src="https://user-images.githubusercontent.com/10085348/227917848-5ed0f53d-7046-45b6-a205-94f6354d48b8.png">
 
+Verify that the compose is in the running status:
+
+``docker compose ls``
 
 <img width="892" alt="image" src="https://user-images.githubusercontent.com/10085348/227918110-a5ff03df-372c-4f8b-853b-2750546a82bc.png">
 
