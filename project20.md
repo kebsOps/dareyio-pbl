@@ -352,6 +352,8 @@ Verify that the compose is in the running status:
 
 ## Update Jenkinsfile with a test stage
 
+<img width="1278" alt="image" src="https://user-images.githubusercontent.com/10085348/228618140-8d0ae8b8-9a7d-452d-8100-86483bb1d623.png">
 
+[Link to github repo](https://github.com/kebsOps/php-todo)
 
 
