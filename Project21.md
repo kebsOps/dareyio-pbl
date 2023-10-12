@@ -30,7 +30,7 @@ You will a few client tools installed and configurations made on your client wor
 
 **- cfssljson**  a program, which takes the JSON output from the cfssl and writes certificates, keys, CSRs, and bundles to disk.
 
-###Install and configure AWS CLI
+### Install and configure AWS CLI
 
 Configure AWS CLI to access all AWS services used, for this you need to have a user with programmatic access keys configured in AWS Identity and Access Management (IAM):
 
@@ -41,12 +41,12 @@ On your local workstation download and install the latest version of AWS CLI
 <img width="900" alt="Screenshot 2023-10-12 at 14 46 24" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/1565d366-fd36-425a-b345-a565d6e65f66">
 
 
-##Intalling Kubectl
+## Install Kubectl
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/1ac24ec9-15ab-4e90-bd92-17f0e29770e9)
 
 
-##Install CFSSL and CFSSLJSON**
+## Install CFSSL and CFSSLJSON**
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/617cc40a-f14c-4dcd-a3df-b1045a22c3b9)
 
