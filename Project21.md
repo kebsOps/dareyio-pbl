@@ -22,10 +22,20 @@ some of them can be deployed as services, some can be also deployed as separate 
 
 You will a few client tools installed and configurations made on your client workstation which include the following:
 
-**- awscli** – is a unified tool to manage your AWS services
+**- awscli**  is a unified tool to manage your AWS services
 
-**- kubectl** – this command line utility will be your main control tool to manage your K8s cluster. 
+**- kubectl**  this command line utility will be your main control tool to manage your K8s cluster. 
 
-**- cfssl** – an open source toolkit for everything TLS/SSL from Cloudflare
+**- cfssl**  an open source toolkit for everything TLS/SSL from Cloudflare
 
-**- cfssljson** – a program, which takes the JSON output from the cfssl and writes certificates, keys, CSRs, and bundles to disk.
+**- cfssljson**  a program, which takes the JSON output from the cfssl and writes certificates, keys, CSRs, and bundles to disk.
+
+**Install and configure AWS CLI**
+
+Configure AWS CLI to access all AWS services used, for this you need to have a user with programmatic access keys configured in AWS Identity and Access Management (IAM):
+
+On your local workstation download and install the latest version of AWS CLI
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/b7ffbc0e-a622-4833-8f03-6289e2fe1822)
+
+
