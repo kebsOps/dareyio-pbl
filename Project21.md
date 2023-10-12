@@ -46,7 +46,7 @@ On your local workstation download and install the latest version of AWS CLI
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/1ac24ec9-15ab-4e90-bd92-17f0e29770e9)
 
 
-## Install CFSSL and CFSSLJSON**
+## Install CFSSL and CFSSLJSON
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/617cc40a-f14c-4dcd-a3df-b1045a22c3b9)
 
