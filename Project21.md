@@ -40,9 +40,11 @@ On your local workstation download and install the latest version of AWS CLI
 
 <img width="900" alt="Screenshot 2023-10-12 at 14 46 24" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/1565d366-fd36-425a-b345-a565d6e65f66">
 
+
 **Intalling Kubectl**
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/1ac24ec9-15ab-4e90-bd92-17f0e29770e9)
+
 
 
 **Install CFSSL and CFSSLJSON**
