@@ -38,4 +38,6 @@ On your local workstation download and install the latest version of AWS CLI
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/b7ffbc0e-a622-4833-8f03-6289e2fe1822)
 
+<img width="900" alt="Screenshot 2023-10-12 at 14 46 24" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/1565d366-fd36-425a-b345-a565d6e65f66">
+
 
