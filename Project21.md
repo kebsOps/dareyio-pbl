@@ -285,4 +285,9 @@ Kubernetes uses etcd (A distributed key value store) to store variety of data wh
   ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/1f391156-4730-4930-86af-d0308bf2826e)
 
   
+### Send the encryption file to the Controller nodes using scp and a for loop
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/6da88896-7eae-463e-8854-25ea4bd76db5)
+
+
 
