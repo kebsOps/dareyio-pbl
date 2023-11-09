@@ -251,5 +251,22 @@ done
 
 
 ```
+
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/8588314a-e5bc-45cb-9bbe-970cd4334048)
 
+
+### Use kubectl to Generate Kubernetes Configuration Files for Authentication
+
+First, let us create a few environment variables for reuse by multiple commands
+
+``KUBERNETES_API_SERVER_ADDRESS=$(aws elbv2 describe-load-balancers --load-balancer-arns ${LOAD_BALANCER_ARN} --output text --query 'LoadBalancers[].DNSName')``
+
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/af327401-7ebb-4bcf-85f4-36f30f85ff04)
+
+### Sending kubeconfig to worker
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/7d7ce564-434a-4427-89a9-c1b511149880)
+
+
+### Sending kubeconfig to master
