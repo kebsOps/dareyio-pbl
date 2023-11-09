@@ -264,9 +264,12 @@ First, let us create a few environment variables for reuse by multiple commands
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/af327401-7ebb-4bcf-85f4-36f30f85ff04)
 
-### Sending kubeconfig to worker
+### Send kubeconfig to worker nodes
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/7d7ce564-434a-4427-89a9-c1b511149880)
 
 
-### Sending kubeconfig to master
+### Send kubeconfig to master nodes
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/ede6e41e-361e-4c2c-8145-cafc2c5843df)
+
