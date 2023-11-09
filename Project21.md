@@ -273,3 +273,16 @@ First, let us create a few environment variables for reuse by multiple commands
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/ede6e41e-361e-4c2c-8145-cafc2c5843df)
 
+
+###  Prepare the etcd database for encryption at rest
+
+Kubernetes uses etcd (A distributed key value store) to store variety of data which includes the cluster state, application configurations, and secrets. By default, the data that is being persisted to the disk is not encrypted.
+
+- Generate the encryption key and encode it using base64
+  
+  ``ETCD_ENCRYPTION_KEY=$(head -c 64 /dev/urandom | base64)``
+
+  ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/1f391156-4730-4930-86af-d0308bf2826e)
+
+  
+
