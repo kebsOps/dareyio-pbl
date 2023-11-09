@@ -185,3 +185,9 @@ Using the CA, we provision TLS certs for the following
 - kubelet
 - kube-proxy
 - Kubernetes Admin User
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/bd12e010-e58b-4ed1-8380-ac7b61c9e07e)
+
+
+
+
