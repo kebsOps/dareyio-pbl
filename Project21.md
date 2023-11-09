@@ -189,5 +189,41 @@ Using the CA, we provision TLS certs for the following
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/bd12e010-e58b-4ed1-8380-ac7b61c9e07e)
 
 
+### Distributing the Client and Server Certificates
+
+Now it is time to start sending all the client and server certificates to their respective instances.
+
+### Sending to Worker Instance Servers
+
+```
+for i in 0 1 2; do
+  instance="k8s-cluster-worker-${i}"
+  echo "Retrieving public IP for ${instance}..."
+  external_ip=$(aws ec2 describe-instances \
+    --filters "Name=tag:Name,Values=${instance}" \
+    --query "Reservations[*].Instances[*].PublicIpAddress" \
+    --output text)
+
+  if [ -z "$external_ip" ]; then
+    echo "No IP address found for ${instance}"
+  else
+    echo "Found IP ${external_ip} for ${instance}. Starting SCP..."
+    scp  -i ../ssh/k8s-cluster-from-ground-up.id_rsa \
+      ca.pem k8s-cluster-from-ground-up-worker-${i}-key.pem k8s-cluster-from-ground-up-worker-${i}.pem ubuntu@${external_ip}:~/
+    if [ $? -eq 0 ]; then
+      echo "Files copied to ${instance} successfully."
+    else
+      echo "Error copying files to ${instance}."
+    fi
+  fi
+done
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/3d20d376-bb39-4474-8c4a-8999b197e0f2)
+
+```
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/6f7bfce2-61c2-464f-9f50-b236a2d898f5)
+
+
+### Sending to Master Instance Servers
 
 
