@@ -1,4 +1,4 @@
-![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/5a1c24fe-10ef-453e-9456-7d5b1b3b024a)## Orchestrating Containers across Multiple Virtual Servers with Kubernetes
+## Orchestrating Containers across Multiple Virtual Servers with Kubernetes
 
 ### Kubernetes Architecture
 Kubernetes is a not a single package application that you can install with one command, it is comprised of several components, 
