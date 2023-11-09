@@ -142,7 +142,17 @@ OU – Organizational Unit
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/ac5a065f-eff3-4066-afaf-e4767e4dbbb0)
 
 
+List the directory to see the created files
 
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/6ebabfea-3e7f-4054-9b94-a710e63978ae)
+
+The 3 important files here are:
+
+**ca.pem** – The Root Certificate
+>
+**ca-key.pem** – The Private Key
+>
+**ca.csr** – The Certificate Signing Request
 
 
 ### Generating TLS Certificates For Client and Server
