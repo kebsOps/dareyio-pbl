@@ -50,7 +50,7 @@ On your local workstation download and install the latest version of AWS CLI
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/617cc40a-f14c-4dcd-a3df-b1045a22c3b9)
 
-
+ [Link to terraform code ](https://github.com/kebsOps/k8s-cluster-from-ground-up)
 
 ## PREPARE THE SELF-SIGNED CERTIFICATE AUTHORITY AND GENERATE TLS CERTIFICATES
 ### The following components running on the Master node will require TLS certificates.
