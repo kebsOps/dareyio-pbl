@@ -50,3 +50,107 @@ On your local workstation download and install the latest version of AWS CLI
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/617cc40a-f14c-4dcd-a3df-b1045a22c3b9)
 
+
+
+## PREPARE THE SELF-SIGNED CERTIFICATE AUTHORITY AND GENERATE TLS CERTIFICATES
+### The following components running on the Master node will require TLS certificates.
+- kube-controller-manager
+- kube-scheduler
+- etcd
+- kube-apiserver
+  
+### The following components running on the Worker nodes will require TLS certificates.
+- kubelet
+- kube-proxy
+
+We will provision a **PKI** Infrastructure using cfssl which will have a Certificate Authority. The CA will then generate certificates for all the individual components.
+
+### Self-Signed Root Certificate Authority (CA)
+- We provision a CA that will be used to sign additional TLS certificates.
+
+  Create a directory and cd into it:
+
+``mkdir ca-authority && cd ca-authority``
+
+Generate the CA configuration file, Root Certificate, and Private key:
+
+```
+ {
+
+cat > ca-config.json <<EOF
+{
+  "signing": {
+    "default": {
+      "expiry": "8760h"
+    },
+    "profiles": {
+      "kubernetes": {
+        "usages": ["signing", "key encipherment", "server auth", "client auth"],
+        "expiry": "8760h"
+      }
+    }
+  }
+}
+EOF
+
+cat > ca-csr.json <<EOF
+{
+  "CN": "Kubernetes",
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "UK",
+      "L": "England",
+      "O": "Kubernetes",
+      "OU": "DAREY.IO DEVOPS",
+      "ST": "London"
+    }
+  ]
+}
+EOF
+
+cfssl gencert -initca ca-csr.json | cfssljson -bare ca
+
+}
+```
+
+The file defines the following:
+
+```
+CN – Common name for the authority
+
+algo – the algorithm used for the certificates
+
+size – algorithm size in bits
+
+C – Country
+
+L – Locality (city)
+
+ST – State or province
+
+O – Organization
+
+OU – Organizational Unit
+```
+
+**Output:**
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/ac5a065f-eff3-4066-afaf-e4767e4dbbb0)
+
+
+
+
+
+### Generating TLS Certificates For Client and Server
+
+Using the CA, we provision TLS certs for the following
+- kube-controller-manager
+- kube-scheduler
+- etcd
+- kubelet
+- kube-proxy
+- Kubernetes Admin User
