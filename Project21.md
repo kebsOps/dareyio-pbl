@@ -1,4 +1,4 @@
-## Orchestrating Containers across Multiple Virtual Servers with Kubernetes
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/5a1c24fe-10ef-453e-9456-7d5b1b3b024a)## Orchestrating Containers across Multiple Virtual Servers with Kubernetes
 
 ### Kubernetes Architecture
 Kubernetes is a not a single package application that you can install with one command, it is comprised of several components, 
@@ -226,4 +226,30 @@ done
 
 ### Sending to Master Instance Servers
 
+```
+for i in 0 1 2; do
+  instance="k8s-cluster-master-${i}"
+  echo "Retrieving public IP for ${instance}..."
+  external_ip=$(aws ec2 describe-instances \
+    --filters "Name=tag:Name,Values=${instance}" \
+    --query "Reservations[*].Instances[*].PublicIpAddress" \
+    --output text)
+
+  if [ -z "$external_ip" ]; then
+    echo "No IP address found for ${instance}"
+  else
+    echo "Found IP ${external_ip} for ${instance}. Starting SCP..."
+    scp  -i ../ssh/k8s-cluster-from-ground-up.id_rsa \
+    ca.pem ca-key.pem service-account-key.pem service-account.pem master-kubernetes.pem master-kubernetes-key.pem ubuntu@${external_ip}:~/
+    if [ $? -eq 0 ]; then
+      echo "Files copied to ${instance} successfully."
+    else
+      echo "Error copying files to ${instance}."
+    fi
+  fi
+done
+
+
+```
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/8588314a-e5bc-45cb-9bbe-970cd4334048)
 
