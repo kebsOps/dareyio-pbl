@@ -73,6 +73,7 @@ The following resources were setup:
 
 ## PREPARE THE SELF-SIGNED CERTIFICATE AUTHORITY AND GENERATE TLS CERTIFICATES
 
+
 ### The following components running on the Master node will require TLS certificates.
 - kube-controller-manager
 - kube-scheduler
