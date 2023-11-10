@@ -315,5 +315,14 @@ In this section, you will configure the components for the control plane on the 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/eac03d31-96e3-4170-9fd2-51188737313c)
 
 
+### Test that Everything is working fine
+
+- To get the cluster details run:
+
+``kubectl cluster-info  --kubeconfig admin.kubeconfig``
+  
+- To get the current namespaces:
+
+  ``kubectl get namespaces --kubeconfig admin.kubeconfig``
 
   
