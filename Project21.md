@@ -289,5 +289,10 @@ Kubernetes uses etcd (A distributed key value store) to store variety of data wh
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/6da88896-7eae-463e-8854-25ea4bd76db5)
 
+### You should have a a similar pane like below. You should be able to see all the files that have been sent to the nodes
 
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/f7d3b098-60df-47d6-953e-46da17a5f455)
+
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/5ab41aa9-26ec-4045-a811-c0de6f8e74d7)
 
