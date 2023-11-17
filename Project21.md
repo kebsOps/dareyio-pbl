@@ -345,3 +345,15 @@ In this section, you will configure the components for the control plane on the 
   ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/3960b10d-2e12-4a95-a79a-3f159a83559b)
 
 
+### Configuring the Kubernetes Worker nodes
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/8518f09a-4b10-43c4-ae13-d22eae9de8d0)
+
+The following components will be installed on each node:
+
+kubelet kube-proxy, Containerd and Docker Networking plugins
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/7c436eb5-fe85-48a2-aae5-b9bb12fb96d9)
+
+
+
