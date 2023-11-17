@@ -320,9 +320,28 @@ In this section, you will configure the components for the control plane on the 
 - To get the cluster details run:
 
 ``kubectl cluster-info  --kubeconfig admin.kubeconfig``
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/796a65b1-850a-4cb6-ab59-39fa588d943c)
+
   
 - To get the current namespaces:
 
   ``kubectl get namespaces --kubeconfig admin.kubeconfig``
 
-  
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/cef8d735-7e42-412c-ae0a-e261ba935d64)
+
+
+- To reach the Kubernetes API Server publicly:
+
+  ``curl --cacert /var/lib/kubernetes/ca.pem https://$INTERNAL_IP:6443/version``
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/ac7fb38e-9007-402e-ac2c-ec9c820d79dc)
+
+
+- To get the status of each component:
+
+  ``kubectl get componentstatuses --kubeconfig admin.kubeconfig``
+
+  ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/3960b10d-2e12-4a95-a79a-3f159a83559b)
+
+
