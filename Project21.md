@@ -356,4 +356,5 @@ kubelet kube-proxy, Containerd and Docker Networking plugins
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/7c436eb5-fe85-48a2-aae5-b9bb12fb96d9)
 
 
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/18094c20-b24d-468d-9fc0-4e60b4f8cb61)
 
