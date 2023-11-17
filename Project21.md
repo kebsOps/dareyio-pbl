@@ -351,7 +351,7 @@ In this section, you will configure the components for the control plane on the 
 
 The following components will be installed on each node:
 
-kubelet kube-proxy, Containerd and Docker Networking plugins
+kubelet kube-proxy, Containerd Container Runtime and Docker Networking plugins
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/7c436eb5-fe85-48a2-aae5-b9bb12fb96d9)
 
