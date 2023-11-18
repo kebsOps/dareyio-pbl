@@ -362,4 +362,7 @@ kubelet, kube-proxy, Containerd Container Runtime and Docker Networking plugins
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/18094c20-b24d-468d-9fc0-4e60b4f8cb61)
 
 
+ Run ``kubectl get nodes --kubeconfig admin.kubeconfig`` to test if our setup works. The ready state shows  the worker nodes are joined to the cluster, and in a READY state.
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/104633a9-19fa-4e60-883d-13356deb2989)
 
