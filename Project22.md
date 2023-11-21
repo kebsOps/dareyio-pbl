@@ -29,8 +29,10 @@ The manifest file of ReplicaSet consist of the following fields:
 - spec: This field specifies the label selector to be used to select the Pods, number of replicas of the Pod to be run and the container or list of containers which the Pod will run. In the above example, we are running 3 replicas of nginx container.
 
 
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/adcc47d8-9c83-483a-ae08-3ffa3276ca92)
 
-![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/18fe167a-bf54-4959-becb-78c8c2109f77)
+
+
 
 
 
