@@ -32,7 +32,14 @@ The manifest file of ReplicaSet consist of the following fields:
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/adcc47d8-9c83-483a-ae08-3ffa3276ca92)
 
 
+### Scaling replicaSets to 5 in the default namespace
 
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/fa089d1c-d394-4c02-bde3-74c0e40e1ccf)
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/66b23eb6-4819-4d79-aeaa-e8c1907df933)
+
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/2f406187-663f-4d93-acb3-071942838ff7)
 
 
 
