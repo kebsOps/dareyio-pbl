@@ -17,7 +17,20 @@ Create AWS EKS cluster via the link [eksctl - The official CLI for Amazon EKS](h
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/d2054500-ece8-4e77-9b2d-602727ceea01)
 
+### Create ReplicaSet
 
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/b1e5486a-1c49-4edf-9908-5bf7858fca05)
+
+The manifest file of ReplicaSet consist of the following fields:
+
+- apiVersion: This field specifies the version of kubernetes Api to which the object belongs. ReplicaSet belongs to apps/v1 apiVersion.
+- kind: This field specify the type of object for which the manifest belongs to. Here, it is ReplicaSet.
+- metadata: This field includes the metadata for the object. It mainly includes two fields: name and labels of the ReplicaSet.
+- spec: This field specifies the label selector to be used to select the Pods, number of replicas of the Pod to be run and the container or list of containers which the Pod will run. In the above example, we are running 3 replicas of nginx container.
+
+
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/18fe167a-bf54-4959-becb-78c8c2109f77)
 
 
 
