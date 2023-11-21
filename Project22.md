@@ -1,5 +1,8 @@
 ## Deploying Applications Into Kubernetes Cluster
 
+
+Create AWS EKS cluster via the link [eksctl - The official CLI for Amazon EKS](https://github.com/eksctl-io/eksctl)
+
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/ee89e8d1-a9b9-4e52-87f9-5f21481284ea)
 
 
@@ -13,5 +16,15 @@
 
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/d2054500-ece8-4e77-9b2d-602727ceea01)
+
+
+
+### Self Side Task:
+
+- Build the Tooling app Dockerfile and push it to Dockerhub registry
+- Write a Pod and a Service manifests, ensure that you can access the Tooling app's frontend using port-forwarding feature.
+
+
+
 
 
