@@ -19,10 +19,6 @@ Create AWS EKS cluster via the link [eksctl - The official CLI for Amazon EKS](h
 
 
 
-### Self Side Task:
-
-- Build the Tooling app Dockerfile and push it to Dockerhub registry
-- Write a Pod and a Service manifests, ensure that you can access the Tooling app's frontend using port-forwarding feature.
 
 
 
