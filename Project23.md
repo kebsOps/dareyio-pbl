@@ -149,6 +149,8 @@ spec:
 ### Persisting configuration data with configMaps
 
 
+Accessing the default homepage of the deployed Nginx server
+
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/95f7b681-4128-49af-979f-074ed21c1b8a)
 
 
@@ -159,3 +161,6 @@ spec:
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/118f25ce-2c15-496a-abd2-0a7553f12836)
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/f9476284-4216-467d-a82c-44afc3b2b453)
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/43b2b7d3-fe85-43e7-a87b-99ad589adaf9)
+
