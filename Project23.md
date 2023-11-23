@@ -109,7 +109,53 @@ To check if a storageClass exists in the cluster: ``Use $ kubectl get storagecla
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/0059fffd-014b-47b6-8f92-66573290b03f)
 
 
-To initiate a PV, create a PVC manifest file. This action triggers the automatic creation of a PV based on the gp2 storageClass.
+Creating a manifest file for a PVC, and based on the gp2 storageClass a PV will be dynamically created:
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/bd50b7b8-739f-4ca0-84a8-2fdead56489d)
 
+The PVC created is in pending state because PV is not created yet. Editing the nginx-pod.yaml file to create the PV:
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    tier: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: nginx-volume-claim
+          mountPath: /tmp/kebe
+      volumes:
+      - name: nginx-volume-claim
+        persistentVolumeClaim:
+          claimName: nginx-volume-claim
+```
+
+### Persisting configuration data with configMaps
+
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/95f7b681-4128-49af-979f-074ed21c1b8a)
+
+
+- Now the index.html file is no longer ephemeral because it is using a configMap that has been mounted onto the filesystem. This is now evident when you exec into the pod and list the /usr/share/nginx/html directory:
+  
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/d1ad6030-ffb4-4ed8-9caa-7ff0b6f5686e)
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/118f25ce-2c15-496a-abd2-0a7553f12836)
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/f9476284-4216-467d-a82c-44afc3b2b453)
