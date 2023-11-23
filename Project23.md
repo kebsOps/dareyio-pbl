@@ -16,3 +16,5 @@ To address the need for PersistentVolumes with diverse properties such as perfor
 - Setup an EKS Cluster on AWS
 - Configure both cluster role and node group roles
 
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/9c8b2362-9116-4f6f-bee9-e3ecdd64ef2e)
+
