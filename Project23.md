@@ -49,3 +49,36 @@ To address the need for PersistentVolumes with diverse properties such as perfor
 <img width="1294" alt="Screenshot 2023-11-23 at 14 09 26" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/e29aa98c-b501-4373-a8d1-260b12d809c6">
 
 
+### Update the deployment configuration with the volume spec and volume mount:
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    tier: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+      volumes:
+      - name: nginx-volume
+        # This AWS EBS volume must already exist.
+        awsElasticBlockStore:
+          volumeID: "vol-0e29899182fd61b9a"
+          fsType: ext4
+```
+
+
