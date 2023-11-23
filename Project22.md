@@ -50,6 +50,7 @@ The manifest file of ReplicaSet consist of the following fields:
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/2f406187-663f-4d93-acb3-071942838ff7)
 
+### Verify nginx default page on pod
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/9d1c4f43-3e98-4001-9bb4-58bc59e64025)
 
