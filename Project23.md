@@ -37,6 +37,9 @@ To address the need for PersistentVolumes with diverse properties such as perfor
 
 <img width="1015" alt="Screenshot 2023-11-23 at 13 30 24" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/bc1228c0-6fc0-4071-b448-363e3def3f33">
 
+### 
+
+<img width="1238" alt="Screenshot 2023-11-23 at 13 44 12" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/678b09fa-32ac-428e-9551-92d3ea3ad8a7">
 
 
 
