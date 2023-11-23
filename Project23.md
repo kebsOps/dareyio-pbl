@@ -84,7 +84,16 @@ spec:
 <img width="1240" alt="Screenshot 2023-11-23 at 14 51 11" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/5fac1c55-7a18-4178-abc6-41faaac13fd1">
 
 
-### Creating a Persistent Volume Claim
+### Dynamically Handling Volumes Using PVs and PVCs:
+
+PVs serve as cluster resources, while PVCs request these resources and function as claims to them. In EKS, a default storageClass is set up during installation, enabling dynamic PV creation for Pod usage.
+
+To check if a storageClass exists in the cluster: ``Use $ kubectl get storageclass``
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/0059fffd-014b-47b6-8f92-66573290b03f)
+
+
+To initiate a PV, create a PVC manifest file. This action triggers the automatic creation of a PV based on the gp2 storageClass.
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/bd50b7b8-739f-4ca0-84a8-2fdead56489d)
 
