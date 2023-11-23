@@ -9,3 +9,6 @@ This project introduces the concept of data persistence in Kubernetes, focusing 
 - **PersistentVolumeClaims (PVCs)** serve as a user's request for storage, akin to how a pod operates. Just as pods utilize node resources, PVCs utilize PV resources. While pods can request specific levels of resources like CPU and memory, PVCs can request specific sizes and access modes. These access modes include ReadWriteOnce, ReadOnlyMany, or ReadWriteMany, reflecting the variety of ways a PVC can be mounted.
 
 To address the need for PersistentVolumes with diverse properties such as performance, StorageClass resources are used. These cater to a range of PersistentVolumes that vary not just in size and access modes, but in more complex aspects, without burdening users with the intricacies of their implementation. This is particularly useful for cluster administrators who need to offer a spectrum of PersistentVolumes tailored for different requirements.
+
+
+
