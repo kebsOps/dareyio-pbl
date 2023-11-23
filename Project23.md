@@ -44,5 +44,6 @@ To address the need for PersistentVolumes with diverse properties such as perfor
 
 ### Creating a storage volume within AWS's Elastic Block Storage, ensuring it's in the same Availability Zone as the node operating the Nginx pod. This volume will then be mounted into the Nginx pod
 
+<img width="932" alt="Screenshot 2023-11-23 at 14 02 20" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/5c120c4b-340b-413d-acf7-3b86708c1565">
 
 
