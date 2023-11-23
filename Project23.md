@@ -88,6 +88,22 @@ spec:
 
 PVs serve as cluster resources, while PVCs request these resources and function as claims to them. In EKS, a default storageClass is set up during installation, enabling dynamic PV creation for Pod usage.
 
+If there is no storage class in your cluster, below manifest is an example of how one would be created:
+
+```
+  kind: StorageClass
+  apiVersion: storage.k8s.io/v1
+  metadata:
+    name: gp2
+    annotations:
+      storageclass.kubernetes.io/is-default-class: "true"
+  provisioner: kubernetes.io/aws-ebs
+  parameters:
+    type: gp2
+    fsType: ext4 
+
+```
+
 To check if a storageClass exists in the cluster: ``Use $ kubectl get storageclass``
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/0059fffd-014b-47b6-8f92-66573290b03f)
