@@ -11,4 +11,8 @@ This project introduces the concept of data persistence in Kubernetes, focusing 
 To address the need for PersistentVolumes with diverse properties such as performance, StorageClass resources are used. These cater to a range of PersistentVolumes that vary not just in size and access modes, but in more complex aspects, without burdening users with the intricacies of their implementation. This is particularly useful for cluster administrators who need to offer a spectrum of PersistentVolumes tailored for different requirements.
 
 
+## Prerequisites
+
+- Setup an EKS Cluster on AWS
+- Configure both cluster role and node group roles
 
