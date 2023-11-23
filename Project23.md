@@ -84,5 +84,7 @@ spec:
 <img width="1240" alt="Screenshot 2023-11-23 at 14 51 11" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/5fac1c55-7a18-4178-abc6-41faaac13fd1">
 
 
+### Creating a Persistent Volume Claim
 
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/bd50b7b8-739f-4ca0-84a8-2fdead56489d)
 
