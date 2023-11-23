@@ -164,3 +164,4 @@ Accessing the default homepage of the deployed Nginx server
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/43b2b7d3-fe85-43e7-a87b-99ad589adaf9)
 
+[Link to Project Code](https://github.com/kebsOps/Deploying-Apps-into-kubernetes-cluster-and-Persisting-Data-in-Kubernetes)
