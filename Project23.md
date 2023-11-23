@@ -28,3 +28,7 @@ To address the need for PersistentVolumes with diverse properties such as perfor
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/3cf7b8bd-2ced-47f8-94cc-4feff8289a3a)
 
 
+### Exec into the kubernetes pod and confirm that nginx pod default.conf file exist
+
+<img width="1015" alt="Screenshot 2023-11-23 at 13 30 24" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/bc1228c0-6fc0-4071-b448-363e3def3f33">
+
