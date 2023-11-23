@@ -18,11 +18,12 @@ Now that we have a service created, how can we access the app? Since there is no
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/43ad4ef3-7829-4e4c-87a4-168e8badd8ca)
 
-Then go to your web browser and enter localhost:8089 - You should now be able to see the nginx page in the browser.
+Then go to your web browser and enter ``localhost:8089`` - You should now be able to see the nginx page in the browser.
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/d2054500-ece8-4e77-9b2d-602727ceea01)
 
-### Create ReplicaSet
+
+### Create a ReplicaSet
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/b1e5486a-1c49-4edf-9908-5bf7858fca05)
 
@@ -41,8 +42,11 @@ The manifest file of ReplicaSet consist of the following fields:
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/fa089d1c-d394-4c02-bde3-74c0e40e1ccf)
 
+### Scaling replicaSets to 3 in the default namespace
+
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/66b23eb6-4819-4d79-aeaa-e8c1907df933)
 
+### Change service type to Load Balancer
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/2f406187-663f-4d93-acb3-071942838ff7)
 
