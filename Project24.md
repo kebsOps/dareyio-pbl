@@ -17,3 +17,9 @@ This project seeks to solidify your skills by focusing more on best practice set
 Open up a new directory on your laptop, and name it ``EKS`` Use AWS CLI to create an S3 bucket
 
 Create a file – ``backend.tf`` Task for you, ensure the backend is configured for remote state in S3
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/20e7f605-dab5-40ba-930f-d128f70ef9c3)
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/9066348e-3ec1-4344-9a34-26f66a8074fd)
+
+<img width="948" alt="image" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/d35048db-803f-4b36-b31e-a7145fcb5451">
