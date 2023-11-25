@@ -22,4 +22,3 @@ Create a file – ``backend.tf`` Task for you, ensure the backend is configured 
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/9066348e-3ec1-4344-9a34-26f66a8074fd)
 
-<img width="948" alt="image" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/d35048db-803f-4b36-b31e-a7145fcb5451">
