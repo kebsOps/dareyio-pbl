@@ -469,6 +469,14 @@ Install Jenkins chart
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/17e611b6-34d7-487c-817c-4127ace28e87)
 
 
+Check the Helm deployment
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/4d73bb1d-ed12-409c-8be7-98c5bc944b9f)
+
+
+Check the pods
+
+
 
 
 
