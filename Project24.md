@@ -448,3 +448,12 @@ At its core, a Helm chart comprises a collection of YAML manifests detailing all
 
 
 
+### Deploy Jenkins with Helm
+
+Before diving into creating custom Helm charts, it's beneficial to start by deploying tools using publicly available charts. One of the remarkable features of Helm is its ability to deploy pre-packaged applications from a public Helm repository with minimal configuration needed. A good example of this is Jenkins.
+
+To access these packaged applications as Helm Charts:
+
+1. Visit [Artifact Hub](https://artifacthub.io/packages/search), which is a comprehensive repository for finding Helm Charts for various applications.
+1. Search for "Jenkins" to find the Helm Chart for it.
+1. Add the Jenkins repository to your Helm setup. This step makes it straightforward to download and deploy Jenkins directly using Helm.
