@@ -431,7 +431,7 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 
 ### Deploy applications with Helm
 
-elm stands out as a widely favored tool for deploying resources into Kubernetes in the real world, primarily due to its capability to package deployments as cohesive units. This approach streamlines the process, in contrast to managing multiple individual YAML files, which can become cumbersome.
+Helm stands out as a widely favored tool for deploying resources into Kubernetes in the real world, primarily due to its capability to package deployments as cohesive units. This approach streamlines the process, in contrast to managing multiple individual YAML files, which can become cumbersome.
 
 Essentially, a Helm chart acts as a blueprint for the necessary resources to operate an application within Kubernetes. It simplifies the process by consolidating various components such as deployments, services, volumes, configmaps, and more into a single, manageable entity. For instance, deploying a MySQL database becomes as straightforward as executing the command:
 
@@ -440,6 +440,9 @@ Essentially, a Helm chart acts as a blueprint for the necessary resources to ope
 This command instructs Helm to ensure all essential resources are deployed correctly. Moreover, Helm offers the flexibility to customize deployments by adjusting variables. A practical example is activating a slave feature for MySQL, which enables the deployment of read-only replicas.
 
 At its core, a Helm chart comprises a collection of YAML manifests detailing all the resources an application requires. Helm efficiently manages these resources, handling the creation of new resources in Kubernetes and the removal of outdated ones.
+
+
+### To check Helm Version
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/535027c0-8bb1-4eb5-9e69-1ac698135f54)
 
