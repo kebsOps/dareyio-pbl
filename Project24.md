@@ -422,3 +422,8 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/3e7c2c89-5963-41b7-97b5-f1717382cccc)
 
+### Connect to eks cluster
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/bdb378db-4ce6-4b17-a774-90d4e10808b4)
+
+
