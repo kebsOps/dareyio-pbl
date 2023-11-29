@@ -413,4 +413,7 @@ provider "kubernetes" {
 Plan: 1 to add, 0 to change, 0 to destroy.
 ```
 
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/d0e4ffd1-25e0-4112-b146-d122c8322ac2)
+
+
 
