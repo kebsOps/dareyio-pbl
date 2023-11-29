@@ -457,3 +457,18 @@ To access these packaged applications as Helm Charts:
 1. Visit [Artifact Hub](https://artifacthub.io/packages/search), which is a comprehensive repository for finding Helm Charts for various applications.
 1. Search for "Jenkins" to find the Helm Chart for it.
 1. Add the Jenkins repository to your Helm setup. This step makes it straightforward to download and deploy Jenkins directly using Helm.
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/a58d4cbe-5968-41e4-a724-46e206ab4624)
+
+Update helm repo
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/27e417d9-a282-47d0-a4e5-1a1baabc617a)
+
+Install Jenkins chart
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/17e611b6-34d7-487c-817c-4127ace28e87)
+
+
+
+
+
