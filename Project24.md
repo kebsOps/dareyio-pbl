@@ -424,6 +424,8 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 
 ### Connect to eks cluster
 
+``aws eks --region us-west-1 update-kubeconfig --name tooling-app-eks``
+
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/bdb378db-4ce6-4b17-a774-90d4e10808b4)
 
 
