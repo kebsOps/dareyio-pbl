@@ -547,8 +547,9 @@ Use port forwarding to access Jenkins from the UI
 
 
 ### TASK
+Use Helm to to install:
 
-Prometheus
+### Prometheus
 
 ```
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
@@ -558,7 +559,19 @@ helm repo add prometheus-community https://prometheus-community.github.io/helm-c
 helm repo update
 ```
 
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/926734e0-088e-407c-9d77-30c4ee9beb59)
 
 
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/f58d2840-b730-4aca-94bc-8db028d0a243)
 
+
+### Grafana installation
+
+```helm repo add grafana https://grafana.github.io/helm-charts```
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/e92e7db8-5538-4864-9567-93a47f797e75)
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/5610bff2-4c63-495b-8cb9-156b71b396bd)
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/58e6f5c5-4797-421c-860f-36193eef636a)
 
