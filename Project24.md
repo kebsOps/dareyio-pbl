@@ -523,3 +523,23 @@ Run the command to specify __jenkins__
 `kubectl logs jenkins-0 -c jenkins`
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/5456df60-93eb-436d-bb5b-71d8a8bba7a0)
+
+
+Accessing jenkins From UI
+
+There are some commands that was provided on the screen when Jenkins was installed with Helm. Get the password to the admin user
+
+`kubectl exec --namespace default -it svc/jenkins -c jenkins -- /bin/cat /run/secrets/chart-admin-password && echo`
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/1c01e2ef-7d92-48a9-8881-87d0807430d7)
+
+Use port forwarding to access Jenkins from the UI
+
+`kubectl --namespace default port-forward svc/jenkins 8080:8080`
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/4b0fecbe-2419-491e-8836-dcd4753c8446)
+
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/a4fa5a07-a04b-42b3-8b6d-a445e677900d)
+
+
