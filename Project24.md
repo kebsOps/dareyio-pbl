@@ -502,7 +502,11 @@ Check the Helm deployment
 
 Check the pods
 
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/1de33ee8-4db4-4893-97eb-c3dbdea233ec)
 
+Describe the running pod
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/0f65c5fd-d5d2-4519-bfe4-4089236f5d63)
 
 
 
