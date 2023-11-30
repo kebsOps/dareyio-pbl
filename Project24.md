@@ -509,4 +509,17 @@ Describe the running pod
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/0f65c5fd-d5d2-4519-bfe4-4089236f5d63)
 
 
+Check the logs of the running pod
 
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/2a2d2013-c1f0-44cb-b33f-de9a87051ceb)
+
+
+This is because the pod has a __Sidecar container__ alongside with the Jenkins container. As you can see from the error output, there is a list of containers inside the pod __[jenkins config-reload]__ i.e jenkins and config-reload containers. The job of the config-reload is mainly to help Jenkins to reload its configuration without recreating the pod.
+
+Therefore we need to let __kubectl__ know, which pod we are interested to see its log. 
+
+Run the command to specify __jenkins__
+
+`kubectl logs jenkins-0 -c jenkins`
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/5456df60-93eb-436d-bb5b-71d8a8bba7a0)
