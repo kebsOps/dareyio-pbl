@@ -416,13 +416,6 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/c3305c8a-d758-4149-ba16-6bcc5d9b5e0e)
 
 
-
-### Create kubeconfig file using awscli
-
-``aws eks update-kubeconfig --name tooling-app-eks --region us-west-1 --kubeconfig kubeconfig``
-
-![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/3e7c2c89-5963-41b7-97b5-f1717382cccc)
-
 ### Connect to eks cluster
 
 ``aws eks --region us-west-1 update-kubeconfig --name tooling-app-eks``
