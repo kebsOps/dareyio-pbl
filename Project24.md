@@ -413,7 +413,8 @@ provider "kubernetes" {
 Plan: 1 to add, 0 to change, 0 to destroy.
 ```
 
-![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/d0e4ffd1-25e0-4112-b146-d122c8322ac2)
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/c3305c8a-d758-4149-ba16-6bcc5d9b5e0e)
+
 
 
 ### Create kubeconfig file using awscli
