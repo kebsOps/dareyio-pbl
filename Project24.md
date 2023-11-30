@@ -153,6 +153,7 @@ data "aws_caller_identity" "current" {} # used for accesing Account ID and ARN
 create a file - __csi.tf__.
 
 __The Container Storage Interface (CSI)__ provides a uniform interface for container orchestrators, such as Kubernetes, to interact with various storage solutions, encompassing both block and file storage types. A CSI driver serves as the intermediary that allows these orchestrators to connect with distinct storage systems or services, including cloud storage, network-attached storage (NAS), and storage area networks (SAN).
+Read more about [__EKS add-on__](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html).
 
 ```
 data "aws_iam_policy" "ebs_csi_policy" {
