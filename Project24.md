@@ -154,7 +154,8 @@ create a file - __csi.tf__.
 
 __The Container Storage Interface (CSI)__ provides a uniform interface for container orchestrators, such as Kubernetes, to interact with various storage solutions, encompassing both block and file storage types. A CSI driver serves as the intermediary that allows these orchestrators to connect with distinct storage systems or services, including cloud storage, network-attached storage (NAS), and storage area networks (SAN).
 Read more about [__EKS add-on__](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html).
-(__Blocker:__ without installing the Amazon EBS CSI driver, Jenkins pod on Helm was stuck in "pending" state I had install this [EKS add-on] (https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html) to resolve the issue)
+
+__Blocker:__ without installing the Amazon EBS CSI driver, Jenkins pod on Helm was stuck in "pending" state I had install this [EAmazon EBS CSI driver] (https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html) to resolve the issue)
 
 ```
 data "aws_iam_policy" "ebs_csi_policy" {
