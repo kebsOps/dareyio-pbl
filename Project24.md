@@ -546,3 +546,19 @@ Use port forwarding to access Jenkins from the UI
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/a4fa5a07-a04b-42b3-8b6d-a445e677900d)
 
 
+### TASK
+
+Prometheus
+
+```
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+```
+
+```
+helm repo update
+```
+
+
+
+
+
