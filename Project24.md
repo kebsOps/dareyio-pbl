@@ -13,6 +13,7 @@ This project seeks to solidify your skills by focusing more on best practice set
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/bcc0a529-d156-40a7-9ee0-b30b524c2aa1)
 
+[Link to Project code](https://github.com/kebsOps/Building-Elastic-Kubernetes-Service-EKS-With-Terraform)
  
 Open up a new directory on your laptop, and name it ``EKS`` Use AWS CLI to create an S3 bucket
 
