@@ -6,15 +6,15 @@ In this project, you will experience deploying more DevOps tools, get familiar w
 
 Our focus will be on the. 
 
-1. Artifactory
-2. Ingress Controllers
-3. Cert-Manager
+- Artifactory
+- Ingress Controllers
+- Cert-Manager
 
-Then you will attempt to explore these on your own.
+Then
 
-4. Prometheus
-5. Grafana
-6. Elasticsearch ELK using [ECK](https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-install-helm.html)
+- Prometheus
+- Grafana
+- Elasticsearch ELK using [ECK](https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-install-helm.html)
 
 For the tools that require paid license, don't worry, you will also learn how to get the license for free and have true experience exactly how they are used in the real world.
 
