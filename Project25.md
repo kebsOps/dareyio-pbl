@@ -1,1 +1,36 @@
+## Deploying and Packaging applications into Kubernetes with Helm
 
+In the previous project, you started experiencing helm as a tool used to deploy an application into Kubernetes. You probably also tried installing more tools apart from Jenkins.
+
+In this project, you will experience deploying more DevOps tools, get familiar with some of the real world issues faced during such deployments and how to fix them. You will learn how to tweak helm values files to automate the configuration of the applications you deploy. Finally, once you have most of the DevOps tools deployed, you will experience using them and relate with the DevOps cycle and how they fit into the entire  ecosystem.
+
+Our focus will be on the. 
+
+1. Artifactory
+2. Ingress Controllers
+3. Cert-Manager
+
+Then you will attempt to explore these on your own.
+
+4. Prometheus
+5. Grafana
+6. Elasticsearch ELK using [ECK](https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-install-helm.html)
+
+For the tools that require paid license, don't worry, you will also learn how to get the license for free and have true experience exactly how they are used in the real world.
+
+Lets start first with Artifactory. What is it exactly?
+
+Artifactory is part of a suit of products from a company called [Jfrog](https://jfrog.com/). Jfrog started out as an artifact repository where software binaries in different formats are stored. Today, Jfrog has transitioned from an artifact repository to a DevOps Platform that includes CI and CD capabilities. This has been achieved by offering more products in which **Jfrog Artifactory** is part of. Other offerings include 
+      
+  - JFrog Pipelines -  a CI-CD product that works well with its Artifactory repository. Think of this product as an alternative to Jenkins.
+  - JFrog Xray - a security product that can be built-into various steps within a JFrog pipeline. Its job is to scan for security vulnerabilities in the stored artifacts. It is able to scan all dependent code.
+
+In this project, the requirement is to use Jfrog Artifactory as a private registry for the organisation's Docker images and Helm charts. This requirement will satisfy part of the company's corporate security policies to never download artifacts directly from the public into production systems. We will eventually have a CI pipeline that initially pulls public docker images and helm charts from the internet, store in artifactory and scan the artifacts for security vulnerabilities before deploying into the corporate infrastructure. Any found vulnerabilities will immediately trigger an action to quarantine such artifacts.
+
+Lets get into action and see how all of these work.
+
+## Deploy Jfrog Artifactory into Kubernetes
+
+The best approach to easily get Artifactory into kubernetes is to use helm.
+
+1. Search for an official helm chart for Artifactory on [Artifact Hub](https://artifacthub.io/)
