@@ -29,6 +29,8 @@ In this project, the requirement is to use Jfrog Artifactory as a private regist
 
 Lets get into action and see how all of these work.
 
+EKS cluster from [project 24](https://github.com/kebsOps/dareyio-pbl/blob/main/Project24.md) was used in this project
+
 ## Deploy Jfrog Artifactory into Kubernetes
 
 The best approach to easily get Artifactory into kubernetes is to use helm.
