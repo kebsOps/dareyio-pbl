@@ -37,7 +37,21 @@ Search for an official helm chart for Artifactory on [Artifact Hub](https://arti
    
 <img width="1479" alt="Screenshot 2023-12-05 at 15 34 01" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/d6b2eb3c-e542-422b-9079-834bc4f697c1">
 
+Click on install to see installation instructions.
+
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/684fb618-1cd8-4586-95af-d988e81fe5bb)
 
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/15ca6c29-2a2f-423b-b288-f92869e30551)
+
+Add the repo
+
+`helm repo add jfrog https://charts.jfrog.io`
+
+Update the helm repo index on my local machine/laptop
+
+`helm repo update`
+
+Install artifactory in the namespace __tools__
+
+`helm upgrade --install artifactory jfrog/artifactory --version 107.71.5 -n tools`
