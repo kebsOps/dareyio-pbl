@@ -44,11 +44,15 @@ Click on install to see installation instructions.
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/15ca6c29-2a2f-423b-b288-f92869e30551)
 
-Add the repo
+Add the jfrog remote repository on your laptop/computer
 
 `helm repo add jfrog https://charts.jfrog.io`
 
-Update the helm repo index on my local machine/laptop
+Create a namespace called tools where all the tools for DevOps will be deployed. 
+
+`kubectl create ns tools`
+
+Update the helm repo index on your local machine/laptop
 
 `helm repo update`
 
