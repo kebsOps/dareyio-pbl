@@ -33,4 +33,11 @@ Lets get into action and see how all of these work.
 
 The best approach to easily get Artifactory into kubernetes is to use helm.
 
-1. Search for an official helm chart for Artifactory on [Artifact Hub](https://artifacthub.io/)
+Search for an official helm chart for Artifactory on [Artifact Hub](https://artifacthub.io/)
+   
+<img width="1479" alt="Screenshot 2023-12-05 at 15 34 01" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/d6b2eb3c-e542-422b-9079-834bc4f697c1">
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/684fb618-1cd8-4586-95af-d988e81fe5bb)
+
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/15ca6c29-2a2f-423b-b288-f92869e30551)
