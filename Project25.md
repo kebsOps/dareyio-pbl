@@ -311,3 +311,14 @@ EOF
 what annotations are supported.
 - It is recommended to always specify the ingress class name with the spec ingressClassName: nginx. This is how the Ingress controller is selected, especially when there are multiple configured ingress controllers in the cluster.
 - The domain ``toolingkb.xyz`` should be replaced with your own domain.
+
+Create ingress resource in the __tools__ namespace
+
+`kubectl apply -f artifactory-ingress.yaml -n tools`
+
+Get ingress resource
+
+`kubectl get ingress -n tools`
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/e7145b2f-7c71-47d3-b8d7-ff532cb13f0c)
+
