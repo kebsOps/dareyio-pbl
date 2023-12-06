@@ -39,6 +39,7 @@ Create kubeconfig file using awscli and connect to eks cluster
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/58f9530a-83ff-42f4-8638-30f09fa00cc1)
 
+
 __Create EBS-CSI Driver for the Cluster__
 
 The Amazon Elastic Block Store (EBS) Container Storage Interface (CSI) driver is a vital component for Kubernetes clusters that utilize Amazon EBS for persistent storage. It facilitates a seamless connection between Kubernetes and EBS, enabling automated and efficient management of EBS volumes for containerized applications. Here's why the EBS CSI driver is essential:
