@@ -520,3 +520,42 @@ So far, we now have an application running in Kubernetes that is also accessible
 Using Chrome browser will show something like the below. It shows that the site is indeed reachable, but insecure. This is because Chrome browsers do not load insecure sites by default. It is insecure because it either does not have a trusted TLS/SSL certificate, or it doesn't have any at all.
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/5067a262-353d-4b74-9fa3-30fd9c720a2f)
+
+
+### Explore Artifactory Web UI
+
+Get the default username and password - Run a helm command to output the same message after the initial install
+
+`helm test artifactory -n tools`
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/9eef3b02-de3a-4656-a2c4-f8ca7674312f)
+
+Insert the username and password to load the Get Started page
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/ba0a617c-8c0d-4ec9-ae89-dcd5faeed869)
+
+Reset the admin password
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/e66273e9-8da4-47e7-8bab-a6b0c5475652)
+
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/83558acc-f959-46c4-b4f8-9d34b5795c9d)
+
+
+<img width="1919" alt="Screenshot 2023-12-06 at 18 42 20" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/a2b4cfd9-03b5-42ee-910b-c8f1d3aee92c">
+
+Set the Base URL. Ensure to use `https`
+
+<img width="1470" alt="Screenshot 2023-12-06 at 18 46 20" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/080a6b72-cef0-43dc-9b30-be3d337fd32d">
+
+Skip the Proxy setting
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/21e50476-01c9-4280-a980-5d6ff0693c65)
+
+
+Skip creation of repositories for now. You will create them yourself later on.
+finish the setup
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/51ce8628-1b70-4e42-b62a-497389155826)
+
+
