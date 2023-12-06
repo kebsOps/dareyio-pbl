@@ -108,21 +108,40 @@ Create a ```aws-ebs-csi-driver-trust-policy.json``` file that includes the permi
     {
       "Effect": "Allow",
       "Principal": {
-        "Federated": "arn:aws:iam::982035331548:oidc-provider/oidc.eks.us-west-1.amazonaws.com/id/$oidc_id"
+        "Federated": "arn:aws:iam::982035331548:oidc-provider/oidc.eks.us-west-1.amazonaws.com/id/F461F9CFCFB620CEAE0FA86BD5C6201E"
       },
       "Action": "sts:AssumeRoleWithWebIdentity",
       "Condition": {
         "StringEquals": {
-          "oidc.eks.us-west-1.amazonaws.com/id/$oidc_id:aud": "sts.amazonaws.com",
-          "oidc.eks.us-west-1.amazonaws.com/id/$oidc_id:sub": "system:serviceaccount:kube-system:ebs-csi-controller-sa"
+          "oidc.eks.us-west-1.amazonaws.com/id/F461F9CFCFB620CEAE0FA86BD5C6201E:aud": "sts.amazonaws.com",
+          "oidc.eks.us-west-1.amazonaws.com/id/F461F9CFCFB620CEAE0FA86BD5C6201E:sub": "system:serviceaccount:kube-system:ebs-csi-controller-sa"
         }
       }
     }
   ]
 }
+
 EOF
 ```
 
+This trust policy enables the EBS CSI driver to take on the role linked to the given OIDC provider, allowing it to access AWS resources acting on behalf of the EBS CSI controller service account.
+
+
+Create a __AmazonEKS_EBS_CSI_DriverRole__ role
+
+```
+aws iam create-role \
+  --role-name AmazonEKS_EBS_CSI_DriverRole \
+  --assume-role-policy-document file://"aws-ebs-csi-driver-trust-policy.json"
+```
+
+Attach AWS managed policy to the role.
+
+```
+aws iam attach-role-policy \
+  --policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
+  --role-name AmazonEKS_EBS_CSI_DriverRole
+```
 
 
 ## Deploy Jfrog Artifactory into Kubernetes
