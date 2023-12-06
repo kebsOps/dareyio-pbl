@@ -261,4 +261,10 @@ To work directly with the `values.yaml` file, you can download the file locally 
 
 <img width="1462" alt="Screenshot 2023-12-06 at 15 09 25" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/e7d62337-fc1c-4b9f-b294-f7df552c39cc">
 
+### Is the Load Balancer Service type the Ideal configuration option to use in the Real World?
 
+Using the Load Balancer service type in Kubernetes is a straightforward method for exposing applications externally. However, provisioning individual load balancers for each application can be costly and complex, especially with a large number of deployments.
+
+A more efficient alternative is employing [Kubernetes Ingress documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/), which necessitates setting up an [__Ingress Controller__](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/). The key advantage here is the ability to utilize a single load balancer across multiple applications, optimizing cloud costs and simplifying management.
+
+Presently, we'll focus on configuring Ingress, DNS (Route53), and Cert Manager. Post these steps, we'll revisit Artifactory to finalize its configuration, enabling it to function as a private Docker registry and host for private Helm charts.
