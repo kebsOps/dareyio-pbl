@@ -572,9 +572,41 @@ Follow installation instructions
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/5ce087f0-c2b8-444b-a86b-234ffa474dc2)
 
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/c19cb15e-ef88-45f1-9917-4a55a2bdccaa)
 
-![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/96c34067-360f-40b1-bf07-f17ebbcb4a07)
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/9c8fe64a-e243-4e88-8b09-0e4cf41ea8ec)
 
 
+### Certificate Issuer
+Next, is to create an Issuer. We will use a **Cluster Issuer** so that it can be scoped globally. Assuming that we will be using **darey.io** domain. Simply update this yaml file and deploy with **kubectl**. In the section that follows, we will break down each part of the file.
+
+```
+cat >cert-manager.yaml <<EOF                                                                                  
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  namespace: "cert-manager"
+  name: "letsencrypt-prod"
+spec:
+  acme:
+    server: "https://acme-v02.api.letsencrypt.org/directory"
+    email: "devkebs@gmail.com"
+    privateKeySecretRef:
+      name: "letsencrypt-prod"
+    solvers:
+    - selector:
+        dnsZones:
+          - "darey.io"
+      dns01:
+        route53:
+          region: "eu-west-1"
+          hostedZoneID: "Z08080997LSBIB0PT2CE"
+EOF
+```
+
+Configuring Ingress for TLS
+========================================================
+
+To ensure that every created ingress also has TLS configured, we will need to update the ingress manifest with TLS specific configurations.
 
 
