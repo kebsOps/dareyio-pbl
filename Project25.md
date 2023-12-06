@@ -415,7 +415,40 @@ If you proceed to the AWS console and copy the address from the EXTERNAL-IP colu
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/619b1433-3ea7-4683-b6ae-7b546fc270c5)
 
 
-We can also install the ingress-nginx using the same approach used in installing jenkins and artifactory.
+Check the IngressClass that identifies this ingress controller.
+
+`kubectl get ingressclass -n ingress-nginx`
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/2caa61f0-f216-403a-bc3d-276461f69b6d)
+
+
+__Deploy Artifactory Ingress__
+
+Now, it is time to configure the ingress so that we can route traffic to the Artifactory internal service, through the ingress controller's load balancer.
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/b3f86577-103c-41d8-b902-0cb44e3f7d62)
+
+```
+cat <<EOF > artifactory-ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: artifactory
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: "tooling.artifactory.sandbox.svc.toolingkb.xyz"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: artifactory-artifactory-nginx
+            port:
+              number: 80
+EOF
+```
 
 Create ingress resource in the __tools__ namespace
 
