@@ -238,4 +238,27 @@ How did Helm configure the URL in kubernetes?
 
 Helm uses the __values.yaml__ file to set every single configuration that the chart has the capability to configure. The best place to get started with an off the shelve chart from __artifacthub.io__ is to get familiar with the __DEFAULT VALUES__ section on Artifact hub.
 
+<img width="1456" alt="Screenshot 2023-12-06 at 14 57 23" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/8308f0ab-d7c7-433d-b592-8eb8cc76761d">
+
+Here you can search for key and value pair
+
+<img width="1471" alt="Screenshot 2023-12-06 at 14 59 59" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/458563e7-cbdd-4a36-99a8-c051075c95be">
+
+For example, when you type nginx in the search bar, it shows all the configured options for the nginx proxy.
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/93c07092-7d88-46f6-9465-e039e2b1223f)
+
+selecting nginx.enabled from the list will take you directly to the configuration in the YAML file.
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/269430f1-698d-48d6-8833-bb36044443b8)
+
+
+Search for nginx.service and select nginx.service.type
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/f82be144-891e-40f8-991b-1ceac3178d42)
+
+To work directly with the `values.yaml` file, you can download the file locally by clicking on the download icon.
+
+<img width="1462" alt="Screenshot 2023-12-06 at 15 09 25" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/e7d62337-fc1c-4b9f-b294-f7df552c39cc">
+
 
