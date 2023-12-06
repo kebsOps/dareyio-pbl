@@ -204,3 +204,9 @@ Install artifactory in the namespace __tools__
 Here, the __upgrade --install flag__ has been chosen over the usual ``helm install artifactory jfrog/artifactory`` command. This practice is superior, especially when creating CI pipelines with Helm, as it allows Helm to upgrade an existing installation or perform a fresh install if none exists. This technique guarantees that the command is error-proof, as it automatically determines whether to upgrade or install anew.
 
 
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/b37b5bd7-7e3e-41d0-957a-57262a162fe8)
+
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/0e7c1fd4-41d3-4a1a-99dc-3d0c1325dcd8)
+
+
