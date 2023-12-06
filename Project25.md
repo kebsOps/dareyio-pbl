@@ -337,3 +337,13 @@ If anyone were to visit the tool, it would be very inconvenient sharing the long
 
 The __sandbox.svc.toolingkb.xyz__ part of the domain is the configured __HOSTED ZONE__ in AWS. So you will need to configure Hosted Zone in AWS console or as part of your infrastructure as code using terraform.
 
+You must have purchased a domain name from a domain provider and configured the nameservers.
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/358c7686-4618-4103-a342-46280b9473ef)
+
+Ensure to use the Nameservers provided in your hosted zone when configuring the Nameservers with your DNS provider, like GoDaddy, Namecheap, or similar services.
+
+<img width="1468" alt="Screenshot 2023-12-06 at 16 20 56" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/bde13a05-e984-4b98-ae07-3362c5c3763d">
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/6f5ceb7d-8b76-4f03-854b-9ec15cab76cb)
+
