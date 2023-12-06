@@ -215,7 +215,7 @@ The artifactory helm chart comes bundled with the Artifactory software, a Postgr
 
 
 Each of the deployed application have their respective services. This is how you will be able to reach either of them.
-Notice that, the Nginx Proxy has been configured to use the service type of LoadBalancer. Therefore, to reach Artifactory, we will need to go through the Nginx proxy's service. Which happens to be a load balancer created in the cloud provider. Run the kubectl command to retrieve the Load Balancer URL.
+Notice that, the Nginx Proxy has been configured to use the service type of LoadBalancer. Therefore, to reach Artifactory, we will need to go through the Nginx proxy's service. Which happens to be a load balancer created in the cloud provider. Run the ``kubectl`` command to retrieve the Load Balancer URL.
 
 ``k get svc -n tools``
 
