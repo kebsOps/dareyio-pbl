@@ -557,5 +557,17 @@ Skip creation of repositories for now. You will create them yourself later on.
 finish the setup
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/51ce8628-1b70-4e42-b62a-497389155826)
+Next, its time to fix the TLS/SSL configuration so that we will have a trusted HTTPS URL
+
+
+
+### Deploying Cert-manager
+
+
+__Self Challenge Task__ Find cert-manager helm chart in Artifact Hub, follow the installation guide and deploy into Kubernetes
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/f4b9c17c-dee9-4f78-b8f4-bdd4fc9c5de2)
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/5ce087f0-c2b8-444b-a86b-234ffa474dc2)
 
 
