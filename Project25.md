@@ -203,10 +203,23 @@ Install artifactory in the namespace __tools__
 
 Here, the __upgrade --install flag__ has been chosen over the usual ``helm install artifactory jfrog/artifactory`` command. This practice is superior, especially when creating CI pipelines with Helm, as it allows Helm to upgrade an existing installation or perform a fresh install if none exists. This technique guarantees that the command is error-proof, as it automatically determines whether to upgrade or install anew.
 
+__Getting the Artifactory URL__
+
+The artifactory helm chart comes bundled with the Artifactory software, a PostgreSQL database and an Nginx proxy which it uses to configure routes to the different capabilities of Artifactory. Getting the pods after some time, you should see something like the below:
+
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/b37b5bd7-7e3e-41d0-957a-57262a162fe8)
 
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/0e7c1fd4-41d3-4a1a-99dc-3d0c1325dcd8)
+
+
+Each of the deployed application have their respective services. This is how you will be able to reach either of them.
+Notice that, the Nginx Proxy has been configured to use the service type of LoadBalancer. Therefore, to reach Artifactory, we will need to go through the Nginx proxy's service. Which happens to be a load balancer created in the cloud provider. Run the kubectl command to retrieve the Load Balancer URL.
+
+``k get svc -n tools``
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/74f1ea5f-2c5d-4f10-b2fc-ed8ccb6482e5)
+
 
 
