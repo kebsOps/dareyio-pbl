@@ -33,6 +33,12 @@ Create the cluster
 
 ``eksctl create cluster --name kebsOps-eks-tooling --region us-west-1 --nodegroup-name worker --node-type t3.medium --nodes 2``
 
+Create kubeconfig file using awscli and connect to the kubectl
+
+``aws eks --region us-west-1 update-kubeconfig --name kebsOps-eks-tooling``
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/58f9530a-83ff-42f4-8638-30f09fa00cc1)
+
 
 ## Deploy Jfrog Artifactory into Kubernetes
 
