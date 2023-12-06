@@ -158,6 +158,13 @@ aws eks create-addon --cluster-name $cluster_name --addon-name aws-ebs-csi-drive
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/5b16a347-460c-484c-b982-af53a52ca552)
 
 
+Use the command below to verify the EBS-CSI Driver installation in the kube-system namespace 
+
+``kubectl get pods -n kube-system``
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/d7f91890-b687-4160-b9aa-83c1e367e43c)
+
+
 ## Deploy Jfrog Artifactory into Kubernetes
 
 The best approach to easily get Artifactory into kubernetes is to use helm.
