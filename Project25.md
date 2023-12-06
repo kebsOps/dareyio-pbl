@@ -347,3 +347,23 @@ Ensure to use the Nameservers provided in your hosted zone when configuring the 
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/6f5ceb7d-8b76-4f03-854b-9ec15cab76cb)
 
+### Create Route53 record
+
+Within the hosted zone is where all the necessary DNS records will be created. Since we are working on Artifactory, lets create the record to point to the ingress controller's loadbalancer. There are 2 options. You can either use the CNAME or AWS Alias
+
+1. CNAME Method:
+
+- Choose the desired HOSTED ZONE.
+- Click on the __"Create Record"__ button to proceed.
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/082946e2-c9b5-4d3b-8205-c7a20ec7a8ba)
+
+Please verify the DNS record's successful propagation. Go to [DNS checker](https://dnschecker.org) and choose __CNAME__ to check the record. Make sure there are green ticks next to each location on the left-hand side. Please note that it may take some time for the changes to propagate.
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/d80892be-c981-4c0d-b4ad-629eda22342d)
+
+We can also check this using the command
+
+`nslookup -type=ns tooling.artifactory.sandbox.svc.toolingkb.xyz`
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/008af5e6-08a6-41d0-842d-ae23e68a3823)
