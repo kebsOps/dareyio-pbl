@@ -229,5 +229,6 @@ Use artifactory loadbalancer URL to access artifactory via our web browser
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/bc3f9a09-a5d4-45a5-abcf-260f2b458ef0)
 
 
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/aaf83ad4-6260-4ce0-a896-b195004ac2e2)
 
 
