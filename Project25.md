@@ -312,6 +312,111 @@ what annotations are supported.
 - It is recommended to always specify the ingress class name with the spec ingressClassName: nginx. This is how the Ingress controller is selected, especially when there are multiple configured ingress controllers in the cluster.
 - The domain ``toolingkb.xyz`` should be replaced with your own domain.
 
+
+## Ingress controller
+
+If you deploy the yaml configuration specified for the ingress resource without an ingress controller, it will not work. In order for the Ingress resource to work, the cluster must have an ingress controller running.
+
+Unlike other types of controllers which run as part of the kube-controller-manager. Such as the **Node Controller**, **Replica Controller**, **Deployment Controller**, **Job Controller**, or **Cloud Controller**. Ingress controllers are not started automatically with the cluster. 
+
+Kubernetes as a project supports and maintains [AWS](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.4/), [GCE](https://github.com/kubernetes/ingress-gce/blob/master/README.md#readme), and [NGINX](https://github.com/kubernetes/ingress-nginx/blob/main/README.md#readme) ingress controllers.
+
+There are many other 3rd party Ingress controllers that provide similar functionalities with their own unique features, but the 3 mentioned earlier are currently supported and maintained by Kubernetes. Some of these other 3rd party Ingress controllers include but not limited to the following;
+
+- [AKS Application Gateway Ingress Controller](https://docs.microsoft.com/en-gb/azure/application-gateway/tutorial-ingress-controller-add-on-existing) (**Microsoft Azure**)
+- [Istio](https://istio.io/latest/docs/tasks/traffic-management/ingress/kubernetes-ingress/)
+- [Traefik](https://doc.traefik.io/traefik/providers/kubernetes-ingress/)
+- [Ambassador](https://www.getambassador.io/)
+- [HA Proxy Ingress](https://haproxy-ingress.github.io/)
+- [Kong](https://docs.konghq.com/kubernetes-ingress-controller/)
+- [Gloo](https://docs.solo.io/gloo-edge/latest/)
+
+An example comparison matrix of some of the controllers can be found [here](https://kubevious.io/blog/post/comparing-top-ingress-controllers-for-kubernetes#comparison-matrix). Understanding their unique features will help businesses determine which product works well for their respective requirements.
+
+It is possible to deploy any number of ingress controllers in the same cluster. That is the essence of an **ingress class**. By specifying the spec `ingressClassName` field on the ingress object, the appropriate ingress controller will be used by the ingress resource.
+
+Lets get into action and see how all of these fits together.
+
+### Deploy Nginx Ingress Controller
+
+On this project, we will deploy and use the **Nginx Ingress Controller**. It is always the default choice when starting with Kubernetes projects. It is reliable and easy to use.
+
+Since this controller is maintained by Kubernetes, there is an official guide the installation process. Hence, we wont be using **artifacthub.io** here. Even though you can still find ready to go charts there, it just makes sense to always use the [official guide](https://kubernetes.github.io/ingress-nginx/deploy/) in this scenario.
+
+Using the **Helm** approach, according to the official guide;
+
+- Install Nginx Ingress Controller in the `ingress-nginx` namespace
+```
+helm upgrade --install ingress-nginx ingress-nginx \
+  --repo https://kubernetes.github.io/ingress-nginx \
+  --namespace ingress-nginx --create-namespace
+```  
+
+This command is idempotent:
+
+- if the ingress controller is not installed, it will install it,
+- if the ingress controller is already installed, it will upgrade it.
+
+
+- A few pods should start in the ingress-nginx namespace:
+
+```
+kubectl get pods --namespace=ingress-nginx
+```
+
+- After a while, they should all be running. The following command will wait for the ingress controller pod to be up, running, and ready:
+
+```
+kubectl wait --namespace ingress-nginx \
+  --for=condition=ready pod \
+  --selector=app.kubernetes.io/component=controller \
+  --timeout=120s
+```
+
+__OR__
+
+
+Create a name space __ingress-nginx__
+
+`kubectl create ns ingress-nginx`
+
+Search for an official helm chart for ingress-nginx on [Artifact Hub](https://artifacthub.io/).
+
+`helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx`
+
+Update repo
+
+`helm repo update`
+
+Install ingress-nginx
+
+`helm upgrade --install ingress-nginx ingress-nginx/ingress-nginx --version 4.8.3 -n ingress-nginx`
+
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/c539b608-8ea7-4aa0-b1f4-ffc4b67f3887)
+
+Get pods in the ingress-nginx namespace
+
+``kubectl get pods -n ingress-nginx``
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/324ccccc-7a9c-4929-9d92-0de8462fc126)
+
+
+Check created load balancer in AWS.
+
+`kubectl get svc -n ingress-nginx`
+
+<img width="1365" alt="Screenshot 2023-12-06 at 17 51 16" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/74ce68f1-eae0-4ebb-81ce-85b5f2ab5572">
+
+<img width="1472" alt="Screenshot 2023-12-06 at 17 52 36" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/dcc78d23-b49a-4437-8465-502882a7f97f">
+
+If you proceed to the AWS console and copy the address from the EXTERNAL-IP column to search for the load balancer, you will observe an output similar to the one shown below.
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/619b1433-3ea7-4683-b6ae-7b546fc270c5)
+
+
+We can also install the ingress-nginx using the same approach used in installing jenkins and artifactory.
+
 Create ingress resource in the __tools__ namespace
 
 `kubectl apply -f artifactory-ingress.yaml -n tools`
