@@ -568,6 +568,9 @@ __Self Challenge Task__ Find cert-manager helm chart in Artifact Hub, follow the
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/f4b9c17c-dee9-4f78-b8f4-bdd4fc9c5de2)
 
+Follow installation instructions
+
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/5ce087f0-c2b8-444b-a86b-234ffa474dc2)
+
 
 
