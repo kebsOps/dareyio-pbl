@@ -280,6 +280,7 @@ Here is a simple example where an Ingress sends all its traffic to one Service:
 An ingress resource for Artifactory would look like this:
 
 ```
+cat <<EOF > artifactory-ingress.yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -297,7 +298,11 @@ spec:
             name: artifactory
             port:
               number: 8082
+EOF
 ```
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/f703b3bc-bc2b-4875-b024-e38f3865bf99)
+
 
 - An Ingress needs ``apiVersion``, ``kind``, ``metadata`` and ``spec`` fields
 - The name of an Ingress object must be a valid DNS subdomain name
