@@ -134,6 +134,9 @@ aws iam create-role \
   --assume-role-policy-document file://"aws-ebs-csi-driver-trust-policy.json"
 ```
 
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/00ae633a-94ad-4409-b079-f4285fc441d9)
+
+
 Attach AWS managed policy to the role.
 
 ```
@@ -141,6 +144,18 @@ aws iam attach-role-policy \
   --policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
   --role-name AmazonEKS_EBS_CSI_DriverRole
 ```
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/7529f348-d913-4067-a710-4b18ff689102)
+
+
+Add the Amazon EBS CSI add-on using the AWS CLI command below
+
+```
+aws eks create-addon --cluster-name $cluster_name --addon-name aws-ebs-csi-driver \
+  --service-account-role-arn arn:aws:iam::982035331548:role/AmazonEKS_EBS_CSI_DriverRole --region us-west-1
+```
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/5b16a347-460c-484c-b982-af53a52ca552)
 
 
 ## Deploy Jfrog Artifactory into Kubernetes
