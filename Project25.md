@@ -268,3 +268,41 @@ Using the Load Balancer service type in Kubernetes is a straightforward method f
 A more efficient alternative is employing [Kubernetes Ingress documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/), which necessitates setting up an [__Ingress Controller__](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/). The key advantage here is the ability to utilize a single load balancer across multiple applications, optimizing cloud costs and simplifying management.
 
 For now, we will leave artifactory, move on to the next phase of configuration (Ingress, DNS(Route53) and Cert Manager), and then return to Artifactory to complete the setup so that it can serve as a private docker registry and repository for private helm charts.
+
+
+### Deploying Ingress Controller and managing Ingress Resources
+
+An ingress is an API object that manages external access to the services in a kubernetes cluster. It is capable to provide load balancing, SSL termination and name-based virtual hosting. In otherwords, Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. Traffic routing is controlled by rules defined on the Ingress resource.
+Here is a simple example where an Ingress sends all its traffic to one Service:
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/bd54dcf0-63df-42e7-9fab-a7c7490d66fc)
+
+An ingress resource for Artifactory would look like this:
+
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: artifactory
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: "tooling.artifactory.sandbox.svc.toolingkb.xyz"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: artifactory
+            port:
+              number: 8082
+```
+
+- An Ingress needs ``apiVersion``, ``kind``, ``metadata`` and ``spec`` fields
+- The name of an Ingress object must be a valid DNS subdomain name
+- Ingress frequently uses annotations to configure some options depending on the Ingress controller.
+- Different Ingress controllers support different annotations. Therefore it is important to be up to date with the ingress controller's specific documentation to know 
+what annotations are supported.
+- It is recommended to always specify the ingress class name with the spec ingressClassName: nginx. This is how the Ingress controller is selected, especially when there are multiple configured ingress controllers in the cluster.
+- The domain ``toolingkb.xyz`` should be replaced with your own domain.
