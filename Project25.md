@@ -56,7 +56,7 @@ __Installing EBS CSI Driver__
 
 Click on the setup link [__EBS CSI add-on__](https://docs.aws.amazon.com/eks/latest/userguide/managing-ebs-csi.html)
 
-Use this command to check the necessary platform version.
+Use the command below to check platform version.
 
 ``$ aws eks describe-addon-versions --addon-name aws-ebs-csi-driver``
 
