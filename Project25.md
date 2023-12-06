@@ -458,7 +458,8 @@ Get ingress resource
 
 `kubectl get ingress -n tools`
 
-![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/e7145b2f-7c71-47d3-b8d7-ff532cb13f0c)
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/6d3eb65f-f94d-4eaf-ae45-1091ef071920)
+
 
 Now, take note of the following:
 
