@@ -60,6 +60,7 @@ Use the command below to check platform version.
 
 ``$ aws eks describe-addon-versions --addon-name aws-ebs-csi-driver``
 
+<img width="1398" alt="Screenshot 2023-12-06 at 10 39 33" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/6b81d6d3-6071-4039-a2fd-620adc9dbe4a">
 
 
 ## Deploy Jfrog Artifactory into Kubernetes
