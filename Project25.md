@@ -232,3 +232,10 @@ Use artifactory loadbalancer URL to access artifactory via our web browser
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/aaf83ad4-6260-4ce0-a896-b195004ac2e2)
 
 
+__How the Nginx URL for Artifactory is configured in Kubernetes__
+
+How did Helm configure the URL in kubernetes?
+
+Helm uses the __values.yaml__ file to set every single configuration that the chart has the capability to configure. The best place to get started with an off the shelve chart from __artifacthub.io__ is to get familiar with the __DEFAULT VALUES__ section on Artifact hub.
+
+
