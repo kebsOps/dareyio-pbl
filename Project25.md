@@ -84,7 +84,7 @@ check to see if there's an IAM OIDC provider in your aws account that matches yo
 
 If output is returned, then you already have an IAM OIDC provider for your cluster and you can skip the next step. If no output is returned, then you must create an IAM OIDC provider for your cluster.
 
-In this case, no output was returned.
+In our case, no output was returned.
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/d4c2971f-5551-4695-afb6-7c9b93933f1c)
 
