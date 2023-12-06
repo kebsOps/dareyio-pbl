@@ -221,5 +221,9 @@ Notice that, the Nginx Proxy has been configured to use the service type of Load
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/74f1ea5f-2c5d-4f10-b2fc-ed8ccb6482e5)
 
+Use artifactory loadbalancer URL to access artifactory via our web browser
+
+
+
 
 
