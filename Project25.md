@@ -29,7 +29,10 @@ In this project, the requirement is to use Jfrog Artifactory as a private regist
 
 Lets get into action and see how all of these work.
 
-EKS cluster from [project 24](https://github.com/kebsOps/dareyio-pbl/blob/main/Project24.md) was used in this project
+Create the cluster
+
+``eksctl create cluster --name kebsOps-eks-tooling --region us-west-1 --nodegroup-name worker --node-type t3.medium --nodes 2``
+
 
 ## Deploy Jfrog Artifactory into Kubernetes
 
