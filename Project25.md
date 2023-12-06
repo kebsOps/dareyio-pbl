@@ -267,4 +267,4 @@ Using the Load Balancer service type in Kubernetes is a straightforward method f
 
 A more efficient alternative is employing [Kubernetes Ingress documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/), which necessitates setting up an [__Ingress Controller__](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/). The key advantage here is the ability to utilize a single load balancer across multiple applications, optimizing cloud costs and simplifying management.
 
-Presently, we'll focus on configuring Ingress, DNS (Route53), and Cert Manager. Post these steps, we'll revisit Artifactory to finalize its configuration, enabling it to function as a private Docker registry and host for private Helm charts.
+For now, we will leave artifactory, move on to the next phase of configuration (Ingress, DNS(Route53) and Cert Manager), and then return to Artifactory to complete the setup so that it can serve as a private docker registry and repository for private helm charts.
