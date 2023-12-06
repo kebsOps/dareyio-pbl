@@ -322,7 +322,7 @@ Get ingress resource
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/e7145b2f-7c71-47d3-b8d7-ff532cb13f0c)
 
-Now, take note of
+Now, take note of the following:
 
 __CLASS__ - The nginx controller class name nginx
 
@@ -331,5 +331,9 @@ __HOSTS__ - The hostname to be used in the browser tooling.artifactory.sandbox.s
 __ADDRESS__ - The loadbalancer address that was created by the ingress controller
 
 
+### Configure DNS
 
+If anyone were to visit the tool, it would be very inconvenient sharing the long load balancer address. Ideally, you would create a DNS record that is human readable and can direct request to the balancer. This is exactly what has been configured in the ingress object - host: __"tooling.artifactory.sandbox.svc.toolingkb.xyz"__ but without a DNS record, there is no way that host address can reach the load balancer.
+
+The __sandbox.svc.toolingkb.xyz__ part of the domain is the configured __HOSTED ZONE__ in AWS. So you will need to configure Hosted Zone in AWS console or as part of your infrastructure as code using terraform.
 
