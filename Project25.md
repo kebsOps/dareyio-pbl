@@ -39,6 +39,28 @@ Create kubeconfig file using awscli and connect to eks cluster
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/58f9530a-83ff-42f4-8638-30f09fa00cc1)
 
+__Create EBS-CSI Driver for the Cluster__
+
+The Amazon Elastic Block Store (EBS) Container Storage Interface (CSI) driver is a vital component for Kubernetes clusters that utilize Amazon EBS for persistent storage. It facilitates a seamless connection between Kubernetes and EBS, enabling automated and efficient management of EBS volumes for containerized applications. Here's why the EBS CSI driver is essential:
+
+1. __Dynamic Provisioning:__ The EBS CSI driver allows for the automatic creation and configuration of EBS volumes within Kubernetes, streamlining storage provisioning and reducing manual effort.
+1. __Automated Volume Attachment:__ It automatically attaches and detaches EBS volumes to Kubernetes nodes based on pod requirements, ensuring containers have the necessary storage without manual processes.
+1. __Volume Lifecycle Management:__ This driver manages EBS volumes' entire lifecycle, including creation, deletion, resizing, and snapshotting, providing a comprehensive storage management solution within Kubernetes.
+1. __Simplified Storage Management:__ By separating the storage interface from the Kubernetes controller manager, the EBS CSI driver simplifies storage management and reduces the complexity of Kubernetes operations.
+1. __Enhanced Storage Flexibility:__ It supports various EBS volume configurations, allowing customization of storage to meet specific application needs.
+1. __Integration with Kubernetes Ecosystem:__ The driver integrates with Kubernetes PersistentVolumes, PersistentVolumeClaims, and StorageClasses, ensuring compatibility with existing Kubernetes storage workflows.
+The EBS CSI driver is crucial for Kubernetes clusters to effectively utilize EBS for persistent storage, offering simplified management, automated operations, and flexible storage options.
+
+
+__Installing EBS CSI Driver__
+
+Click on the setup link [__EBS CSI add-on__](https://docs.aws.amazon.com/eks/latest/userguide/managing-ebs-csi.html)
+
+Use this command to check the necessary platform version.
+
+``$ aws eks describe-addon-versions --addon-name aws-ebs-csi-driver``
+
+
 
 ## Deploy Jfrog Artifactory into Kubernetes
 
