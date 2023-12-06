@@ -120,7 +120,6 @@ Create a ```aws-ebs-csi-driver-trust-policy.json``` file that includes the permi
     }
   ]
 }
-
 EOF
 ```
 
