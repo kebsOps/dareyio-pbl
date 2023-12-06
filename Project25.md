@@ -33,7 +33,7 @@ Create the cluster
 
 ``eksctl create cluster --name kebsOps-eks-tooling --region us-west-1 --nodegroup-name worker --node-type t3.medium --nodes 2``
 
-Create kubeconfig file using awscli and connect to the kubectl
+Create kubeconfig file using awscli and connect to eks cluster
 
 ``aws eks --region us-west-1 update-kubeconfig --name kebsOps-eks-tooling``
 
