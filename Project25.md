@@ -322,3 +322,14 @@ Get ingress resource
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/e7145b2f-7c71-47d3-b8d7-ff532cb13f0c)
 
+Now, take note of
+
+__CLASS__ - The nginx controller class name nginx
+
+__HOSTS__ - The hostname to be used in the browser tooling.artifactory.sandbox.svc.toolingkb.xyz
+
+__ADDRESS__ - The loadbalancer address that was created by the ingress controller
+
+
+
+
