@@ -98,10 +98,10 @@ Create an IAM OIDC identity provider for your EKS cluster with the command below
 
 Configure a Kubernetes service account to assume an IAM role
 
-Create a file ```aws-ebs-csi-driver-trust-policy.json``` that includes the permissions for the AWS services
+Create a ```aws-ebs-csi-driver-trust-policy.json``` file that includes the permissions for the AWS services
 
 ```
- cat >aws-ebs-csi-driver-trust-policy.json <<EOF                                                                            ✔ 
+ cat >aws-ebs-csi-driver-trust-policy.json <<EOF                                                 
 {
   "Version": "2012-10-17",
   "Statement": [
