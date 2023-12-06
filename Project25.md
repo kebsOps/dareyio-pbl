@@ -506,3 +506,17 @@ We can also check this using the command
 `nslookup -type=ns tooling.artifactory.sandbox.svc.toolingkb.xyz`
 
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/008af5e6-08a6-41d0-842d-ae23e68a3823)
+
+### AWS Alias Method
+
+In the create record section, type in the record name, and toggle the `alias` button to enable an alias. An alias is of the `A` DNS record type which basically routes directly to the load balancer. In the `choose endpoint` bar, select `Alias to Application and Classic Load Balancer`
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/d8ae907e-3734-43ad-baa9-a3d2e250c746)
+
+### Accessing the application from the browser
+
+So far, we now have an application running in Kubernetes that is also accessible externally. That means if you navigate to http://tooling.artifactory.sandbox.svc.toolingkb.xyz/ it should load up the artifactory application.
+
+Using Chrome browser will show something like the below. It shows that the site is indeed reachable, but insecure. This is because Chrome browsers do not load insecure sites by default. It is insecure because it either does not have a trusted TLS/SSL certificate, or it doesn't have any at all.
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/5067a262-353d-4b74-9fa3-30fd9c720a2f)
