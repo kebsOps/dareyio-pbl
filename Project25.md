@@ -96,6 +96,34 @@ Create an IAM OIDC identity provider for your EKS cluster with the command below
 ![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/5481e163-93c6-445b-88d6-5e0b8047b016)
 
 
+Configure a Kubernetes service account to assume an IAM role
+
+Create a file ```aws-ebs-csi-driver-trust-policy.json``` that includes the permissions for the AWS services
+
+```
+ cat >aws-ebs-csi-driver-trust-policy.json <<EOF                                                                            ✔ 
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::982035331548:oidc-provider/oidc.eks.us-west-1.amazonaws.com/id/$oidc_id"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "oidc.eks.us-west-1.amazonaws.com/id/$oidc_id:aud": "sts.amazonaws.com",
+          "oidc.eks.us-west-1.amazonaws.com/id/$oidc_id:sub": "system:serviceaccount:kube-system:ebs-csi-controller-sa"
+        }
+      }
+    }
+  ]
+}
+EOF
+```
+
+
 
 ## Deploy Jfrog Artifactory into Kubernetes
 
