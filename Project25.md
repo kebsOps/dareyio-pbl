@@ -62,6 +62,39 @@ Use the command below to check platform version.
 
 <img width="1398" alt="Screenshot 2023-12-06 at 10 39 33" src="https://github.com/kebsOps/dareyio-pbl/assets/10085348/6b81d6d3-6071-4039-a2fd-620adc9dbe4a">
 
+You may already possess an AWS IAM OpenID Connect (OIDC) provider associated with your cluster. To verify its presence or to create one, examine the OIDC issuer URL connected to your cluster. Having an IAM OIDC provider is essential for employing IAM roles in conjunction with service accounts. To establish an IAM OIDC provider for your cluster, you can utilize tools like __eksctl or the AWS Management Console.__
+
+__To create an IAM OIDC identity provider for your cluster with eksctl__
+
+Determine the OIDC issuer ID for your cluster.
+
+Retrieve your cluster's OIDC issuer ID and store it in a variable.
+
+``cluster_name=kebsOps-eks-tooling``
+
+``oidc_id=$(aws eks describe-cluster --name $cluster_name --region us-west-1 --query "cluster.identity.oidc.issuer" --output text | cut -d '/' -f 5)``
+
+``echo $oidc_id``
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/bdbacfc0-ea6d-46e8-924b-d5e9051b58ca)
+
+check to see if there's an IAM OIDC provider in your aws account that matches your cluster's issuer ID.
+
+`$ aws iam list-open-id-connect-providers | grep $oidc_id | cut -d "/" -f4`
+
+If output is returned, then you already have an IAM OIDC provider for your cluster and you can skip the next step. If no output is returned, then you must create an IAM OIDC provider for your cluster.
+
+In this case, no output was returned.
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/d4c2971f-5551-4695-afb6-7c9b93933f1c)
+
+Create an IAM OIDC identity provider for your EKS cluster with the command below
+
+``eksctl utils associate-iam-oidc-provider --cluster $cluster_name --region us-west-1 --approve``
+
+![image](https://github.com/kebsOps/dareyio-pbl/assets/10085348/5481e163-93c6-445b-88d6-5e0b8047b016)
+
+
 
 ## Deploy Jfrog Artifactory into Kubernetes
 
